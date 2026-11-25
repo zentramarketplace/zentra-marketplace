@@ -3,201 +3,575 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZENTRA | Smart Shopping</title>
+<title>ZENTRA</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-html, body {
-    width: 100%;
-    min-height: 100%;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    min-height: 100dvh;
-    color: white;
-    overflow-x: hidden;
+body{
+  background:#f4f8fc;
+  color:#17324d;
 }
 
-.welcome {
-    min-height: 100vh;
-    min-height: 100dvh;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px 25px;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0, 54, 190, 0.78),
-            rgba(0, 35, 170, 0.90)
-        ),
-        url("file_0000000064348210808862c10ba5b1be.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-content {
-    width: 100%;
-    max-width: 450px;
-    margin: auto;
+.page{
+  display:none;
+  min-height:100vh;
 }
 
-.logo {
-    font-size: 58px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    margin-bottom: 12px;
-    text-shadow: 0 3px 15px rgba(0,0,0,0.15);
+.page.active{
+  display:flex;
+}
+/* WELCOME */
+
+#welcome{
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  background:
+  linear-gradient(rgba(220,240,255,.30),
+  rgba(220,240,255,.30)),
+  url("file_0000000064348210808862c10ba5b1be.png");
+  background-size:cover;
+  background-position:center;
 }
 
-.logo span {
-    color: #ffffff;
+.logo{
+  width:180px;
+  max-width:70%;
+  margin-bottom:12px;
 }
 
-.tagline {
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin-bottom: 65px;
+.tagline{
+  color:#17324d;
+  font-size:14px;
+  margin-bottom:35px;
 }
 
-h1 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
-
-.description {
-    font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: 45px;
-    color: #f0f5ff;
-  }
-.buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-button {
-    width: 100%;
-    min-height: 68px;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.begin {
-    background: #ffffff;
-    color: #0758e5;
-    border: none;
-}
-
-.login {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-footer {
-    margin-top: 50px;
-    font-size: 13px;
-    color: #e3eaff;
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-@media (max-height: 700px) {
-    .welcome {
-        padding: 20px;
+.btn{
+  border:none;
+  padding:15px;
+  width:100%;
+  border-radius:10px;
+  background:#1677d2;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
     }
+.btn2{
+  background:white;
+  color:#1677d2;
+  border:2px solid #1677d2;
+}
 
-    .logo {
-        font-size: 42px;
-    }
+.welcome-buttons{
+  width:100%;
+  max-width:350px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
 
-    .tagline {
-        margin-bottom: 30px;
-    }
+/* LOGIN AND REGISTER */
 
-    h1 {
-        font-size: 26px;
-    }
+.auth-page{
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
 
-    .description {
-        margin-bottom: 25px;
-    }
+.auth-box{
+  width:100%;
+  max-width:420px;
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 25px rgba(0,0,0,.07);
+}
+.auth-logo{
+  width:100px;
+  display:block;
+  margin:0 auto 10px;
+}
 
-    button {
-        min-height: 58px;
-    }
+h2{
+  text-align:center;
+  margin-bottom:8px;
+  color:#1768b2;
+}
 
-    .footer {
-        margin-top: 25px;
+.sub{
+  text-align:center;
+  font-size:14px;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.field{
+  margin-bottom:17px;
+}
+
+.field label{
+  display:block;
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:13px;
+  border:1px solid #d5dfe9;
+  border-radius:9px;
+  outline:none;
+  font-size:15px;
+  background:white;
+}
+field input:focus,
+.field select:focus{
+  border-color:#1677d2;
+}
+
+.link{
+  color:#1677d2;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.text-right{
+  text-align:right;
+  margin-bottom:20px;
+}
+
+.bottom-text{
+  text-align:center;
+  margin-top:20px;
+  font-size:14px;
     }
-  }
+back{
+  display:block;
+  margin-top:20px;
+  text-align:center;
+  color:#1677d2;
+  cursor:pointer;
+}
+
+/* DASHBOARD TEST */
+
+.dashboard{
+  flex-direction:column;
+  padding:25px;
+  background:#f4f8fc;
+}
+
+.dashboard-header{
+  background:#1677d2;
+  color:white;
+  padding:25px;
+  border-radius:15px;
+  margin-bottom:20px;
+}
+
+.dashboard-content{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+}
+
+.logout{
+  margin-top:20px;
+  background:#d9534f;
+}
+
+.notice{
+  margin-top:15px;
+  font-size:13px;
+  color:#777;
+}
+
 </style>
 </head>
 
 <body>
 
-<section class="welcome">
+<!-- WELCOME SCREEN -->
 
-    <div class="content">
+<section id="welcome" class="page active">
 
-        <div class="logo">ZENTRA</div>
+<img src="20261125_122020.png" class="logo">
 
-        <div class="tagline">
-            Smart Shopping, Better Living.
-        </div>
+<p class="tagline">Smart Shopping, Better Living.</p>
 
-        <h1>Welcome to ZENTRA</h1>
+<div class="welcome-buttons">
 
-        <p class="description">
-            Discover amazing products, shop with ease
-            and enjoy a better shopping experience.
-        </p>
-         <div class="buttons">
+<button class="btn" onclick="showPage('register')">
+Begin Now
+</button>
 
-            <button class="begin" onclick="beginNow()">
-                Begin Now &rarr;
-            </button>
+<button class="btn btn2" onclick="showPage('login')">
+Login
+</button>
 
-            <button class="login" onclick="loginNow()">
-                Login
-            </button>
+</div>
+</section>
 
-        </div>
 
+<!-- LOGIN -->
+
+<section id="login" class="page auth-page">
+
+<div class="auth-box">
+
+<img src="20261125_122020.png" class="auth-logo">
+
+<h2>Login to ZENTRA</h2>
+
+<p class="sub">Welcome back! Login to your account.</p>
+
+<form onsubmit="loginUser(event)">
+
+<div class="field">
+<label>Email Address</label>
+<input type="email" id="loginEmail"
+placeholder="Enter your email" required>
+</div>
+
+<div class="field">
+<label>Password</label>
+<input type="password" id="loginPassword"
+placeholder="Enter your password" required>
     </div>
+<div class="text-right">
+<span class="link" onclick="showPage('forgot')">
+Forgot Password?
+</span>
+</div>
 
-    <div class="footer">
-        &copy; 2026 ZENTRA. All rights reserved.
-    </div>
+<button class="btn" type="submit">
+Login
+</button>
+
+</form>
+
+<p class="bottom-text">
+Don't have an account?
+<span class="link" onclick="showPage('register')">
+Create Account
+</span>
+</p>
+
+<span class="back" onclick="showPage('welcome')">
+← Back
+</span>
+
+</div>
 
 </section>
+
+
+<!-- REGISTER -->
+
+<section id="register" class="page auth-page">
+
+<div class="auth-box">
+
+<img src="20261125_122020.png" class="auth-logo">
+
+<h2>Create Account</h2>
+
+<p class="sub">Join ZENTRA today.</p>
+<form onsubmit="registerUser(event)">
+
+<div class="field">
+<label>Full Name</label>
+<input type="text" id="regName"
+placeholder="Enter your full name" required>
+</div>
+
+<div class="field">
+<label>Email Address</label>
+<input type="email" id="regEmail"
+placeholder="Enter your email" required>
+</div>
+
+<div class="field">
+<label>Phone Number</label>
+<input type="tel" id="regPhone"
+placeholder="Enter your phone number" required>
+</div>
+
+<div class="field">
+<label>Account Type</label>
+<select id="regRole" required>
+<option value="">Choose account type</option>
+<option value="buyer">Buyer</option>
+<option value="seller">Seller</option>
+</select>
+</div>
+
+<div class="field">
+<label>Password</label>
+<input type="password" id="regPassword"
+placeholder="Create password" minlength="8" required>
+</div>
+
+<div class="field">
+<label>Confirm Password</label>
+<input type="password" id="regConfirm"
+placeholder="Confirm password" required>
+</div>
+<button class="btn" type="submit">
+Create Account
+</button>
+
+</form>
+
+<p class="bottom-text">
+Already have an account?
+<span class="link" onclick="showPage('login')">
+Login
+</span>
+</p>
+
+<span class="back" onclick="showPage('welcome')">
+← Back
+</span>
+
+</div>
+
+</section>
+
+
+<!-- FORGOT PASSWORD -->
+
+<section id="forgot" class="page auth-page">
+
+<div class="auth-box">
+
+<img src="20261125_122020.png" class="auth-logo">
+
+<h2>Forgot Password?</h2>
+
+<p class="sub">
+Password recovery will be connected when we add authentication.
+</p>
+
+<div class="field">
+<label>Email Address</label>
+<input type="email" id="forgotEmail"
+placeholder="Enter your email">
+</div>
+
+<button class="btn" onclick="forgotMessage()">
+Continue
+</button>
+<span class="back" onclick="showPage('login')">
+← Back to Login
+</span>
+
+</div>
+
+</section>
+
+
+<!-- BUYER DASHBOARD TEST -->
+
+<section id="buyerDashboard" class="page dashboard">
+
+<div class="dashboard-header">
+<h2 style="color:white;text-align:left;">
+Buyer Dashboard
+</h2>
+<p>Welcome to ZENTRA Shopping.</p>
+</div>
+
+<div class="dashboard-content">
+
+<h3>Buyer Account</h3>
+
+<p id="buyerWelcome" style="margin-top:15px;"></p>
+
+<p class="notice">
+This is the first dashboard prototype.
+Shopping features will be added next.
+</p>
+
+<button class="btn logout" onclick="logoutUser()">
+Logout
+</button>
+
+</div>
+
+</section>
+
+
+<!-- SELLER DASHBOARD TEST -->
+
+<section id="sellerDashboard" class="page dashboard">
+
+<div class="dashboard-header">
+<h2 style="color:white;text-align:left;">
+Seller Dashboard
+</h2>
+<p>Welcome to ZENTRA Sellers.</p>
+</div>
+
+<div class="dashboard-content">
+
+<h3>Seller Account</h3>
+
+<p id="sellerWelcome" style="margin-top:15px;"></p>
+
+<p class="notice">
+Your seller registration is a prototype.
+Seller approval and product upload will be added later.
+</p>
+
+<button class="btn logout" onclick="logoutUser()">
+Logout
+</button>
+
+</div>
+
+</section>
+
+
 <script>
-function beginNow() {
-    alert("Welcome to ZENTRA! Registration will be available soon.");
+/* PAGE NAVIGATION */
+
+function showPage(pageId){
+
+document.querySelectorAll(".page").forEach(page=>{
+page.classList.remove("active");
+});
+
+document.getElementById(pageId).classList.add("active");
+
 }
 
-function loginNow() {
-    alert("ZENTRA Login will be available soon.");
+
+/* TEMPORARY TEST REGISTRATION */
+
+let testAccount = null;
+
+
+/* REGISTER */
+
+function registerUser(event){
+
+event.preventDefault();
+
+const name = document.getElementById("regName").value.trim();
+const email = document.getElementById("regEmail").value.trim();
+const phone = document.getElementById("regPhone").value.trim();
+const role = document.getElementById("regRole").value;
+const password = document.getElementById("regPassword").value;
+const confirm = document.getElementById("regConfirm").value;
+
+if(password !== confirm){
+
+alert("Passwords do not match!");
+return;
+
 }
+
+if(password.length < 8){
+
+alert("Password must be at least 8 characters.");
+return;
+}
+testAccount = {
+name:name,
+email:email,
+phone:phone,
+role:role,
+password:password
+};
+
+alert("Test account created! You can now login.");
+
+document.getElementById("loginEmail").value = email;
+
+document.getElementById("loginPassword").value = "";
+
+showPage("login");
+
+}
+
+
+/* LOGIN */
+
+function loginUser(event){
+
+event.preventDefault();
+
+const email = document.getElementById("loginEmail").value.trim();
+const password = document.getElementById("loginPassword").value;
+
+if(!testAccount){
+
+alert("Please create a test account first.");
+return;
+
+}
+
+if(email !== testAccount.email ||
+password !== testAccount.password){
+
+alert("Incorrect email or password.");
+return;
+
+}
+
+if(testAccount.role === "buyer"){
+
+document.getElementById("buyerWelcome").innerText =
+"Welcome, " + testAccount.name;
+
+showPage("buyerDashboard");
+
+}
+
+else if(testAccount.role === "seller"){
+
+document.getElementById("sellerWelcome").innerText =
+"Welcome, " + testAccount.name;
+
+showPage("sellerDashboard");
+
+}
+
+    }
+/* FORGOT PASSWORD */
+
+function forgotMessage(){
+
+alert("Password recovery will be connected later.");
+
+}
+
+
+/* LOGOUT */
+
+function logoutUser(){
+
+document.getElementById("loginPassword").value = "";
+
+showPage("welcome");
+
+}
+
 </script>
 
 </body>
-</html>
+</html>    
+    
