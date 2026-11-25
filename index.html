@@ -488,6 +488,8 @@ const name = document.getElementById("regName").value.trim();
 const email = document.getElementById("regEmail").value.trim();
 const phone = document.getElementById("regPhone").value.trim();
 const role = document.getElementById("regRole").value;
+const businessName = document.getElementById("businessName").value.trim();
+const businessAddress = document.getElementById("businessAddress").value.trim();
 const password = document.getElementById("regPassword").value;
 const confirm = document.getElementById("regConfirm").value;
 
@@ -504,12 +506,14 @@ alert("Password must be at least 8 characters.");
 return;
 }
 testAccount = {
-name:name,
-email:email,
-phone:phone,
-role:role,
-password:password
-};
+name: name,
+email: email,
+phone: phone,
+role: role,
+businessName: businessName,
+businessAddress: businessAddress,
+password: password
+};  
 
 alert("Test account created! You can now login.");
 
