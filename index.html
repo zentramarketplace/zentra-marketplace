@@ -518,9 +518,12 @@ password: password
 alert("Test account created! You can now login.");
 
 document.getElementById("loginEmail").value = email;
+document.getElementById("loginPassword").value = password;  
 
 document.getElementById("loginPassword").value = "";
-
+document.querySelector("#register form").reset();
+toggleSellerFields();
+  
 showPage("login");
 
 }
