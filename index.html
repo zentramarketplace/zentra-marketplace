@@ -129,9 +129,6 @@ body{
   display:block;
   margin:0 auto 15px;
   object-fit:contain;
-}
-
-.auth-logo{
   filter:brightness(0) saturate(100%)
   invert(16%) sepia(21%) saturate(1780%)
   hue-rotate(169deg) brightness(93%) contrast(91%);
@@ -203,7 +200,7 @@ h2{
   cursor:pointer;
 }
 
-/* DASHBOARD */
+/* SELLER DASHBOARD */
 
 .dashboard{
   flex-direction:column;
@@ -244,6 +241,370 @@ h2{
   font-size:13px;
   color:#777;
 }
+
+/* BUYER MARKETPLACE */
+
+#buyerDashboard{
+  display:none;
+  min-height:100vh;
+  padding:0;
+  background:#f4f8fc;
+  flex-direction:column;
+  padding-bottom:75px;
+}
+
+#buyerDashboard.active{
+  display:flex;
+}
+
+.shop-header{
+  background:#1677d2;
+  color:white;
+  padding:18px 16px 22px;
+}
+
+.shop-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.shop-logo{
+  width:105px;
+  max-height:48px;
+  object-fit:contain;
+}
+
+.shop-icons{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.shop-icon{
+  color:white;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:10px;
+  padding:9px 11px;
+  font-size:19px;
+  cursor:pointer;
+}
+
+.shop-search{
+  display:flex;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  height:46px;
+}
+
+.shop-search input{
+  flex:1;
+  min-width:0;
+  border:none;
+  outline:none;
+  padding:0 13px;
+  font-size:14px;
+}
+
+.shop-search button{
+  border:none;
+  background:#eaf4ff;
+  color:#1677d2;
+  padding:0 16px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.shop-welcome{
+  padding:18px 16px 5px;
+}
+
+.shop-welcome h2{
+  text-align:left;
+  color:#17324d;
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.shop-welcome p{
+  font-size:13px;
+  color:#777;
+}
+
+.shop-section{
+  padding:15px 16px 5px;
+}
+
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:13px;
+}
+
+.section-heading h3{
+  font-size:17px;
+  color:#17324d;
+}
+
+.section-heading span{
+  color:#1677d2;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.category-list{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.category{
+  border:1px solid #e4edf6;
+  border-radius:12px;
+  background:white;
+  padding:13px 5px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.category-icon{
+  font-size:25px;
+  margin-bottom:7px;
+}
+
+.category p{
+  font-size:11px;
+  font-weight:bold;
+  color:#29445e;
+}
+
+.category.selected{
+  border:2px solid #1677d2;
+  background:#eaf4ff;
+}
+
+.shop-banner{
+  margin:15px 16px 5px;
+  background:linear-gradient(120deg,#0755a1,#1687e5);
+  border-radius:14px;
+  color:white;
+  padding:20px;
+}
+
+.shop-banner h3{
+  font-size:19px;
+  margin-bottom:7px;
+}
+
+.shop-banner p{
+  font-size:13px;
+  line-height:1.5;
+}
+
+.shop-banner small{
+  display:inline-block;
+  margin-top:12px;
+  background:white;
+  color:#1269b8;
+  padding:7px 12px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.product-card{
+  background:white;
+  border:1px solid #e7edf4;
+  border-radius:12px;
+  overflow:hidden;
+  min-width:0;
+}
+
+.product-picture{
+  height:125px;
+  background:#eaf2fa;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:48px;
+  position:relative;
+}
+
+.heart-button{
+  position:absolute;
+  top:8px;
+  right:8px;
+  border:none;
+  background:white;
+  border-radius:50%;
+  width:30px;
+  height:30px;
+  cursor:pointer;
+  font-size:17px;
+}
+
+.product-info{
+  padding:11px;
+}
+
+.product-info h4{
+  font-size:13px;
+  line-height:1.4;
+  min-height:35px;
+  color:#243d56;
+}
+
+.product-price{
+  color:#1677d2;
+  font-weight:bold;
+  font-size:15px;
+  margin:8px 0;
+}
+
+.product-info small{
+  display:block;
+  color:#888;
+  font-size:11px;
+  margin-bottom:9px;
+}
+
+.add-cart{
+  width:100%;
+  border:none;
+  border-radius:7px;
+  background:#1677d2;
+  color:white;
+  padding:10px 5px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.empty-products{
+  display:none;
+  padding:25px 10px;
+  text-align:center;
+  color:#777;
+  font-size:14px;
+  grid-column:1/-1;
+}
+
+.shop-bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #e2eaf2;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  padding:9px 3px 7px;
+  z-index:20;
+}
+
+.bottom-item{
+  border:none;
+  background:none;
+  color:#7c8b99;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  font-size:10px;
+  cursor:pointer;
+}
+
+.bottom-item span{
+  font-size:20px;
+}
+
+.bottom-item.active{
+  color:#1677d2;
+  font-weight:bold;
+}
+
+.shop-panel{
+  display:none;
+  padding:18px 16px;
+  min-height:250px;
+}
+
+.shop-panel.active{
+  display:block;
+}
+
+.shop-panel h3{
+  margin-bottom:15px;
+}
+
+.panel-empty{
+  text-align:center;
+  padding:30px 10px;
+  color:#777;
+  background:white;
+  border-radius:12px;
+  font-size:14px;
+}
+
+.cart-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  background:white;
+  padding:13px;
+  margin-bottom:9px;
+  border-radius:10px;
+  font-size:13px;
+}
+
+.cart-row button{
+  border:none;
+  background:#ffecec;
+  color:#c33;
+  padding:6px 9px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.account-box{
+  background:white;
+  border-radius:12px;
+  padding:18px;
+}
+
+.account-box p{
+  margin:12px 0;
+  font-size:14px;
+}
+
+@media(min-width:650px){
+  .product-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .shop-header,
+  .shop-welcome,
+  .shop-section{
+    padding-left:30px;
+    padding-right:30px;
+  }
+  .shop-banner{
+    margin-left:30px;
+    margin-right:30px;
+  }
+  .product-picture{
+    height:160px;
+  }
+}
 </style>
 </head>
 
@@ -254,44 +615,29 @@ h2{
 <section id="welcome" class="page active">
 
 <img src="20261125_122020.png"
-class="logo"
-loading="eager"
-fetchpriority="high"
-decoding="sync">
+class="logo" loading="eager"
+fetchpriority="high" decoding="sync">
 
 <p class="tagline">Smart Shopping, Better Living.</p>
 
 <div class="welcome-buttons">
-
-<button class="btn" onclick="showPage('register')">
-Begin Now
-</button>
-
-<button class="btn btn2" onclick="showPage('login')">
-Login
-</button>
-
+<button class="btn" onclick="showPage('register')">Begin Now</button>
+<button class="btn btn2" onclick="showPage('login')">Login</button>
 </div>
 </section>
 
 <!-- LOGIN -->
 
 <section id="login" class="page auth-page">
-
 <div class="auth-box">
 
-<img src="20261125_122020.png"
-class="auth-logo"
-loading="eager"
-fetchpriority="high"
-decoding="sync">
+<img src="20261125_122020.png" class="auth-logo"
+loading="eager" fetchpriority="high" decoding="sync">
 
 <h2>Login to ZENTRA</h2>
-
 <p class="sub">Welcome back! Login to your account.</p>
 
 <form onsubmit="loginUser(event)">
-
 <div class="field">
 <label>Email Address</label>
 <input type="email" id="loginEmail"
@@ -305,45 +651,30 @@ placeholder="Enter your password" required>
 </div>
 
 <div class="text-right">
-<span class="link" onclick="showPage('forgot')">
-Forgot Password?
-</span>
+<span class="link" onclick="showPage('forgot')">Forgot Password?</span>
 </div>
 
-<button class="btn" id="loginBtn" type="submit">
-Login
-</button>
-
+<button class="btn" id="loginBtn" type="submit">Login</button>
 </form>
 
 <p class="bottom-text">
 Don't have an account?
-<span class="link" onclick="showPage('register')">
-Create Account
-</span>
+<span class="link" onclick="showPage('register')">Create Account</span>
 </p>
 
-<span class="back" onclick="showPage('welcome')">
-← Back
-</span>
-
+<span class="back" onclick="showPage('welcome')">← Back</span>
 </div>
 </section>
 
 <!-- REGISTER -->
 
 <section id="register" class="page auth-page">
-
 <div class="auth-box">
 
-<img src="20261125_122020.png"
-class="auth-logo"
-loading="eager"
-fetchpriority="high"
-decoding="sync">
+<img src="20261125_122020.png" class="auth-logo"
+loading="eager" fetchpriority="high" decoding="sync">
 
 <h2>Create Account</h2>
-
 <p class="sub">Join ZENTRA today.</p>
 
 <form onsubmit="registerUser(event)">
@@ -403,10 +734,7 @@ placeholder="Create password" required>
 placeholder="Confirm password" required>
 </div>
 
-<button class="btn" id="registerBtn" type="submit">
-Create Account
-</button>
-
+<button class="btn" id="registerBtn" type="submit">Create Account</button>
 </form>
 
 <p class="bottom-text">
@@ -415,27 +743,19 @@ Already have an account?
 </p>
 
 <span class="back" onclick="showPage('welcome')">← Back</span>
-
 </div>
 </section>
 
 <!-- FORGOT PASSWORD -->
 
 <section id="forgot" class="page auth-page">
-
 <div class="auth-box">
 
-<img src="20261125_122020.png"
-class="auth-logo"
-loading="eager"
-fetchpriority="high"
-decoding="sync">
+<img src="20261125_122020.png" class="auth-logo"
+loading="eager" fetchpriority="high" decoding="sync">
 
 <h2>Forgot Password?</h2>
-
-<p class="sub">
-Enter your email to receive a password reset link.
-</p>
+<p class="sub">Enter your email to receive a password reset link.</p>
 
 <div class="field">
 <label>Email Address</label>
@@ -443,53 +763,284 @@ Enter your email to receive a password reset link.
 placeholder="Enter your email" required>
 </div>
 
-<button class="btn" id="forgotBtn"
-onclick="forgotMessage()">
-Continue
-</button>
+<button class="btn" id="forgotBtn" onclick="forgotMessage()">Continue</button>
 
-<span class="back" onclick="showPage('login')">
-← Back to Login
-</span>
-
+<span class="back" onclick="showPage('login')">← Back to Login</span>
 </div>
 </section>
 
 <!-- BUYER DASHBOARD -->
 
-<section id="buyerDashboard" class="page dashboard">
+<section id="buyerDashboard" class="page">
 
-<div class="dashboard-header">
+<header class="shop-header">
 
-<img src="20261125_122020.png"
-class="dashboard-logo"
-loading="eager"
-fetchpriority="high"
-decoding="sync">
+<div class="shop-top">
+<img src="20261125_122020.png" class="shop-logo"
+loading="eager" fetchpriority="high" decoding="sync">
 
-<h2 style="color:white;text-align:left;">
-Buyer Dashboard
-</h2>
-
-<p>Welcome to ZENTRA Shopping.</p>
-
+<div class="shop-icons">
+<button class="shop-icon" onclick="openShopPanel('wishlist')">♡</button>
+<button class="shop-icon" onclick="openShopPanel('cart')">🛒</button>
+</div>
 </div>
 
-<div class="dashboard-content">
+<div class="shop-search">
+<input type="search" id="productSearch"
+placeholder="Search products on ZENTRA..."
+oninput="filterProducts()">
+<button onclick="filterProducts()">⌕</button>
+</div>
 
-<h3>Buyer Account</h3>
+</header>
 
-<p id="buyerWelcome" style="margin-top:15px;"></p>
+<div id="homePanel">
 
-<p class="notice">
-Your ZENTRA buyer account is connected.
-</p>
+<div class="shop-welcome">
+<h2>Hello, <span id="buyerName">Buyer</span>!</h2>
+<p>Discover products you'll love.</p>
+</div>
 
-<button class="btn logout" onclick="logoutUser()">
-Logout
+<div class="shop-section">
+<div class="section-heading">
+<h3>Shop by Category</h3>
+<span onclick="showAllProducts()">View all</span>
+</div>
+
+<div class="category-list">
+
+<div class="category selected" onclick="chooseCategory('all',this)">
+<div class="category-icon">🛍️</div>
+<p>All</p>
+</div>
+
+<div class="category" onclick="chooseCategory('electronics',this)">
+<div class="category-icon">📱</div>
+<p>Electronics</p>
+</div>
+
+<div class="category" onclick="chooseCategory('fashion',this)">
+<div class="category-icon">👕</div>
+<p>Fashion</p>
+</div>
+
+<div class="category" onclick="chooseCategory('shoes',this)">
+<div class="category-icon">👟</div>
+<p>Shoes</p>
+</div>
+
+<div class="category" onclick="chooseCategory('home',this)">
+<div class="category-icon">🏠</div>
+<p>Home</p>
+</div>
+
+<div class="category" onclick="chooseCategory('beauty',this)">
+<div class="category-icon">✨</div>
+<p>Beauty</p>
+</div>
+
+<div class="category" onclick="chooseCategory('bags',this)">
+<div class="category-icon">👜</div>
+<p>Bags</p>
+</div>
+
+<div class="category" onclick="chooseCategory('accessories',this)">
+<div class="category-icon">⌚</div>
+<p>Others</p>
+</div>
+
+</div>
+</div>
+
+<div class="shop-banner">
+<h3>Welcome to ZENTRA</h3>
+<p>Smart Shopping, Better Living. Discover products from sellers in one place.</p>
+<small>Explore Products</small>
+</div>
+
+<div class="shop-section">
+<div class="section-heading">
+<h3 id="productHeading">Featured Products</h3>
+<span onclick="showAllProducts()">See all</span>
+</div>
+
+<div class="product-grid" id="productGrid">
+
+<div class="product-card" data-category="electronics" data-name="smartphone">
+<div class="product-picture">
+📱
+<button class="heart-button" onclick="toggleWishlist('Smartphone',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Smartphone</h4>
+<p class="product-price">₦85,000</p>
+<small>Electronics</small>
+<button class="add-cart" onclick="addToCart('Smartphone','₦85,000')">Add to Cart</button>
+</div>
+</div>
+
+<div class="product-card" data-category="fashion" data-name="fashion shirt">
+<div class="product-picture">
+👕
+<button class="heart-button" onclick="toggleWishlist('Fashion Shirt',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Fashion Shirt</h4>
+<p class="product-price">₦12,000</p>
+<small>Fashion</small>
+<button class="add-cart" onclick="addToCart('Fashion Shirt','₦12,000')">Add to Cart</button>
+</div>
+</div>
+
+<div class="product-card" data-category="shoes" data-name="casual sneakers">
+<div class="product-picture">
+👟
+<button class="heart-button" onclick="toggleWishlist('Casual Sneakers',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Casual Sneakers</h4>
+<p class="product-price">₦18,000</p>
+<small>Shoes</small>
+<button class="add-cart" onclick="addToCart('Casual Sneakers','₦18,000')">Add to Cart</button>
+</div>
+</div>
+
+<div class="product-card" data-category="home" data-name="home decor">
+<div class="product-picture">
+🏠
+<button class="heart-button" onclick="toggleWishlist('Home Decor',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Home Decor</h4>
+<p class="product-price">₦15,000</p>
+<small>Home</small>
+<button class="add-cart" onclick="addToCart('Home Decor','₦15,000')">Add to Cart</button>
+</div>
+</div>
+
+<div class="product-card" data-category="beauty" data-name="beauty products">
+<div class="product-picture">
+✨
+<button class="heart-button" onclick="toggleWishlist('Beauty Products',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Beauty Products</h4>
+<p class="product-price">₦9,000</p>
+<small>Beauty</small>
+<button class="add-cart" onclick="addToCart('Beauty Products','₦9,000')">Add to Cart</button>
+</div>
+</div>
+
+<div class="product-card" data-category="bags" data-name="handbag">
+<div class="product-picture">
+👜
+<button class="heart-button" onclick="toggleWishlist('Handbag',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Handbag</h4>
+<p class="product-price">₦14,000</p>
+<small>Bags</small>
+<button class="add-cart" onclick="addToCart('Handbag','₦14,000')">Add to Cart</button>
+</div>
+</div>
+
+<div class="product-card" data-category="accessories" data-name="wrist watch">
+<div class="product-picture">
+⌚
+<button class="heart-button" onclick="toggleWishlist('Wrist Watch',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Wrist Watch</h4>
+<p class="product-price">₦11,000</p>
+<small>Accessories</small>
+<button class="add-cart" onclick="addToCart('Wrist Watch','₦11,000')">Add to Cart</button>
+</div>
+</div>
+
+<div class="product-card" data-category="electronics" data-name="headphones">
+<div class="product-picture">
+🎧
+<button class="heart-button" onclick="toggleWishlist('Headphones',this)">♡</button>
+</div>
+<div class="product-info">
+<h4>Headphones</h4>
+<p class="product-price">₦7,500</p>
+<small>Electronics</small>
+<button class="add-cart" onclick="addToCart('Headphones','₦7,500')">Add to Cart</button>
+</div>
+</div>
+
+<div class="empty-products" id="emptyProducts">
+No products found.
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- WISHLIST PANEL -->
+
+<div class="shop-panel" id="wishlistPanel">
+<h3>My Wishlist</h3>
+<div id="wishlistItems" class="panel-empty">
+Your wishlist is empty.
+</div>
+</div>
+
+<!-- CART PANEL -->
+
+<div class="shop-panel" id="cartPanel">
+<h3>My Shopping Cart</h3>
+<div id="cartItems" class="panel-empty">
+Your cart is empty.
+</div>
+</div>
+
+<!-- ORDERS PANEL -->
+
+<div class="shop-panel" id="ordersPanel">
+<h3>My Orders</h3>
+<div class="panel-empty">
+You have no orders yet.
+</div>
+</div>
+
+<!-- ACCOUNT PANEL -->
+
+<div class="shop-panel" id="accountPanel">
+<h3>My Account</h3>
+<div class="account-box">
+<p><strong>Name:</strong> <span id="accountBuyerName">Buyer</span></p>
+<p><strong>Email:</strong> <span id="accountBuyerEmail"></span></p>
+<p><strong>Phone:</strong> <span id="accountBuyerPhone"></span></p>
+<button class="btn logout" onclick="logoutUser()">Logout</button>
+</div>
+</div>
+
+<nav class="shop-bottom">
+
+<button class="bottom-item active" onclick="openShopPanel('home',this)">
+<span>⌂</span>Home
 </button>
 
-</div>
+<button class="bottom-item" onclick="openShopPanel('categories',this)">
+<span>▦</span>Categories
+</button>
+
+<button class="bottom-item" onclick="openShopPanel('orders',this)">
+<span>▤</span>Orders
+</button>
+
+<button class="bottom-item" onclick="openShopPanel('cart',this)">
+<span>🛒</span>Cart
+</button>
+
+<button class="bottom-item" onclick="openShopPanel('account',this)">
+<span>♙</span>Account
+</button>
+
+</nav>
+
 </section>
 
 <!-- SELLER DASHBOARD -->
@@ -504,10 +1055,7 @@ loading="eager"
 fetchpriority="high"
 decoding="sync">
 
-<h2 style="color:white;text-align:left;">
-Seller Dashboard
-</h2>
-
+<h2 style="color:white;text-align:left;">Seller Dashboard</h2>
 <p>Welcome to ZENTRA Sellers.</p>
 
 </div>
@@ -515,372 +1063,4 @@ Seller Dashboard
 <div class="dashboard-content">
 
 <h3>Seller Business Profile</h3>
-
-<p id="sellerWelcome" style="margin-top:15px;"></p>
-
-<div class="field" style="margin-top:20px;">
-<label>Business Name</label>
-<p id="sellerBusinessName">Loading...</p>
-</div>
-
-<div class="field">
-<label>Business Address</label>
-<p id="sellerBusinessAddress">Loading...</p>
-</div>
-
-<div class="field">
-<label>Approval Status</label>
-<p style="color:#d99b00;font-weight:bold;">
-Not Submitted
-</p>
-</div>
-
-<p class="notice">
-Submit your business profile for ZENTRA approval before uploading products.
-</p>
-
-<button class="btn logout" onclick="logoutUser()">
-Logout
-</button>
-
-</div>
-</section>
-
-<!-- BASIC PAGE FUNCTIONS: INDEPENDENT OF FIREBASE -->
-
-<script>
-window.showPage = function(pageId){
-
-  const pages = document.querySelectorAll(".page");
-
-  pages.forEach(function(page){
-    page.classList.remove("active");
-  });
-
-  const selectedPage = document.getElementById(pageId);
-
-  if(selectedPage){
-    selectedPage.classList.add("active");
-    window.scrollTo(0,0);
-  }
-
-};
-
-window.toggleSellerFields = function(){
-
-  const role = document.getElementById("regRole").value;
-  const sellerFields = document.getElementById("sellerFields");
-  const businessName = document.getElementById("businessName");
-  const businessAddress = document.getElementById("businessAddress");
-
-  if(role === "seller"){
-    sellerFields.style.display = "block";
-    businessName.required = true;
-    businessAddress.required = true;
-  }else{
-    sellerFields.style.display = "none";
-    businessName.required = false;
-    businessAddress.required = false;
-  }
-
-};
-</script>
-
-<!-- FIREBASE -->
-
-<script type="module">
-
-import { initializeApp } from
-"https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signOut
-} from
-"https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
-
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  serverTimestamp,
-  getDoc
-} from
-"https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
-
-/* FIREBASE CONFIG */
-
-const firebaseConfig = {
-  apiKey: "AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",
-  authDomain: "zenta-d60e5.firebaseapp.com",
-  projectId: "zenta-d60e5",
-  storageBucket: "zenta-d60e5.firebasestorage.app",
-  messagingSenderId: "449281141527",
-  appId: "1:449281141527:web:9e20e1e406508d8d91e552"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-/* REGISTER */
-
-window.registerUser = async function(event){
-
-  event.preventDefault();
-
-  const button = document.getElementById("registerBtn");
-
-  const name = document.getElementById("regName").value.trim();
-  const email = document.getElementById("regEmail").value.trim();
-  const phone = document.getElementById("regPhone").value.trim();
-  const role = document.getElementById("regRole").value;
-
-  const businessName =
-    document.getElementById("businessName").value.trim();
-
-  const businessAddress =
-    document.getElementById("businessAddress").value.trim();
-
-  const password =
-    document.getElementById("regPassword").value;
-
-  const confirm =
-    document.getElementById("regConfirm").value;
-
-  if(password !== confirm){
-    alert("Passwords do not match!");
-    return;
-  }
-
-  if(password.length < 8){
-    alert("Password must be at least 8 characters.");
-    return;
-  }
-
-  if(role !== "buyer" && role !== "seller"){
-    alert("Please choose an account type.");
-    return;
-  }
-
-  if(role === "seller" && (!businessName || !businessAddress)){
-    alert("Please enter your business name and address.");
-    return;
-  }
-
-  button.disabled = true;
-  button.innerText = "Creating Account...";
-
-  try{
-
-    const userCredential =
-      await createUserWithEmailAndPassword(auth, email, password);
-
-    const user = userCredential.user;
-
-    const userData = {
-      name: name,
-      email: email,
-      phone: phone,
-      role: role,
-      createdAt: serverTimestamp()
-    };
-
-    if(role === "seller"){
-      userData.businessName = businessName;
-      userData.businessAddress = businessAddress;
-    }
-
-    await setDoc(doc(db, "users", user.uid), userData);
-
-    alert("ZENTRA account created successfully!");
-
-    document.querySelector("#register form").reset();
-
-    toggleSellerFields();
-
-    document.getElementById("loginEmail").value = email;
-    document.getElementById("loginPassword").value = "";
-
-    showPage("login");
-
-  }catch(error){
-
-    console.error("Registration error:", error);
-
-    if(error.code === "auth/email-already-in-use"){
-      alert("This email already has a ZENTRA account. Please login.");
-    }else if(error.code === "auth/weak-password"){
-      alert("Please use a stronger password.");
-    }else if(error.code === "auth/invalid-email"){
-      alert("Please enter a valid email address.");
-    }else{
-      alert("Registration failed: " + error.message);
-    }
-
-  }finally{
-
-    button.disabled = false;
-    button.innerText = "Create Account";
-
-  }
-
-};
-
-/* LOGIN */
-
-window.loginUser = async function(event){
-
-  event.preventDefault();
-
-  const button = document.getElementById("loginBtn");
-
-  const email =
-    document.getElementById("loginEmail").value.trim();
-
-  const password =
-    document.getElementById("loginPassword").value;
-
-  button.disabled = true;
-  button.innerText = "Logging in...";
-
-  try{
-
-    const userCredential =
-      await signInWithEmailAndPassword(auth, email, password);
-
-    const user = userCredential.user;
-
-    const profileRef = doc(db, "users", user.uid);
-    const profileSnapshot = await getDoc(profileRef);
-
-    if(!profileSnapshot.exists()){
-
-      alert("Account profile not found. Please contact ZENTRA support.");
-      await signOut(auth);
-      return;
-
-    }
-
-    const profile = profileSnapshot.data();
-
-    if(profile.role === "buyer"){
-
-      document.getElementById("buyerWelcome").innerText =
-        "Welcome, " + profile.name;
-
-      showPage("buyerDashboard");
-
-    }else if(profile.role === "seller"){
-
-      document.getElementById("sellerWelcome").innerText =
-        "Welcome, " + profile.name;
-
-      document.getElementById("sellerBusinessName").innerText =
-        profile.businessName || "Not provided";
-
-      document.getElementById("sellerBusinessAddress").innerText =
-        profile.businessAddress || "Not provided";
-
-      showPage("sellerDashboard");
-
-    }else{
-
-      alert("Invalid account type.");
-      await signOut(auth);
-
-    }
-
-  }catch(error){
-
-    console.error("Login error:", error);
-
-    if(error.code === "auth/invalid-credential" ||
-       error.code === "auth/wrong-password" ||
-       error.code === "auth/user-not-found"){
-
-      alert("Incorrect email or password.");
-
-    }else{
-
-      alert("Login failed: " + error.message);
-
-    }
-
-  }finally{
-
-    button.disabled = false;
-    button.innerText = "Login";
-
-  }
-
-};
-
-/* FORGOT PASSWORD */
-
-window.forgotMessage = async function(){
-
-  const email =
-    document.getElementById("forgotEmail").value.trim();
-
-  const button = document.getElementById("forgotBtn");
-
-  if(!email){
-    alert("Please enter your email address.");
-    return;
-  }
-
-  button.disabled = true;
-  button.innerText = "Sending...";
-
-  try{
-
-    await sendPasswordResetEmail(auth, email);
-
-    alert("Password reset email sent. Please check your inbox.");
-
-    showPage("login");
-
-  }catch(error){
-
-    console.error("Password reset error:", error);
-
-    alert("Unable to send reset email: " + error.message);
-
-  }finally{
-
-    button.disabled = false;
-    button.innerText = "Continue";
-
-  }
-
-};
-
-/* LOGOUT */
-
-window.logoutUser = async function(){
-
-  try{
-
-    await signOut(auth);
-
-    document.getElementById("loginPassword").value = "";
-
-    showPage("welcome");
-
-  }catch(error){
-
-    alert("Logout failed: " + error.message);
-
-  }
-
-};
-
-</script>
-
-</body>
-  </html>
-  
+<p id="sellerWelcome" styl
