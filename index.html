@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,7 +127,7 @@ body{
   object-fit:contain;
 }
 
-/* DARK BLUE LOGO ON LOGIN, REGISTER AND FORGOT */
+/* DARK BLUE LOGO */
 
 .auth-logo{
   filter:brightness(0) saturate(100%)
@@ -456,6 +457,39 @@ Buyer Dashboard
 
 <div class="dashboard-content">
 
+<h3>Buyer Account</h3>
+
+<p id="buyerWelcome" style="margin-top:15px;"></p>
+
+<p class="notice">
+Your ZENTRA buyer account is connected.
+</p>
+
+<button class="btn logout" onclick="logoutUser()">
+Logout
+</button>
+
+</div>
+</section>
+
+<!-- SELLER DASHBOARD -->
+
+<section id="sellerDashboard" class="page dashboard">
+
+<div class="dashboard-header">
+
+<img src="20261125_122020.png" class="dashboard-logo">
+
+<h2 style="color:white;text-align:left;">
+Seller Dashboard
+</h2>
+
+<p>Welcome to ZENTRA Sellers.</p>
+
+</div>
+
+<div class="dashboard-content">
+
 <h3>Seller Business Profile</h3>
 
 <p id="sellerWelcome" style="margin-top:15px;"></p>
@@ -488,40 +522,6 @@ Logout
 </div>
 </section>
 
-<!-- SELLER DASHBOARD -->
-
-<section id="sellerDashboard" class="page dashboard">
-
-<div class="dashboard-header">
-
-<img src="20261125_122020.png" class="dashboard-logo">
-
-<h2 style="color:white;text-align:left;">
-Seller Dashboard
-</h2>
-
-<p>Welcome to ZENTRA Sellers.</p>
-
-</div>
-
-<div class="dashboard-content">
-
-<h3>Seller Account</h3>
-
-<p id="sellerWelcome" style="margin-top:15px;"></p>
-
-<p class="notice">
-Your ZENTRA seller account is connected.
-Seller approval and product upload will be added next.
-</p>
-
-<button class="btn logout" onclick="logoutUser()">
-Logout
-</button>
-
-</div>
-</section>
-
 <!-- FIREBASE -->
 
 <script type="module">
@@ -542,7 +542,8 @@ import {
   getFirestore,
   doc,
   setDoc,
-  serverTimestamp
+  serverTimestamp,
+  getDoc
 } from
 "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
 
@@ -755,10 +756,6 @@ window.loginUser = async function(event){
 
     const profileRef = doc(db, "users", user.uid);
 
-    const { getDoc } = await import(
-      "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js"
-    );
-
     const profileSnapshot = await getDoc(profileRef);
 
     if(!profileSnapshot.exists()){
@@ -782,6 +779,12 @@ window.loginUser = async function(event){
 
       document.getElementById("sellerWelcome").innerText =
         "Welcome, " + profile.name;
+
+      document.getElementById("sellerBusinessName").innerText =
+        profile.businessName || "Not provided";
+
+      document.getElementById("sellerBusinessAddress").innerText =
+        profile.businessAddress || "Not provided";
 
       showPage("sellerDashboard");
 
