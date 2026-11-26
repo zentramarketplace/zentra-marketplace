@@ -6,9 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZENTRA</title>
 
-<!-- Preload Welcome Background Image -->
+<!-- PRELOAD IMAGES FOR FASTER LOADING -->
 <link rel="preload" as="image"
-href="file_0000000064348210808862c10ba5b1be.png">
+href="file_0000000064348210808862c10ba5b1be.png"
+fetchpriority="high">
+
+<link rel="preload" as="image"
+href="20261125_122020.png"
+fetchpriority="high">
 
 <style>
 *{
@@ -253,7 +258,11 @@ h2{
 
 <section id="welcome" class="page active">
 
-<img src="20261125_122020.png" class="logo">
+<img src="20261125_122020.png"
+class="logo"
+loading="eager"
+fetchpriority="high"
+decoding="sync">
 
 <p class="tagline">Smart Shopping, Better Living.</p>
 
@@ -276,7 +285,11 @@ Login
 
 <div class="auth-box">
 
-<img src="20261125_122020.png" class="auth-logo">
+<img src="20261125_122020.png"
+class="auth-logo"
+loading="eager"
+fetchpriority="high"
+decoding="sync">
 
 <h2>Login to ZENTRA</h2>
 
@@ -328,7 +341,11 @@ Create Account
 
 <div class="auth-box">
 
-<img src="20261125_122020.png" class="auth-logo">
+<img src="20261125_122020.png"
+class="auth-logo"
+loading="eager"
+fetchpriority="high"
+decoding="sync">
 
 <h2>Create Account</h2>
 
@@ -413,7 +430,11 @@ Already have an account?
 
 <div class="auth-box">
 
-<img src="20261125_122020.png" class="auth-logo">
+<img src="20261125_122020.png"
+class="auth-logo"
+loading="eager"
+fetchpriority="high"
+decoding="sync">
 
 <h2>Forgot Password?</h2>
 
@@ -445,7 +466,11 @@ Continue
 
 <div class="dashboard-header">
 
-<img src="20261125_122020.png" class="dashboard-logo">
+<img src="20261125_122020.png"
+class="dashboard-logo"
+loading="eager"
+fetchpriority="high"
+decoding="sync">
 
 <h2 style="color:white;text-align:left;">
 Buyer Dashboard
@@ -478,7 +503,11 @@ Logout
 
 <div class="dashboard-header">
 
-<img src="20261125_122020.png" class="dashboard-logo">
+<img src="20261125_122020.png"
+class="dashboard-logo"
+loading="eager"
+fetchpriority="high"
+decoding="sync">
 
 <h2 style="color:white;text-align:left;">
 Seller Dashboard
