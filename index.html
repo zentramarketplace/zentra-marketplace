@@ -6,604 +6,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZENTRA</title>
 
-<link rel="preload" as="image"
-href="file_0000000064348210808862c10ba5b1be.png"
-fetchpriority="high">
-
-<link rel="preload" as="image"
-href="20261125_122020.png"
-fetchpriority="high">
+<link rel="preload" as="image" href="file_0000000064348210808862c10ba5b1be.png" fetchpriority="high">
+<link rel="preload" as="image" href="20261125_122020.png" fetchpriority="high">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#f4f8fc;
-  color:#17324d;
-}
-
-.page{
-  display:none;
-  min-height:100vh;
-}
-
-.page.active{
-  display:flex;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f4f8fc;color:#17324d}
+.page{display:none;min-height:100vh}
+.page.active{display:flex}
 
 /* WELCOME */
-
 #welcome{
-  position:relative;
-  overflow:hidden;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:25px;
-  isolation:isolate;
-  background-color:#eaf5ff;
+ position:relative;overflow:hidden;flex-direction:column;
+ align-items:center;justify-content:center;text-align:center;
+ padding:25px;isolation:isolate;background:#eaf5ff
 }
-
 #welcome::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:url("file_0000000064348210808862c10ba5b1be.png");
-  background-size:cover;
-  background-position:center;
-  opacity:0.60;
-  z-index:-1;
+ content:"";position:absolute;inset:0;
+ background:url("file_0000000064348210808862c10ba5b1be.png") center/cover;
+ opacity:.60;z-index:-1
 }
-
-.logo{
-  width:180px;
-  max-width:70%;
-  margin-bottom:12px;
-}
-
-.tagline{
-  color:#17324d;
-  font-size:14px;
-  margin-bottom:35px;
-}
-
+.logo{width:180px;max-width:70%;margin-bottom:12px}
+.tagline{color:#17324d;font-size:14px;margin-bottom:35px}
 .btn{
-  border:none;
-  padding:15px;
-  width:100%;
-  border-radius:10px;
-  background:#1677d2;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
+ border:0;padding:15px;width:100%;border-radius:10px;
+ background:#1677d2;color:white;font-size:16px;
+ font-weight:bold;cursor:pointer
 }
-
-.btn2{
-  background:white;
-  color:#1677d2;
-  border:2px solid #1677d2;
-}
-
-.btn:disabled{
-  opacity:0.6;
-  cursor:not-allowed;
-}
-
+.btn2{background:white;color:#1677d2;border:2px solid #1677d2}
+.btn:disabled{opacity:.6;cursor:not-allowed}
 .welcome-buttons{
-  width:100%;
-  max-width:350px;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  transform:translateY(35px);
+ width:100%;max-width:350px;display:flex;
+ flex-direction:column;gap:15px;transform:translateY(35px)
 }
 
-/* LOGIN AND REGISTER */
-
-.auth-page{
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-
+/* AUTH */
+.auth-page{justify-content:center;align-items:center;padding:20px}
 .auth-box{
-  width:100%;
-  max-width:420px;
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 5px 25px rgba(0,0,0,.07);
+ width:100%;max-width:420px;background:white;padding:25px;
+ border-radius:18px;box-shadow:0 5px 25px rgba(0,0,0,.07)
 }
-
 .auth-logo{
-  width:130px;
-  max-width:60%;
-  height:auto;
-  display:block;
-  margin:0 auto 15px;
-  object-fit:contain;
-  filter:brightness(0) saturate(100%)
-  invert(16%) sepia(21%) saturate(1780%)
-  hue-rotate(169deg) brightness(93%) contrast(91%);
+ width:130px;max-width:60%;height:auto;display:block;
+ margin:0 auto 15px;object-fit:contain;
+ filter:brightness(0) saturate(100%) invert(16%) sepia(21%)
+ saturate(1780%) hue-rotate(169deg) brightness(93%) contrast(91%)
 }
-
-h2{
-  text-align:center;
-  margin-bottom:8px;
-  color:#1768b2;
+h2{text-align:center;margin-bottom:8px;color:#1768b2}
+.sub{text-align:center;font-size:14px;color:#777;margin-bottom:25px}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}
+.field input,.field select{
+ width:100%;padding:13px;border:1px solid #d5dfe9;
+ border-radius:9px;outline:none;font-size:15px;background:white
 }
-
-.sub{
-  text-align:center;
-  font-size:14px;
-  color:#777;
-  margin-bottom:25px;
-}
-
-.field{
-  margin-bottom:17px;
-}
-
-.field label{
-  display:block;
-  font-size:14px;
-  font-weight:bold;
-  margin-bottom:7px;
-}
-
-.field input,
-.field select{
-  width:100%;
-  padding:13px;
-  border:1px solid #d5dfe9;
-  border-radius:9px;
-  outline:none;
-  font-size:15px;
-  background:white;
-}
-
-.field input:focus,
-.field select:focus{
-  border-color:#1677d2;
-}
-
-.link{
-  color:#1677d2;
-  text-decoration:none;
-  cursor:pointer;
-  font-size:14px;
-}
-
-.text-right{
-  text-align:right;
-  margin-bottom:20px;
-}
-
-.bottom-text{
-  text-align:center;
-  margin-top:20px;
-  font-size:14px;
-}
-
-.back{
-  display:block;
-  margin-top:20px;
-  text-align:center;
-  color:#1677d2;
-  cursor:pointer;
-}
+.field input:focus,.field select:focus{border-color:#1677d2}
+.link{color:#1677d2;text-decoration:none;cursor:pointer;font-size:14px}
+.text-right{text-align:right;margin-bottom:20px}
+.bottom-text{text-align:center;margin-top:20px;font-size:14px}
+.back{display:block;margin-top:20px;text-align:center;color:#1677d2;cursor:pointer}
 
 /* SELLER DASHBOARD */
-
-.dashboard{
-  flex-direction:column;
-  padding:25px;
-  background:#f4f8fc;
-}
-
+.dashboard{flex-direction:column;padding:25px;background:#f4f8fc}
 .dashboard-header{
-  background:#1677d2;
-  color:white;
-  padding:25px;
-  border-radius:15px;
-  margin-bottom:20px;
+ background:#1677d2;color:white;padding:25px;
+ border-radius:15px;margin-bottom:20px
 }
-
 .dashboard-logo{
-  width:115px;
-  max-width:45%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-  margin-bottom:15px;
+ width:115px;max-width:45%;height:auto;display:block;
+ object-fit:contain;margin-bottom:15px
 }
-
-.dashboard-content{
-  background:white;
-  padding:25px;
-  border-radius:15px;
-}
-
-.logout{
-  margin-top:20px;
-  background:#d9534f;
-}
-
-.notice{
-  margin-top:15px;
-  font-size:13px;
-  color:#777;
-}
+.dashboard-content{background:white;padding:25px;border-radius:15px}
+.logout{margin-top:20px;background:#d9534f}
+.notice{margin-top:15px;font-size:13px;color:#777}
 
 /* BUYER MARKETPLACE */
-
 #buyerDashboard{
-  display:none;
-  min-height:100vh;
-  padding:0;
-  background:#f4f8fc;
-  flex-direction:column;
-  padding-bottom:75px;
+ display:none;min-height:100vh;padding:0 0 78px;
+ background:#f4f8fc;flex-direction:column
 }
-
-#buyerDashboard.active{
-  display:flex;
-}
-
-.shop-header{
-  background:#1677d2;
-  color:white;
-  padding:18px 16px 22px;
-}
-
+#buyerDashboard.active{display:flex}
+.shop-header{background:#1677d2;color:white;padding:18px 16px 22px}
 .shop-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:18px;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:10px;margin-bottom:18px
 }
-
-.shop-logo{
-  width:105px;
-  max-height:48px;
-  object-fit:contain;
-}
-
-.shop-icons{
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
-
+.shop-logo{width:105px;max-height:48px;object-fit:contain}
+.shop-icons{display:flex;gap:12px;align-items:center}
 .shop-icon{
-  color:white;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:10px;
-  padding:9px 11px;
-  font-size:19px;
-  cursor:pointer;
+ color:white;background:rgba(255,255,255,.15);
+ border:1px solid rgba(255,255,255,.25);
+ border-radius:10px;padding:9px 11px;font-size:19px;cursor:pointer
 }
+.shop-search{display:flex;background:white;border-radius:10px;overflow:hidden;height:46px}
+.shop-search input{flex:1;min-width:0;border:0;outline:none;padding:0 13px;font-size:14px}
+.shop-search button{border:0;background:#eaf4ff;color:#1677d2;padding:0 16px;font-size:20px;cursor:pointer}
 
-.shop-search{
-  display:flex;
-  background:white;
-  border-radius:10px;
-  overflow:hidden;
-  height:46px;
-}
+.shop-welcome{padding:18px 16px 5px}
+.shop-welcome h2{text-align:left;color:#17324d;font-size:20px;margin-bottom:5px}
+.shop-welcome p{font-size:13px;color:#777}
+.shop-section{padding:15px 16px 5px}
+.section-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.section-heading h3{font-size:17px;color:#17324d}
+.section-heading span{color:#1677d2;font-size:12px;cursor:pointer}
 
-.shop-search input{
-  flex:1;
-  min-width:0;
-  border:none;
-  outline:none;
-  padding:0 13px;
-  font-size:14px;
-}
-
-.shop-search button{
-  border:none;
-  background:#eaf4ff;
-  color:#1677d2;
-  padding:0 16px;
-  font-size:18px;
-  cursor:pointer;
-}
-
-.shop-welcome{
-  padding:18px 16px 5px;
-}
-
-.shop-welcome h2{
-  text-align:left;
-  color:#17324d;
-  font-size:20px;
-  margin-bottom:5px;
-}
-
-.shop-welcome p{
-  font-size:13px;
-  color:#777;
-}
-
-.shop-section{
-  padding:15px 16px 5px;
-}
-
-.section-heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:13px;
-}
-
-.section-heading h3{
-  font-size:17px;
-  color:#17324d;
-}
-
-.section-heading span{
-  color:#1677d2;
-  font-size:12px;
-  cursor:pointer;
-}
-
-.category-list{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
+.category-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .category{
-  border:1px solid #e4edf6;
-  border-radius:12px;
-  background:white;
-  padding:13px 5px;
-  text-align:center;
-  cursor:pointer;
+ border:1px solid #e4edf6;border-radius:12px;background:white;
+ padding:13px 5px;text-align:center;cursor:pointer
 }
-
-.category-icon{
-  font-size:25px;
-  margin-bottom:7px;
-}
-
-.category p{
-  font-size:11px;
-  font-weight:bold;
-  color:#29445e;
-}
-
-.category.selected{
-  border:2px solid #1677d2;
-  background:#eaf4ff;
-}
+.category-icon{font-size:25px;margin-bottom:7px}
+.category p{font-size:11px;font-weight:bold;color:#29445e}
+.category.selected{border:2px solid #1677d2;background:#eaf4ff}
 
 .shop-banner{
-  margin:15px 16px 5px;
-  background:linear-gradient(120deg,#0755a1,#1687e5);
-  border-radius:14px;
-  color:white;
-  padding:20px;
+ margin:15px 16px 5px;background:linear-gradient(120deg,#0755a1,#1687e5);
+ border-radius:14px;color:white;padding:20px
 }
-
-.shop-banner h3{
-  font-size:19px;
-  margin-bottom:7px;
-}
-
-.shop-banner p{
-  font-size:13px;
-  line-height:1.5;
-}
-
+.shop-banner h3{font-size:19px;margin-bottom:7px}
+.shop-banner p{font-size:13px;line-height:1.5}
 .shop-banner small{
-  display:inline-block;
-  margin-top:12px;
-  background:white;
-  color:#1269b8;
-  padding:7px 12px;
-  border-radius:7px;
-  font-weight:bold;
+ display:inline-block;margin-top:12px;background:white;color:#1269b8;
+ padding:7px 12px;border-radius:7px;font-weight:bold
 }
 
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-
-.product-card{
-  background:white;
-  border:1px solid #e7edf4;
-  border-radius:12px;
-  overflow:hidden;
-  min-width:0;
-}
-
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product-card{background:white;border:1px solid #e7edf4;border-radius:12px;overflow:hidden;min-width:0}
 .product-picture{
-  height:125px;
-  background:#eaf2fa;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:48px;
-  position:relative;
+ height:125px;background:#eaf2fa;display:flex;
+ align-items:center;justify-content:center;font-size:48px;position:relative
 }
-
 .heart-button{
-  position:absolute;
-  top:8px;
-  right:8px;
-  border:none;
-  background:white;
-  border-radius:50%;
-  width:30px;
-  height:30px;
-  cursor:pointer;
-  font-size:17px;
+ position:absolute;top:8px;right:8px;border:0;background:white;
+ border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:17px
 }
-
-.product-info{
-  padding:11px;
-}
-
-.product-info h4{
-  font-size:13px;
-  line-height:1.4;
-  min-height:35px;
-  color:#243d56;
-}
-
-.product-price{
-  color:#1677d2;
-  font-weight:bold;
-  font-size:15px;
-  margin:8px 0;
-}
-
-.product-info small{
-  display:block;
-  color:#888;
-  font-size:11px;
-  margin-bottom:9px;
-}
-
+.heart-button.liked{color:#e04465}
+.product-info{padding:11px}
+.product-info h4{font-size:13px;line-height:1.4;min-height:35px;color:#243d56}
+.product-price{color:#1677d2;font-weight:bold;font-size:15px;margin:8px 0}
+.product-info small{display:block;color:#888;font-size:11px;margin-bottom:9px}
 .add-cart{
-  width:100%;
-  border:none;
-  border-radius:7px;
-  background:#1677d2;
-  color:white;
-  padding:10px 5px;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:12px;
+ width:100%;border:0;border-radius:7px;background:#1677d2;
+ color:white;padding:10px 5px;font-weight:bold;cursor:pointer;font-size:12px
 }
-
 .empty-products{
-  display:none;
-  padding:25px 10px;
-  text-align:center;
-  color:#777;
-  font-size:14px;
-  grid-column:1/-1;
+ display:none;padding:25px 10px;text-align:center;color:#777;
+ font-size:14px;grid-column:1/-1
 }
 
-.shop-bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:white;
-  border-top:1px solid #e2eaf2;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  padding:9px 3px 7px;
-  z-index:20;
-}
-
-.bottom-item{
-  border:none;
-  background:none;
-  color:#7c8b99;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:4px;
-  font-size:10px;
-  cursor:pointer;
-}
-
-.bottom-item span{
-  font-size:20px;
-}
-
-.bottom-item.active{
-  color:#1677d2;
-  font-weight:bold;
-}
-
-.shop-panel{
-  display:none;
-  padding:18px 16px;
-  min-height:250px;
-}
-
-.shop-panel.active{
-  display:block;
-}
-
-.shop-panel h3{
-  margin-bottom:15px;
-}
-
+/* BUYER PANELS */
+.shop-panel{display:none;padding:18px 16px;min-height:250px}
+.shop-panel.active{display:block}
+.shop-panel h3{margin-bottom:15px}
 .panel-empty{
-  text-align:center;
-  padding:30px 10px;
-  color:#777;
-  background:white;
-  border-radius:12px;
-  font-size:14px;
+ text-align:center;padding:30px 10px;color:#777;
+ background:white;border-radius:12px;font-size:14px
 }
-
 .cart-row{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  background:white;
-  padding:13px;
-  margin-bottom:9px;
-  border-radius:10px;
-  font-size:13px;
+ display:flex;justify-content:space-between;align-items:center;
+ gap:10px;background:white;padding:13px;margin-bottom:9px;
+ border-radius:10px;font-size:13px
 }
-
 .cart-row button{
-  border:none;
-  background:#ffecec;
-  color:#c33;
-  padding:6px 9px;
-  border-radius:6px;
-  cursor:pointer;
+ border:0;background:#ffecec;color:#c33;padding:7px 9px;
+ border-radius:6px;cursor:pointer
+}
+.account-box{background:white;border-radius:12px;padding:18px}
+.account-box p{margin:12px 0;font-size:14px}
+.cart-total{
+ background:white;padding:15px;border-radius:10px;
+ margin-top:12px;font-weight:bold;display:flex;justify-content:space-between
 }
 
-.account-box{
-  background:white;
-  border-radius:12px;
-  padding:18px;
+/* BOTTOM NAVIGATION */
+.shop-bottom{
+ position:fixed;bottom:0;left:0;right:0;background:white;
+ border-top:1px solid #e2eaf2;display:grid;
+ grid-template-columns:repeat(5,1fr);
+ padding:9px 3px 7px;z-index:100;
+ padding-bottom:max(7px,env(safe-area-inset-bottom))
 }
-
-.account-box p{
-  margin:12px 0;
-  font-size:14px;
+.bottom-item{
+ border:0;background:none;color:#7c8b99;
+ display:flex;flex-direction:column;align-items:center;
+ justify-content:center;gap:4px;font-size:10px;cursor:pointer;
+ min-height:45px
 }
+.bottom-item span{font-size:20px;line-height:22px}
+.bottom-item.active{color:#1677d2;font-weight:bold}
 
 @media(min-width:650px){
-  .product-grid{
-    grid-template-columns:repeat(4,minmax(0,1fr));
-  }
-  .shop-header,
-  .shop-welcome,
-  .shop-section{
-    padding-left:30px;
-    padding-right:30px;
-  }
-  .shop-banner{
-    margin-left:30px;
-    margin-right:30px;
-  }
-  .product-picture{
-    height:160px;
-  }
+ .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .shop-header,.shop-welcome,.shop-section{padding-left:30px;padding-right:30px}
+ .shop-banner{margin-left:30px;margin-right:30px}
+ .product-picture{height:160px}
 }
 </style>
 </head>
@@ -611,15 +207,9 @@ h2{
 <body>
 
 <!-- WELCOME -->
-
 <section id="welcome" class="page active">
-
-<img src="20261125_122020.png"
-class="logo" loading="eager"
-fetchpriority="high" decoding="sync">
-
+<img src="20261125_122020.png" class="logo" loading="eager" fetchpriority="high" decoding="sync">
 <p class="tagline">Smart Shopping, Better Living.</p>
-
 <div class="welcome-buttons">
 <button class="btn" onclick="showPage('register')">Begin Now</button>
 <button class="btn btn2" onclick="showPage('login')">Login</button>
@@ -627,76 +217,49 @@ fetchpriority="high" decoding="sync">
 </section>
 
 <!-- LOGIN -->
-
 <section id="login" class="page auth-page">
 <div class="auth-box">
-
-<img src="20261125_122020.png" class="auth-logo"
-loading="eager" fetchpriority="high" decoding="sync">
-
+<img src="20261125_122020.png" class="auth-logo" loading="eager" fetchpriority="high" decoding="sync">
 <h2>Login to ZENTRA</h2>
 <p class="sub">Welcome back! Login to your account.</p>
-
 <form onsubmit="loginUser(event)">
 <div class="field">
 <label>Email Address</label>
-<input type="email" id="loginEmail"
-placeholder="Enter your email" required>
+<input type="email" id="loginEmail" placeholder="Enter your email" required>
 </div>
-
 <div class="field">
 <label>Password</label>
-<input type="password" id="loginPassword"
-placeholder="Enter your password" required>
+<input type="password" id="loginPassword" placeholder="Enter your password" required>
 </div>
-
 <div class="text-right">
 <span class="link" onclick="showPage('forgot')">Forgot Password?</span>
 </div>
-
 <button class="btn" id="loginBtn" type="submit">Login</button>
 </form>
-
-<p class="bottom-text">
-Don't have an account?
-<span class="link" onclick="showPage('register')">Create Account</span>
-</p>
-
+<p class="bottom-text">Don't have an account? <span class="link" onclick="showPage('register')">Create Account</span></p>
 <span class="back" onclick="showPage('welcome')">← Back</span>
 </div>
 </section>
 
 <!-- REGISTER -->
-
 <section id="register" class="page auth-page">
 <div class="auth-box">
-
-<img src="20261125_122020.png" class="auth-logo"
-loading="eager" fetchpriority="high" decoding="sync">
-
+<img src="20261125_122020.png" class="auth-logo" loading="eager" fetchpriority="high" decoding="sync">
 <h2>Create Account</h2>
 <p class="sub">Join ZENTRA today.</p>
-
 <form onsubmit="registerUser(event)">
-
 <div class="field">
 <label>Full Name</label>
-<input type="text" id="regName"
-placeholder="Enter your full name" required>
+<input type="text" id="regName" placeholder="Enter your full name" required>
 </div>
-
 <div class="field">
 <label>Email Address</label>
-<input type="email" id="regEmail"
-placeholder="Enter your email" required>
+<input type="email" id="regEmail" placeholder="Enter your email" required>
 </div>
-
 <div class="field">
 <label>Phone Number</label>
-<input type="tel" id="regPhone"
-placeholder="Enter your phone number" required>
+<input type="tel" id="regPhone" placeholder="Enter your phone number" required>
 </div>
-
 <div class="field">
 <label>Account Type</label>
 <select id="regRole" onchange="toggleSellerFields()" required>
@@ -705,97 +268,64 @@ placeholder="Enter your phone number" required>
 <option value="seller">Seller</option>
 </select>
 </div>
-
-<div id="sellerFields" style="display:none;">
-
+<div id="sellerFields" style="display:none">
 <div class="field">
 <label>Business Name</label>
-<input type="text" id="businessName"
-placeholder="Enter your business name">
+<input type="text" id="businessName" placeholder="Enter your business name">
 </div>
-
 <div class="field">
 <label>Business Address</label>
-<input type="text" id="businessAddress"
-placeholder="Enter your business address">
+<input type="text" id="businessAddress" placeholder="Enter your business address">
 </div>
-
 </div>
-
 <div class="field">
 <label>Password</label>
-<input type="password" id="regPassword"
-placeholder="Create password" required>
+<input type="password" id="regPassword" placeholder="Create password" required>
 </div>
-
 <div class="field">
 <label>Confirm Password</label>
-<input type="password" id="regConfirm"
-placeholder="Confirm password" required>
+<input type="password" id="regConfirm" placeholder="Confirm password" required>
 </div>
-
 <button class="btn" id="registerBtn" type="submit">Create Account</button>
 </form>
-
-<p class="bottom-text">
-Already have an account?
-<span class="link" onclick="showPage('login')">Login</span>
-</p>
-
+<p class="bottom-text">Already have an account? <span class="link" onclick="showPage('login')">Login</span></p>
 <span class="back" onclick="showPage('welcome')">← Back</span>
 </div>
 </section>
 
 <!-- FORGOT PASSWORD -->
-
 <section id="forgot" class="page auth-page">
 <div class="auth-box">
-
-<img src="20261125_122020.png" class="auth-logo"
-loading="eager" fetchpriority="high" decoding="sync">
-
+<img src="20261125_122020.png" class="auth-logo" loading="eager" fetchpriority="high" decoding="sync">
 <h2>Forgot Password?</h2>
 <p class="sub">Enter your email to receive a password reset link.</p>
-
 <div class="field">
 <label>Email Address</label>
-<input type="email" id="forgotEmail"
-placeholder="Enter your email" required>
+<input type="email" id="forgotEmail" placeholder="Enter your email" required>
 </div>
-
 <button class="btn" id="forgotBtn" onclick="forgotMessage()">Continue</button>
-
 <span class="back" onclick="showPage('login')">← Back to Login</span>
 </div>
 </section>
 
 <!-- BUYER DASHBOARD -->
-
 <section id="buyerDashboard" class="page">
 
 <header class="shop-header">
-
 <div class="shop-top">
-<img src="20261125_122020.png" class="shop-logo"
-loading="eager" fetchpriority="high" decoding="sync">
-
+<img src="20261125_122020.png" class="shop-logo" loading="eager" fetchpriority="high" decoding="sync">
 <div class="shop-icons">
 <button class="shop-icon" onclick="openShopPanel('wishlist')">♡</button>
 <button class="shop-icon" onclick="openShopPanel('cart')">🛒</button>
 </div>
 </div>
-
 <div class="shop-search">
-<input type="search" id="productSearch"
-placeholder="Search products on ZENTRA..."
-oninput="filterProducts()">
+<input type="search" id="productSearch" placeholder="Search products on ZENTRA..." oninput="filterProducts()">
 <button onclick="filterProducts()">⌕</button>
 </div>
-
 </header>
 
 <div id="homePanel">
-
 <div class="shop-welcome">
 <h2>Hello, <span id="buyerName">Buyer</span>!</h2>
 <p>Discover products you'll love.</p>
@@ -806,49 +336,15 @@ oninput="filterProducts()">
 <h3>Shop by Category</h3>
 <span onclick="showAllProducts()">View all</span>
 </div>
-
 <div class="category-list">
-
-<div class="category selected" onclick="chooseCategory('all',this)">
-<div class="category-icon">🛍️</div>
-<p>All</p>
-</div>
-
-<div class="category" onclick="chooseCategory('electronics',this)">
-<div class="category-icon">📱</div>
-<p>Electronics</p>
-</div>
-
-<div class="category" onclick="chooseCategory('fashion',this)">
-<div class="category-icon">👕</div>
-<p>Fashion</p>
-</div>
-
-<div class="category" onclick="chooseCategory('shoes',this)">
-<div class="category-icon">👟</div>
-<p>Shoes</p>
-</div>
-
-<div class="category" onclick="chooseCategory('home',this)">
-<div class="category-icon">🏠</div>
-<p>Home</p>
-</div>
-
-<div class="category" onclick="chooseCategory('beauty',this)">
-<div class="category-icon">✨</div>
-<p>Beauty</p>
-</div>
-
-<div class="category" onclick="chooseCategory('bags',this)">
-<div class="category-icon">👜</div>
-<p>Bags</p>
-</div>
-
-<div class="category" onclick="chooseCategory('accessories',this)">
-<div class="category-icon">⌚</div>
-<p>Others</p>
-</div>
-
+<div class="category selected" onclick="chooseCategory('all',this)"><div class="category-icon">🛍️</div><p>All</p></div>
+<div class="category" onclick="chooseCategory('electronics',this)"><div class="category-icon">📱</div><p>Electronics</p></div>
+<div class="category" onclick="chooseCategory('fashion',this)"><div class="category-icon">👕</div><p>Fashion</p></div>
+<div class="category" onclick="chooseCategory('shoes',this)"><div class="category-icon">👟</div><p>Shoes</p></div>
+<div class="category" onclick="chooseCategory('home',this)"><div class="category-icon">🏠</div><p>Home</p></div>
+<div class="category" onclick="chooseCategory('beauty',this)"><div class="category-icon">✨</div><p>Beauty</p></div>
+<div class="category" onclick="chooseCategory('bags',this)"><div class="category-icon">👜</div><p>Bags</p></div>
+<div class="category" onclick="chooseCategory('accessories',this)"><div class="category-icon">⌚</div><p>Others</p></div>
 </div>
 </div>
 
@@ -863,150 +359,96 @@ oninput="filterProducts()">
 <h3 id="productHeading">Featured Products</h3>
 <span onclick="showAllProducts()">See all</span>
 </div>
-
 <div class="product-grid" id="productGrid">
 
 <div class="product-card" data-category="electronics" data-name="smartphone">
-<div class="product-picture">
-📱
-<button class="heart-button" onclick="toggleWishlist('Smartphone',this)">♡</button>
-</div>
+<div class="product-picture">📱<button class="heart-button" onclick="toggleWishlist('Smartphone',this)">♡</button></div>
 <div class="product-info">
-<h4>Smartphone</h4>
-<p class="product-price">₦85,000</p>
-<small>Electronics</small>
+<h4>Smartphone</h4><p class="product-price">₦85,000</p><small>Electronics</small>
 <button class="add-cart" onclick="addToCart('Smartphone','₦85,000')">Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card" data-category="fashion" data-name="fashion shirt">
-<div class="product-picture">
-👕
-<button class="heart-button" onclick="toggleWishlist('Fashion Shirt',this)">♡</button>
-</div>
+<div class="product-picture">👕<button class="heart-button" onclick="toggleWishlist('Fashion Shirt',this)">♡</button></div>
 <div class="product-info">
-<h4>Fashion Shirt</h4>
-<p class="product-price">₦12,000</p>
-<small>Fashion</small>
+<h4>Fashion Shirt</h4><p class="product-price">₦12,000</p><small>Fashion</small>
 <button class="add-cart" onclick="addToCart('Fashion Shirt','₦12,000')">Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card" data-category="shoes" data-name="casual sneakers">
-<div class="product-picture">
-👟
-<button class="heart-button" onclick="toggleWishlist('Casual Sneakers',this)">♡</button>
-</div>
+<div class="product-picture">👟<button class="heart-button" onclick="toggleWishlist('Casual Sneakers',this)">♡</button></div>
 <div class="product-info">
-<h4>Casual Sneakers</h4>
-<p class="product-price">₦18,000</p>
-<small>Shoes</small>
+<h4>Casual Sneakers</h4><p class="product-price">₦18,000</p><small>Shoes</small>
 <button class="add-cart" onclick="addToCart('Casual Sneakers','₦18,000')">Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card" data-category="home" data-name="home decor">
-<div class="product-picture">
-🏠
-<button class="heart-button" onclick="toggleWishlist('Home Decor',this)">♡</button>
-</div>
+<div class="product-picture">🏠<button class="heart-button" onclick="toggleWishlist('Home Decor',this)">♡</button></div>
 <div class="product-info">
-<h4>Home Decor</h4>
-<p class="product-price">₦15,000</p>
-<small>Home</small>
+<h4>Home Decor</h4><p class="product-price">₦15,000</p><small>Home</small>
 <button class="add-cart" onclick="addToCart('Home Decor','₦15,000')">Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card" data-category="beauty" data-name="beauty products">
-<div class="product-picture">
-✨
-<button class="heart-button" onclick="toggleWishlist('Beauty Products',this)">♡</button>
-</div>
+<div class="product-picture">✨<button class="heart-button" onclick="toggleWishlist('Beauty Products',this)">♡</button></div>
 <div class="product-info">
-<h4>Beauty Products</h4>
-<p class="product-price">₦9,000</p>
-<small>Beauty</small>
+<h4>Beauty Products</h4><p class="product-price">₦9,000</p><small>Beauty</small>
 <button class="add-cart" onclick="addToCart('Beauty Products','₦9,000')">Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card" data-category="bags" data-name="handbag">
-<div class="product-picture">
-👜
-<button class="heart-button" onclick="toggleWishlist('Handbag',this)">♡</button>
-</div>
+<div class="product-picture">👜<button class="heart-button" onclick="toggleWishlist('Handbag',this)">♡</button></div>
 <div class="product-info">
-<h4>Handbag</h4>
-<p class="product-price">₦14,000</p>
-<small>Bags</small>
+<h4>Handbag</h4><p class="product-price">₦14,000</p><small>Bags</small>
 <button class="add-cart" onclick="addToCart('Handbag','₦14,000')">Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card" data-category="accessories" data-name="wrist watch">
-<div class="product-picture">
-⌚
-<button class="heart-button" onclick="toggleWishlist('Wrist Watch',this)">♡</button>
-</div>
+<div class="product-picture">⌚<button class="heart-button" onclick="toggleWishlist('Wrist Watch',this)">♡</button></div>
 <div class="product-info">
-<h4>Wrist Watch</h4>
-<p class="product-price">₦11,000</p>
-<small>Accessories</small>
+<h4>Wrist Watch</h4><p class="product-price">₦11,000</p><small>Accessories</small>
 <button class="add-cart" onclick="addToCart('Wrist Watch','₦11,000')">Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card" data-category="electronics" data-name="headphones">
-<div class="product-picture">
-🎧
-<button class="heart-button" onclick="toggleWishlist('Headphones',this)">♡</button>
-</div>
+<div class="product-picture">🎧<button class="heart-button" onclick="toggleWishlist('Headphones',this)">♡</button></div>
 <div class="product-info">
-<h4>Headphones</h4>
-<p class="product-price">₦7,500</p>
-<small>Electronics</small>
+<h4>Headphones</h4><p class="product-price">₦7,500</p><small>Electronics</small>
 <button class="add-cart" onclick="addToCart('Headphones','₦7,500')">Add to Cart</button>
 </div>
 </div>
 
-<div class="empty-products" id="emptyProducts">
-No products found.
-</div>
-
+<div class="empty-products" id="emptyProducts">No products found.</div>
 </div>
 </div>
 </div>
 
-<!-- WISHLIST PANEL -->
-
+<!-- WISHLIST -->
 <div class="shop-panel" id="wishlistPanel">
 <h3>My Wishlist</h3>
-<div id="wishlistItems" class="panel-empty">
-Your wishlist is empty.
-</div>
+<div id="wishlistItems" class="panel-empty">Your wishlist is empty.</div>
 </div>
 
-<!-- CART PANEL -->
-
+<!-- CART -->
 <div class="shop-panel" id="cartPanel">
 <h3>My Shopping Cart</h3>
-<div id="cartItems" class="panel-empty">
-Your cart is empty.
-</div>
+<div id="cartItems" class="panel-empty">Your cart is empty.</div>
 </div>
 
-<!-- ORDERS PANEL -->
-
+<!-- ORDERS -->
 <div class="shop-panel" id="ordersPanel">
 <h3>My Orders</h3>
-<div class="panel-empty">
-You have no orders yet.
-</div>
+<div class="panel-empty">You have no orders yet.</div>
 </div>
 
-<!-- ACCOUNT PANEL -->
-
+<!-- ACCOUNT -->
 <div class="shop-panel" id="accountPanel">
 <h3>My Account</h3>
 <div class="account-box">
@@ -1018,49 +460,618 @@ You have no orders yet.
 </div>
 
 <nav class="shop-bottom">
-
-<button class="bottom-item active" onclick="openShopPanel('home',this)">
-<span>⌂</span>Home
-</button>
-
-<button class="bottom-item" onclick="openShopPanel('categories',this)">
-<span>▦</span>Categories
-</button>
-
-<button class="bottom-item" onclick="openShopPanel('orders',this)">
-<span>▤</span>Orders
-</button>
-
-<button class="bottom-item" onclick="openShopPanel('cart',this)">
-<span>🛒</span>Cart
-</button>
-
-<button class="bottom-item" onclick="openShopPanel('account',this)">
-<span>♙</span>Account
-</button>
-
+<button type="button" class="bottom-item active" onclick="openShopPanel('home',this)"><span>⌂</span>Home</button>
+<button type="button" class="bottom-item" onclick="openShopPanel('categories',this)"><span>▦</span>Categories</button>
+<button type="button" class="bottom-item" onclick="openShopPanel('orders',this)"><span>▤</span>Orders</button>
+<button type="button" class="bottom-item" onclick="openShopPanel('cart',this)"><span>🛒</span>Cart</button>
+<button type="button" class="bottom-item" onclick="openShopPanel('account',this)"><span>♙</span>Account</button>
 </nav>
-
 </section>
 
 <!-- SELLER DASHBOARD -->
-
 <section id="sellerDashboard" class="page dashboard">
-
 <div class="dashboard-header">
-
-<img src="20261125_122020.png"
-class="dashboard-logo"
-loading="eager"
-fetchpriority="high"
-decoding="sync">
-
-<h2 style="color:white;text-align:left;">Seller Dashboard</h2>
+<img src="20261125_122020.png" class="dashboard-logo" loading="eager" fetchpriority="high" decoding="sync">
+<h2 style="color:white;text-align:left">Seller Dashboard</h2>
 <p>Welcome to ZENTRA Sellers.</p>
-
 </div>
 
 <div class="dashboard-content">
-
 <h3>Seller Business Profile</h3>
-<p id="sellerWelcome" styl
+<p id="sellerWelcome" style="margin-top:15px"></p>
+<div class="field" style="margin-top:20px">
+<label>Business Name</label>
+<p id="sellerBusinessName">Loading...</p>
+</div>
+<div class="field">
+<label>Business Address</label>
+<p id="sellerBusinessAddress">Loading...</p>
+</div>
+<div class="field">
+<label>Approval Status</label>
+<p style="color:#d99b00;font-weight:bold">Not Submitted</p>
+</div>
+<p class="notice">Submit your business profile for ZENTRA approval before uploading products.</p>
+<button class="btn logout" onclick="logoutUser()">Logout</button>
+</div>
+</section>
+
+  
+
+<!-- ZENTRA JAVASCRIPT + FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+
+import {
+ getAuth,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,
+ sendPasswordResetEmail,
+ signOut
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+import {
+ getFirestore,
+ doc,
+ setDoc,
+ getDoc,
+ serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+const firebaseConfig = {
+ apiKey: "AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",
+ authDomain: "zenta-d60e5.firebaseapp.com",
+ projectId: "zenta-d60e5",
+ storageBucket: "zenta-d60e5.firebasestorage.app",
+ messagingSenderId: "449281141527",
+ appId: "1:449281141527:web:9e20e1e406508d8d91e552"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let currentUserData = null;
+let cart = [];
+let wishlist = [];
+let activeCategory = "all";
+
+/* PAGE NAVIGATION */
+
+window.showPage = function(pageId){
+ document.querySelectorAll(".page").forEach(page=>{
+  page.classList.remove("active");
+ });
+ const page = document.getElementById(pageId);
+ if(page){
+  page.classList.add("active");
+  window.scrollTo(0,0);
+ }
+};
+
+window.toggleSellerFields = function(){
+ const role = document.getElementById("regRole").value;
+ const fields = document.getElementById("sellerFields");
+ const name = document.getElementById("businessName");
+ const address = document.getElementById("businessAddress");
+
+ if(role === "seller"){
+  fields.style.display = "block";
+  name.required = true;
+  address.required = true;
+ }else{
+  fields.style.display = "none";
+  name.required = false;
+  address.required = false;
+ }
+};
+
+/* REGISTER */
+
+window.registerUser = async function(event){
+ event.preventDefault();
+
+ const btn = document.getElementById("registerBtn");
+
+ const name = document.getElementById("regName").value.trim();
+ const email = document.getElementById("regEmail").value.trim();
+ const phone = document.getElementById("regPhone").value.trim();
+ const role = document.getElementById("regRole").value;
+ const password = document.getElementById("regPassword").value;
+ const confirm = document.getElementById("regConfirm").value;
+
+ const businessName = document.getElementById("businessName").value.trim();
+ const businessAddress = document.getElementById("businessAddress").value.trim();
+
+ if(password !== confirm){
+  alert("Passwords do not match.");
+  return;
+ }
+
+ if(password.length < 6){
+  alert("Password must contain at least 6 characters.");
+  return;
+ }
+
+ if(role === "seller" && (!businessName || !businessAddress)){
+  alert("Please enter your business name and address.");
+  return;
+ }
+
+ btn.disabled = true;
+ btn.textContent = "Creating Account...";
+
+ try{
+  const result = await createUserWithEmailAndPassword(auth,email,password);
+  const uid = result.user.uid;
+
+  const profile = {
+   name:name,
+   email:email,
+   phone:phone,
+   role:role,
+   createdAt:serverTimestamp()
+  };
+
+  if(role === "seller"){
+   profile.businessName = businessName;
+   profile.businessAddress = businessAddress;
+  }
+
+  await setDoc(doc(db,"users",uid),profile);
+
+  alert("Account created successfully!");
+
+  document.getElementById("register").querySelector("form").reset();
+  document.getElementById("sellerFields").style.display = "none";
+
+  await loadDashboard(result.user);
+
+ }catch(error){
+  alert("Registration Error: " + error.message);
+ }finally{
+  btn.disabled = false;
+  btn.textContent = "Create Account";
+ }
+};
+
+/* LOGIN */
+
+window.loginUser = async function(event){
+ event.preventDefault();
+
+ const btn = document.getElementById("loginBtn");
+ const email = document.getElementById("loginEmail").value.trim();
+ const password = document.getElementById("loginPassword").value;
+
+ btn.disabled = true;
+ btn.textContent = "Logging in...";
+
+ try{
+  const result = await signInWithEmailAndPassword(auth,email,password);
+  await loadDashboard(result.user);
+
+ }catch(error){
+  alert("Login Error: " + error.message);
+ }finally{
+  btn.disabled = false;
+  btn.textContent = "Login";
+ }
+};
+
+/* FORGOT PASSWORD */
+
+window.forgotMessage = async function(){
+ const email = document.getElementById("forgotEmail").value.trim();
+ const btn = document.getElementById("forgotBtn");
+
+ if(!email){
+  alert("Please enter your email.");
+  return;
+ }
+
+ btn.disabled = true;
+ btn.textContent = "Sending...";
+
+ try{
+  await sendPasswordResetEmail(auth,email);
+  alert("Password reset link has been sent to your email.");
+  showPage("login");
+ }catch(error){
+  alert("Error: " + error.message);
+ }finally{
+  btn.disabled = false;
+  btn.textContent = "Continue";
+ }
+};
+
+/* DASHBOARD LOADER */
+
+async function loadDashboard(user){
+ try{
+  const profileRef = doc(db,"users",user.uid);
+  const profileSnap = await getDoc(profileRef);
+
+  if(!profileSnap.exists()){
+   alert("Account profile not found.");
+   await signOut(auth);
+   showPage("login");
+   return;
+  }
+
+  currentUserData = profileSnap.data();
+
+  if(currentUserData.role === "buyer"){
+   openBuyerDashboard(currentUserData);
+  }else if(currentUserData.role === "seller"){
+   openSellerDashboard(currentUserData);
+  }else{
+   alert("Unknown account type.");
+   await signOut(auth);
+   showPage("login");
+  }
+
+ }catch(error){
+  alert("Dashboard Error: " + error.message);
+ }
+}
+
+/* BUYER DASHBOARD */
+
+function openBuyerDashboard(data){
+ document.querySelectorAll(".page").forEach(page=>{
+  page.classList.remove("active");
+ });
+
+ document.getElementById("buyerDashboard").classList.add("active");
+
+ document.getElementById("buyerName").textContent = data.name || "Buyer";
+ document.getElementById("accountBuyerName").textContent = data.name || "";
+ document.getElementById("accountBuyerEmail").textContent = data.email || "";
+ document.getElementById("accountBuyerPhone").textContent = data.phone || "";
+
+ resetBuyerHome();
+ window.scrollTo(0,0);
+}
+
+/* SELLER DASHBOARD */
+
+function openSellerDashboard(data){
+ document.querySelectorAll(".page").forEach(page=>{
+  page.classList.remove("active");
+ });
+
+ document.getElementById("sellerDashboard").classList.add("active");
+
+ document.getElementById("sellerWelcome").textContent =
+ "Welcome, " + (data.name || "Seller");
+
+ document.getElementById("sellerBusinessName").textContent =
+ data.businessName || "Not provided";
+
+ document.getElementById("sellerBusinessAddress").textContent =
+ data.businessAddress || "Not provided";
+
+ window.scrollTo(0,0);
+}
+
+/* BUYER PANEL NAVIGATION */
+
+window.openShopPanel = function(panel,button){
+
+ const home = document.getElementById("homePanel");
+ const panels = document.querySelectorAll(".shop-panel");
+ const navButtons = document.querySelectorAll(".bottom-item");
+
+ home.style.display = "none";
+ panels.forEach(item=>{
+  item.classList.remove("active");
+ });
+
+ navButtons.forEach(item=>{
+  item.classList.remove("active");
+ });
+
+ if(panel === "home"){
+  home.style.display = "block";
+ }else if(panel === "categories"){
+  home.style.display = "block";
+  document.querySelector(".category-list").scrollIntoView({
+   behavior:"smooth",
+   block:"start"
+  });
+ }else{
+  const target = document.getElementById(panel + "Panel");
+  if(target){
+   target.classList.add("active");
+  }
+ }
+
+ if(button && button.classList.contains("bottom-item")){
+  button.classList.add("active");
+ }else{
+  const matching = Array.from(navButtons).find(item=>{
+   return item.getAttribute("onclick") &&
+   item.getAttribute("onclick").includes("'" + panel + "'");
+  });
+  if(matching) matching.classList.add("active");
+ }
+
+ window.scrollTo({top:0,behavior:"smooth"});
+
+ if(panel === "cart") renderCart();
+ if(panel === "wishlist") renderWishlist();
+};
+
+/* RESET HOME */
+
+function resetBuyerHome(){
+ document.getElementById("homePanel").style.display = "block";
+
+ document.querySelectorAll(".shop-panel").forEach(panel=>{
+  panel.classList.remove("active");
+ });
+
+ document.querySelectorAll(".bottom-item").forEach(button=>{
+  button.classList.remove("active");
+ });
+
+ document.querySelector(".bottom-item").classList.add("active");
+
+ document.getElementById("productSearch").value = "";
+ activeCategory = "all";
+
+ document.querySelectorAll(".category").forEach(category=>{
+  category.classList.remove("selected");
+ });
+
+ document.querySelector(".category").classList.add("selected");
+
+ filterProducts();
+}
+
+/* CATEGORIES */
+
+window.chooseCategory = function(category,element){
+ activeCategory = category;
+
+ document.querySelectorAll(".category").forEach(item=>{
+  item.classList.remove("selected");
+ });
+
+ if(element){
+  element.classList.add("selected");
+ }
+
+ document.getElementById("productHeading").textContent =
+ category === "all" ? "Featured Products" : category.charAt(0).toUpperCase()+category.slice(1);
+
+ filterProducts();
+};
+
+window.showAllProducts = function(){
+ activeCategory = "all";
+
+ document.querySelectorAll(".category").forEach(item=>{
+  item.classList.remove("selected");
+ });
+
+ document.querySelector(".category").classList.add("selected");
+
+ document.getElementById("productHeading").textContent = "Featured Products";
+
+ document.getElementById("productSearch").value = "";
+
+ filterProducts();
+};
+
+/* PRODUCT SEARCH */
+
+window.filterProducts = function(){
+ const search = document.getElementById("productSearch").value.toLowerCase().trim();
+
+ const cards = document.querySelectorAll(".product-card");
+ let visible = 0;
+
+ cards.forEach(card=>{
+  const name = card.dataset.name.toLowerCase();
+  const category = card.dataset.category.toLowerCase();
+
+  const matchesSearch = name.includes(search);
+  const matchesCategory = activeCategory === "all" || category === activeCategory;
+
+  if(matchesSearch && matchesCategory){
+   card.style.display = "block";
+   visible++;
+  }else{
+   card.style.display = "none";
+  }
+ });
+
+ const empty = document.getElementById("emptyProducts");
+ empty.style.display = visible === 0 ? "block" : "none";
+};
+
+/* CART */
+
+window.addToCart = function(name,price){
+ const existing = cart.find(item=>item.name === name);
+
+ if(existing){
+  existing.quantity++;
+ }else{
+  cart.push({
+   name:name,
+   price:price,
+   quantity:1
+  });
+ }
+
+ renderCart();
+ alert(name + " added to cart!");
+};
+
+window.removeFromCart = function(index){
+ cart.splice(index,1);
+ renderCart();
+};
+
+function renderCart(){
+ const container = document.getElementById("cartItems");
+
+ if(cart.length === 0){
+  container.className = "panel-empty";
+  container.innerHTML = "Your cart is empty.";
+  return;
+ }
+
+ container.className = "";
+ container.innerHTML = "";
+
+ cart.forEach((item,index)=>{
+  const row = document.createElement("div");
+  row.className = "cart-row";
+
+  const info = document.createElement("div");
+  info.innerHTML = "<strong></strong><br><span></span>";
+
+  info.querySelector("strong").textContent = item.name;
+  info.querySelector("span").textContent =
+   item.price + " × " + item.quantity;
+
+  const remove = document.createElement("button");
+  remove.textContent = "Remove";
+  remove.onclick = ()=>removeFromCart(index);
+
+  row.appendChild(info);
+  row.appendChild(remove);
+
+  container.appendChild(row);
+ });
+
+ const note = document.createElement("div");
+ note.className = "cart-total";
+ note.textContent = "Items in cart: " + cart.reduce((sum,item)=>sum+item.quantity,0);
+
+ container.appendChild(note);
+}
+
+/* WISHLIST */
+
+window.toggleWishlist = function(name,button){
+ const index = wishlist.indexOf(name);
+
+ if(index === -1){
+  wishlist.push(name);
+  if(button){
+   button.innerHTML = "♥";
+   button.classList.add("liked");
+  }
+  alert(name + " added to wishlist.");
+ }else{
+  wishlist.splice(index,1);
+  if(button){
+   button.innerHTML = "♡";
+   button.classList.remove("liked");
+  }
+  alert(name + " removed from wishlist.");
+ }
+
+ renderWishlist();
+};
+
+window.removeFromWishlist = function(name){
+ const index = wishlist.indexOf(name);
+
+ if(index !== -1){
+  wishlist.splice(index,1);
+ }
+
+ document.querySelectorAll(".heart-button").forEach(button=>{
+  const clickText = button.getAttribute("onclick") || "";
+
+  if(clickText.includes(name)){
+   button.innerHTML = "♡";
+   button.classList.remove("liked");
+  }
+ });
+
+ renderWishlist();
+};
+
+function renderWishlist(){
+ const container = document.getElementById("wishlistItems");
+
+ if(wishlist.length === 0){
+  container.className = "panel-empty";
+  container.innerHTML = "Your wishlist is empty.";
+  return;
+ }
+
+ container.className = "";
+ container.innerHTML = "";
+
+ wishlist.forEach(name=>{
+  const row = document.createElement("div");
+  row.className = "cart-row";
+
+  const title = document.createElement("strong");
+  title.textContent = "♡ " + name;
+
+  const remove = document.createElement("button");
+  remove.textContent = "Remove";
+  remove.onclick = ()=>removeFromWishlist(name);
+
+  row.appendChild(title);
+  row.appendChild(remove);
+  container.appendChild(row);
+ });
+}
+
+/* LOGOUT */
+
+window.logoutUser = async function(){
+ const confirmLogout = confirm("Are you sure you want to logout?");
+
+ if(!confirmLogout) return;
+
+ try{
+  await signOut(auth);
+
+  currentUserData = null;
+  cart = [];
+  wishlist = [];
+
+  document.querySelectorAll(".page").forEach(page=>{
+   page.classList.remove("active");
+  });
+
+  document.getElementById("welcome").classList.add("active");
+
+  window.scrollTo(0,0);
+
+ }catch(error){
+  alert("Logout Error: " + error.message);
+ }
+};
+
+/* AUTH SESSION */
+
+auth.onAuthStateChanged(async user=>{
+ if(user){
+  const currentPage = document.querySelector(".page.active");
+
+  if(currentPage && (
+   currentPage.id === "welcome" ||
+   currentPage.id === "login" ||
+   currentPage.id === "register"
+  )){
+   await loadDashboard(user);
+  }
+ }
+});
+
+</script>
+
+</body>
+  </html>
