@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZENTRA</title>
 
-<link rel="preload" as="image" href="file_0000000064348210808862c10ba5b1be.png" fetchpriority="high">
-<link rel="preload" as="image" href="20261125_122020.png" fetchpriority="high">
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 body{background:#f4f8fc;color:#17324d}
 .page{display:none;min-height:100vh}
 .page.active{display:flex}
 
-/* WELCOME */
 #welcome{
  position:relative;overflow:hidden;flex-direction:column;
  align-items:center;justify-content:center;text-align:center;
@@ -33,14 +28,14 @@ body{background:#f4f8fc;color:#17324d}
  background:#1677d2;color:white;font-size:16px;
  font-weight:bold;cursor:pointer
 }
-.btn2{background:white;color:#1677d2;border:2px solid #1677d2}
+
+ .btn2{background:white;color:#1677d2;border:2px solid #1677d2}
 .btn:disabled{opacity:.6;cursor:not-allowed}
 .welcome-buttons{
  width:100%;max-width:350px;display:flex;
  flex-direction:column;gap:15px;transform:translateY(35px)
 }
 
-/* AUTH */
 .auth-page{justify-content:center;align-items:center;padding:20px}
 .auth-box{
  width:100%;max-width:420px;background:white;padding:25px;
@@ -48,25 +43,23 @@ body{background:#f4f8fc;color:#17324d}
 }
 .auth-logo{
  width:130px;max-width:60%;height:auto;display:block;
- margin:0 auto 15px;object-fit:contain;
- filter:brightness(0) saturate(100%) invert(16%) sepia(21%)
- saturate(1780%) hue-rotate(169deg) brightness(93%) contrast(91%)
+ margin:0 auto 15px;object-fit:contain
 }
 h2{text-align:center;margin-bottom:8px;color:#1768b2}
 .sub{text-align:center;font-size:14px;color:#777;margin-bottom:25px}
 .field{margin-bottom:17px}
 .field label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}
-.field input,.field select{
+.field input,.field select,.field textarea{
  width:100%;padding:13px;border:1px solid #d5dfe9;
  border-radius:9px;outline:none;font-size:15px;background:white
 }
-.field input:focus,.field select:focus{border-color:#1677d2}
+.field textarea{resize:vertical;min-height:110px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#1677d2}
 .link{color:#1677d2;text-decoration:none;cursor:pointer;font-size:14px}
 .text-right{text-align:right;margin-bottom:20px}
 .bottom-text{text-align:center;margin-top:20px;font-size:14px}
 .back{display:block;margin-top:20px;text-align:center;color:#1677d2;cursor:pointer}
 
-/* SELLER DASHBOARD */
 .dashboard{flex-direction:column;padding:25px;background:#f4f8fc}
 .dashboard-header{
  background:#1677d2;color:white;padding:25px;
@@ -80,7 +73,6 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 .logout{margin-top:20px;background:#d9534f}
 .notice{margin-top:15px;font-size:13px;color:#777}
 
-/* BUYER MARKETPLACE */
 #buyerDashboard{
  display:none;min-height:100vh;padding:0 0 78px;
  background:#f4f8fc;flex-direction:column
@@ -91,7 +83,7 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
  display:flex;align-items:center;justify-content:space-between;
  gap:10px;margin-bottom:18px
 }
-.shop-logo{width:105px;max-height:48px;object-fit:contain}
+.shop-logo{width:145px;max-height:65px;object-fit:contain}
 .shop-icons{display:flex;gap:12px;align-items:center}
 .shop-icon{
  color:white;background:rgba(255,255,255,.15);
@@ -101,16 +93,14 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 .shop-search{display:flex;background:white;border-radius:10px;overflow:hidden;height:46px}
 .shop-search input{flex:1;min-width:0;border:0;outline:none;padding:0 13px;font-size:14px}
 .shop-search button{border:0;background:#eaf4ff;color:#1677d2;padding:0 16px;font-size:20px;cursor:pointer}
-
 .shop-welcome{padding:18px 16px 5px}
 .shop-welcome h2{text-align:left;color:#17324d;font-size:20px;margin-bottom:5px}
 .shop-welcome p{font-size:13px;color:#777}
 .shop-section{padding:15px 16px 5px}
 .section-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
 .section-heading h3{font-size:17px;color:#17324d}
-.section-heading span{color:#1677d2;font-size:12px;cursor:pointer}
-
-.category-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.section-heading span{color:#1677d2;font-size:12px;cursor:pointer} 
+ category-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .category{
  border:1px solid #e4edf6;border-radius:12px;background:white;
  padding:13px 5px;text-align:center;cursor:pointer
@@ -131,14 +121,18 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 }
 
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.product-card{background:white;border:1px solid #e7edf4;border-radius:12px;overflow:hidden;min-width:0}
+.product-card{
+ background:white;border:1px solid #e7edf4;border-radius:12px;
+ overflow:hidden;min-width:0;cursor:pointer
+}
 .product-picture{
  height:125px;background:#eaf2fa;display:flex;
  align-items:center;justify-content:center;font-size:48px;position:relative
 }
+.product-picture img{width:100%;height:100%;object-fit:cover}
 .heart-button{
  position:absolute;top:8px;right:8px;border:0;background:white;
- border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:17px
+ border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:17px;z-index:2
 }
 .heart-button.liked{color:#e04465}
 .product-info{padding:11px}
@@ -152,10 +146,8 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 .empty-products{
  display:none;padding:25px 10px;text-align:center;color:#777;
  font-size:14px;grid-column:1/-1
-}
-
-/* BUYER PANELS */
-.shop-panel{display:none;padding:18px 16px;min-height:250px}
+ }
+ .shop-panel{display:none;padding:18px 16px;min-height:250px}
 .shop-panel.active{display:block}
 .shop-panel h3{margin-bottom:15px}
 .panel-empty{
@@ -178,7 +170,6 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
  margin-top:12px;font-weight:bold;display:flex;justify-content:space-between
 }
 
-/* BOTTOM NAVIGATION */
 .shop-bottom{
  position:fixed;bottom:0;left:0;right:0;background:white;
  border-top:1px solid #e2eaf2;display:grid;
@@ -195,6 +186,54 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 .bottom-item span{font-size:20px;line-height:22px}
 .bottom-item.active{color:#1677d2;font-weight:bold}
 
+.announcement{
+ display:none;background:#e7f3ff;color:#0755a1;
+ padding:10px 0;overflow:hidden;white-space:nowrap;
+ border-bottom:1px solid #cde3f8
+}
+.announcement.active{display:block}
+.announcement-text{
+ display:inline-block;padding-left:100%;
+ animation:announcementMove 18s linear infinite;font-weight:bold;font-size:13px
+}
+@keyframes announcementMove{
+ from{transform:translateX(0)}
+ to{transform:translateX(-100%)}
+}
+
+.modal{
+ display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
+ z-index:300;align-items:center;justify-content:center;padding:15px
+}
+.modal.active{display:flex}
+.modal-box{
+ background:white;width:100%;max-width:480px;max-height:90vh;
+ overflow-y:auto;border-radius:16px;padding:20px
+  }
+ .modal-image{width:100%;height:240px;object-fit:cover;border-radius:12px;background:#eaf2fa}
+.modal-title{font-size:20px;margin:15px 0 8px;color:#17324d}
+.modal-price{font-size:20px;font-weight:bold;color:#1677d2;margin:10px 0}
+.modal-description{font-size:14px;line-height:1.7;color:#52677b;white-space:pre-wrap;margin:12px 0}
+.modal-category{font-size:12px;color:#777;margin-bottom:15px}
+.modal-buttons{display:flex;gap:10px;margin-top:15px}
+.modal-buttons button{flex:1}
+.close-modal{
+ border:0;background:#edf3f8;border-radius:8px;padding:10px 15px;
+ cursor:pointer;font-size:15px
+}
+
+.seller-products{margin-top:25px}
+.seller-product-item{
+ background:#f5f8fc;padding:12px;border:1px solid #e3eaf2;
+ border-radius:10px;margin-bottom:10px;display:flex;gap:12px;align-items:center
+}
+.seller-product-item img{width:65px;height:65px;object-fit:cover;border-radius:8px}
+.seller-product-item div{min-width:0;flex:1}
+.seller-product-item strong{display:block;word-break:break-word}
+.status-pending{color:#d99b00;font-weight:bold;font-size:12px}
+.status-approved{color:#16834c;font-weight:bold;font-size:12px}
+.upload-preview{display:none;width:100%;max-height:220px;object-fit:contain;background:#f2f6fa;border-radius:10px;margin:10px 0}
+
 @media(min-width:650px){
  .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
  .shop-header,.shop-welcome,.shop-section{padding-left:30px;padding-right:30px}
@@ -203,12 +242,10 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 }
 </style>
 </head>
-
 <body>
-
 <!-- WELCOME -->
 <section id="welcome" class="page active">
-<img src="20261125_122020.png" class="logo" loading="eager" fetchpriority="high" decoding="sync">
+<img src="20261125_122020.png" class="logo">
 <p class="tagline">Smart Shopping, Better Living.</p>
 <div class="welcome-buttons">
 <button class="btn" onclick="showPage('register')">Begin Now</button>
@@ -219,7 +256,7 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 <!-- LOGIN -->
 <section id="login" class="page auth-page">
 <div class="auth-box">
-<img src="20261125_122020.png" class="auth-logo" loading="eager" fetchpriority="high" decoding="sync">
+<img src="20261125_122020.png" class="auth-logo">
 <h2>Login to ZENTRA</h2>
 <p class="sub">Welcome back! Login to your account.</p>
 <form onsubmit="loginUser(event)">
@@ -244,7 +281,7 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 <!-- REGISTER -->
 <section id="register" class="page auth-page">
 <div class="auth-box">
-<img src="20261125_122020.png" class="auth-logo" loading="eager" fetchpriority="high" decoding="sync">
+<img src="20261125_122020.png" class="auth-logo">
 <h2>Create Account</h2>
 <p class="sub">Join ZENTRA today.</p>
 <form onsubmit="registerUser(event)">
@@ -296,24 +333,25 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 <!-- FORGOT PASSWORD -->
 <section id="forgot" class="page auth-page">
 <div class="auth-box">
-<img src="20261125_122020.png" class="auth-logo" loading="eager" fetchpriority="high" decoding="sync">
+<img src="20261125_122020.png" class="auth-logo">
 <h2>Forgot Password?</h2>
 <p class="sub">Enter your email to receive a password reset link.</p>
+<form onsubmit="forgotMessage(event)">
 <div class="field">
 <label>Email Address</label>
 <input type="email" id="forgotEmail" placeholder="Enter your email" required>
 </div>
-<button class="btn" id="forgotBtn" onclick="forgotMessage()">Continue</button>
+<button class="btn" id="forgotBtn" type="submit">Continue</button>
+</form>
 <span class="back" onclick="showPage('login')">← Back to Login</span>
 </div>
 </section>
 
 <!-- BUYER DASHBOARD -->
 <section id="buyerDashboard" class="page">
-
 <header class="shop-header">
 <div class="shop-top">
-<img src="20261125_122020.png" class="shop-logo" loading="eager" fetchpriority="high" decoding="sync">
+<img src="20261125_122020.png" class="shop-logo">
 <div class="shop-icons">
 <button class="shop-icon" onclick="openShopPanel('wishlist')">♡</button>
 <button class="shop-icon" onclick="openShopPanel('cart')">🛒</button>
@@ -325,9 +363,13 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 </div>
 </header>
 
+<div id="buyerAnnouncement" class="announcement">
+<div id="buyerAnnouncementText" class="announcement-text"></div>
+</div>
+
 <div id="homePanel">
 <div class="shop-welcome">
-<h2>Hello, <span id="buyerName">Buyer</span>!</h2>
+<h2 id="buyerGreeting">Hello, Buyer!</h2>
 <p>Discover products you'll love.</p>
 </div>
 
@@ -347,7 +389,6 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 <div class="category" onclick="chooseCategory('accessories',this)"><div class="category-icon">⌚</div><p>Others</p></div>
 </div>
 </div>
-
 <div class="shop-banner">
 <h3>Welcome to ZENTRA</h3>
 <p>Smart Shopping, Better Living. Discover products from sellers in one place.</p>
@@ -360,95 +401,26 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 <span onclick="showAllProducts()">See all</span>
 </div>
 <div class="product-grid" id="productGrid">
-
-<div class="product-card" data-category="electronics" data-name="smartphone">
-<div class="product-picture">📱<button class="heart-button" onclick="toggleWishlist('Smartphone',this)">♡</button></div>
-<div class="product-info">
-<h4>Smartphone</h4><p class="product-price">₦85,000</p><small>Electronics</small>
-<button class="add-cart" onclick="addToCart('Smartphone','₦85,000')">Add to Cart</button>
-</div>
-</div>
-
-<div class="product-card" data-category="fashion" data-name="fashion shirt">
-<div class="product-picture">👕<button class="heart-button" onclick="toggleWishlist('Fashion Shirt',this)">♡</button></div>
-<div class="product-info">
-<h4>Fashion Shirt</h4><p class="product-price">₦12,000</p><small>Fashion</small>
-<button class="add-cart" onclick="addToCart('Fashion Shirt','₦12,000')">Add to Cart</button>
-</div>
-</div>
-
-<div class="product-card" data-category="shoes" data-name="casual sneakers">
-<div class="product-picture">👟<button class="heart-button" onclick="toggleWishlist('Casual Sneakers',this)">♡</button></div>
-<div class="product-info">
-<h4>Casual Sneakers</h4><p class="product-price">₦18,000</p><small>Shoes</small>
-<button class="add-cart" onclick="addToCart('Casual Sneakers','₦18,000')">Add to Cart</button>
-</div>
-</div>
-
-<div class="product-card" data-category="home" data-name="home decor">
-<div class="product-picture">🏠<button class="heart-button" onclick="toggleWishlist('Home Decor',this)">♡</button></div>
-<div class="product-info">
-<h4>Home Decor</h4><p class="product-price">₦15,000</p><small>Home</small>
-<button class="add-cart" onclick="addToCart('Home Decor','₦15,000')">Add to Cart</button>
-</div>
-</div>
-
-<div class="product-card" data-category="beauty" data-name="beauty products">
-<div class="product-picture">✨<button class="heart-button" onclick="toggleWishlist('Beauty Products',this)">♡</button></div>
-<div class="product-info">
-<h4>Beauty Products</h4><p class="product-price">₦9,000</p><small>Beauty</small>
-<button class="add-cart" onclick="addToCart('Beauty Products','₦9,000')">Add to Cart</button>
-</div>
-</div>
-
-<div class="product-card" data-category="bags" data-name="handbag">
-<div class="product-picture">👜<button class="heart-button" onclick="toggleWishlist('Handbag',this)">♡</button></div>
-<div class="product-info">
-<h4>Handbag</h4><p class="product-price">₦14,000</p><small>Bags</small>
-<button class="add-cart" onclick="addToCart('Handbag','₦14,000')">Add to Cart</button>
-</div>
-</div>
-
-<div class="product-card" data-category="accessories" data-name="wrist watch">
-<div class="product-picture">⌚<button class="heart-button" onclick="toggleWishlist('Wrist Watch',this)">♡</button></div>
-<div class="product-info">
-<h4>Wrist Watch</h4><p class="product-price">₦11,000</p><small>Accessories</small>
-<button class="add-cart" onclick="addToCart('Wrist Watch','₦11,000')">Add to Cart</button>
-</div>
-</div>
-
-<div class="product-card" data-category="electronics" data-name="headphones">
-<div class="product-picture">🎧<button class="heart-button" onclick="toggleWishlist('Headphones',this)">♡</button></div>
-<div class="product-info">
-<h4>Headphones</h4><p class="product-price">₦7,500</p><small>Electronics</small>
-<button class="add-cart" onclick="addToCart('Headphones','₦7,500')">Add to Cart</button>
-</div>
-</div>
-
-<div class="empty-products" id="emptyProducts">No products found.</div>
+<div class="empty-products" id="emptyProducts">Loading products...</div>
 </div>
 </div>
 </div>
 
-<!-- WISHLIST -->
 <div class="shop-panel" id="wishlistPanel">
 <h3>My Wishlist</h3>
 <div id="wishlistItems" class="panel-empty">Your wishlist is empty.</div>
 </div>
 
-<!-- CART -->
 <div class="shop-panel" id="cartPanel">
 <h3>My Shopping Cart</h3>
 <div id="cartItems" class="panel-empty">Your cart is empty.</div>
 </div>
 
-<!-- ORDERS -->
 <div class="shop-panel" id="ordersPanel">
 <h3>My Orders</h3>
 <div class="panel-empty">You have no orders yet.</div>
 </div>
 
-<!-- ACCOUNT -->
 <div class="shop-panel" id="accountPanel">
 <h3>My Account</h3>
 <div class="account-box">
@@ -466,612 +438,1306 @@ h2{text-align:center;margin-bottom:8px;color:#1768b2}
 <button type="button" class="bottom-item" onclick="openShopPanel('cart',this)"><span>🛒</span>Cart</button>
 <button type="button" class="bottom-item" onclick="openShopPanel('account',this)"><span>♙</span>Account</button>
 </nav>
-</section>
+ </section>
 
-<!-- SELLER DASHBOARD -->
-<section id="sellerDashboard" class="page dashboard">
-<div class="dashboard-header">
-<img src="20261125_122020.png" class="dashboard-logo" loading="eager" fetchpriority="high" decoding="sync">
-<h2 style="color:white;text-align:left">Seller Dashboard</h2>
-<p>Welcome to ZENTRA Sellers.</p>
+ <!-- SELLER DASHBOARD -->
+<section id="sellerDashboard" class="page hidden">
+  <header class="dashboard-header">
+    <div class="header-left">
+      <img src="20261125_122020.png" class="header-logo" alt="ZENTRA Logo">
+      <div>
+        <h2>Seller Dashboard</h2>
+        <p id="sellerWelcome">Welcome to ZENTRA</p>
+      </div>
+    </div>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </header>
+
+  <div id="sellerAnnouncement" class="announcement-box hidden">
+    <div class="announcement-label">ANNOUNCEMENT</div>
+    <div class="announcement-scroll">
+      <div id="sellerAnnouncementText" class="announcement-track"></div>
+    </div>
+  </div>
+
+  <div class="seller-dashboard-content">
+
+    <div class="seller-stats">
+      <div class="stat-card">
+        <h3>My Products</h3>
+        <p id="sellerProductCount">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Pending</h3>
+        <p id="sellerPendingCount">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Approved</h3>
+        <p id="sellerApprovedCount">0</p>
+      </div>
+    </div>
+
+    <div class="seller-section">
+      <h3>Upload New Product</h3>
+      <p class="seller-subtitle">Add your product details below.</p>
+
+      <form id="productUploadForm">
+
+        <div class="upload-image-box">
+          <label for="productImage">Product Image</label>
+          <input
+            type="file"
+            id="productImage"
+            accept="image/*"
+            required
+          >
+        <div id="productImagePreview" class="product-image-preview hidden">
+            <img id="previewProductImage" alt="Product preview">
+          </div>
+        </div>
+
+        <label for="productName">Product Name</label>
+        <input
+          type="text"
+          id="productName"
+          placeholder="Enter product name"
+          required
+        >
+
+        <label for="productPrice">Price (₦)</label>
+        <input
+          type="number"
+          id="productPrice"
+          placeholder="Enter price"
+          min="1"
+          required
+        >
+
+        <label for="productCategory">Category</label>
+        <select id="productCategory" required>
+          <option value="">Select category</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Phones">Phones</option>
+          <option value="Home">Home & Living</option>
+          <option value="Beauty">Beauty</option>
+          <option value="Food">Food</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="productDescription">Product Description</label>
+        <textarea
+          id="productDescription"
+          placeholder="Write full product description, features, condition and other details..."
+          rows="6"
+          required
+        ></textarea>
+
+        <button type="submit" id="uploadProductBtn" class="primary-btn">
+          Upload Product
+        </button>
+
+      </form>
+
+      <div id="uploadMessage" class="upload-message"></div>
+    </div>
+
+    <div class="seller-section">
+      <h3>My Uploaded Products</h3>
+      <p class="seller-subtitle">Check the status of your products.</p>
+
+      <div id="sellerProductsList">
+        <p>Loading products...</p>
+      </div>
+    </div>
+
+  </div>
+          </section>
+
+<!-- PRODUCT DETAILS MODAL -->
+<div id="productDetailsModal" class="modal hidden">
+  <div class="modal-content product-details-content">
+
+    <button
+      class="modal-close"
+      onclick="closeProductDetails()"
+      aria-label="Close"
+    >×</button>
+
+    <div id="productDetailsBody"></div>
+
+  </div>
 </div>
 
-<div class="dashboard-content">
-<h3>Seller Business Profile</h3>
-<p id="sellerWelcome" style="margin-top:15px"></p>
-<div class="field" style="margin-top:20px">
-<label>Business Name</label>
-<p id="sellerBusinessName">Loading...</p>
-</div>
-<div class="field">
-<label>Business Address</label>
-<p id="sellerBusinessAddress">Loading...</p>
-</div>
-<div class="field">
-<label>Approval Status</label>
-<p style="color:#d99b00;font-weight:bold">Not Submitted</p>
-</div>
-<p class="notice">Submit your business profile for ZENTRA approval before uploading products.</p>
-<button class="btn logout" onclick="logoutUser()">Logout</button>
-</div>
-</section>
 
-  
+<!-- PART 2: FIREBASE SCRIPT START -->
 
-<!-- ZENTRA JAVASCRIPT + FIREBASE -->
 <script type="module">
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 
 import {
- getAuth,
- createUserWithEmailAndPassword,
- signInWithEmailAndPassword,
- sendPasswordResetEmail,
- signOut
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
 
 import {
- getFirestore,
- doc,
- setDoc,
- getDoc,
- serverTimestamp
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  addDoc,
+  query,
+  where,
+  onSnapshot,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-storage.js";
+
+
 const firebaseConfig = {
- apiKey: "AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",
- authDomain: "zenta-d60e5.firebaseapp.com",
- projectId: "zenta-d60e5",
- storageBucket: "zenta-d60e5.firebasestorage.app",
- messagingSenderId: "449281141527",
- appId: "1:449281141527:web:9e20e1e406508d8d91e552"
+  apiKey: "AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",
+  authDomain: "zenta-d60e5.firebaseapp.com",
+  projectId: "zenta-d60e5",
+  storageBucket: "zenta-d60e5.firebasestorage.app",
+  messagingSenderId: "449281141527",
+  appId: "1:449281141527:web:9e20e1e406508d8d91e552"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
+
+let currentUser = null;
 let currentUserData = null;
+
+let approvedProducts = [];
+let sellerProducts = [];
+
 let cart = [];
 let wishlist = [];
-let activeCategory = "all";
 
-/* PAGE NAVIGATION */
-
-window.showPage = function(pageId){
- document.querySelectorAll(".page").forEach(page=>{
-  page.classList.remove("active");
- });
- const page = document.getElementById(pageId);
- if(page){
-  page.classList.add("active");
-  window.scrollTo(0,0);
- }
-};
-
-window.toggleSellerFields = function(){
- const role = document.getElementById("regRole").value;
- const fields = document.getElementById("sellerFields");
- const name = document.getElementById("businessName");
- const address = document.getElementById("businessAddress");
-
- if(role === "seller"){
-  fields.style.display = "block";
-  name.required = true;
-  address.required = true;
- }else{
-  fields.style.display = "none";
-  name.required = false;
-  address.required = false;
- }
-};
-
-/* REGISTER */
-
-window.registerUser = async function(event){
- event.preventDefault();
-
- const btn = document.getElementById("registerBtn");
-
- const name = document.getElementById("regName").value.trim();
- const email = document.getElementById("regEmail").value.trim();
- const phone = document.getElementById("regPhone").value.trim();
- const role = document.getElementById("regRole").value;
- const password = document.getElementById("regPassword").value;
- const confirm = document.getElementById("regConfirm").value;
-
- const businessName = document.getElementById("businessName").value.trim();
- const businessAddress = document.getElementById("businessAddress").value.trim();
-
- if(password !== confirm){
-  alert("Passwords do not match.");
-  return;
- }
-
- if(password.length < 6){
-  alert("Password must contain at least 6 characters.");
-  return;
- }
-
- if(role === "seller" && (!businessName || !businessAddress)){
-  alert("Please enter your business name and address.");
-  return;
- }
-
- btn.disabled = true;
- btn.textContent = "Creating Account...";
-
- try{
-  const result = await createUserWithEmailAndPassword(auth,email,password);
-  const uid = result.user.uid;
-
-  const profile = {
-   name:name,
-   email:email,
-   phone:phone,
-   role:role,
-   createdAt:serverTimestamp()
-  };
-
-  if(role === "seller"){
-   profile.businessName = businessName;
-   profile.businessAddress = businessAddress;
-  }
-
-  await setDoc(doc(db,"users",uid),profile);
-
-  alert("Account created successfully!");
-
-  document.getElementById("register").querySelector("form").reset();
-  document.getElementById("sellerFields").style.display = "none";
-
-  await loadDashboard(result.user);
-
- }catch(error){
-  alert("Registration Error: " + error.message);
- }finally{
-  btn.disabled = false;
-  btn.textContent = "Create Account";
- }
-};
-
-/* LOGIN */
-
-window.loginUser = async function(event){
- event.preventDefault();
-
- const btn = document.getElementById("loginBtn");
- const email = document.getElementById("loginEmail").value.trim();
- const password = document.getElementById("loginPassword").value;
-
- btn.disabled = true;
- btn.textContent = "Logging in...";
-
- try{
-  const result = await signInWithEmailAndPassword(auth,email,password);
-  await loadDashboard(result.user);
-
- }catch(error){
-  alert("Login Error: " + error.message);
- }finally{
-  btn.disabled = false;
-  btn.textContent = "Login";
- }
-};
-
-/* FORGOT PASSWORD */
-
-window.forgotMessage = async function(){
- const email = document.getElementById("forgotEmail").value.trim();
- const btn = document.getElementById("forgotBtn");
-
- if(!email){
-  alert("Please enter your email.");
-  return;
- }
-
- btn.disabled = true;
- btn.textContent = "Sending...";
-
- try{
-  await sendPasswordResetEmail(auth,email);
-  alert("Password reset link has been sent to your email.");
-  showPage("login");
- }catch(error){
-  alert("Error: " + error.message);
- }finally{
-  btn.disabled = false;
-  btn.textContent = "Continue";
- }
-};
-
-/* DASHBOARD LOADER */
-
-async function loadDashboard(user){
- try{
-  const profileRef = doc(db,"users",user.uid);
-  const profileSnap = await getDoc(profileRef);
-
-  if(!profileSnap.exists()){
-   alert("Account profile not found.");
-   await signOut(auth);
-   showPage("login");
-   return;
-  }
-
-  currentUserData = profileSnap.data();
-
-  if(currentUserData.role === "buyer"){
-   openBuyerDashboard(currentUserData);
-  }else if(currentUserData.role === "seller"){
-   openSellerDashboard(currentUserData);
-  }else{
-   alert("Unknown account type.");
-   await signOut(auth);
-   showPage("login");
-  }
-
- }catch(error){
-  alert("Dashboard Error: " + error.message);
- }
-}
-
-/* BUYER DASHBOARD */
-
-function openBuyerDashboard(data){
- document.querySelectorAll(".page").forEach(page=>{
-  page.classList.remove("active");
- });
-
- document.getElementById("buyerDashboard").classList.add("active");
-
- document.getElementById("buyerName").textContent = data.name || "Buyer";
- document.getElementById("accountBuyerName").textContent = data.name || "";
- document.getElementById("accountBuyerEmail").textContent = data.email || "";
- document.getElementById("accountBuyerPhone").textContent = data.phone || "";
-
- resetBuyerHome();
- window.scrollTo(0,0);
-}
-
-/* SELLER DASHBOARD */
-
-function openSellerDashboard(data){
- document.querySelectorAll(".page").forEach(page=>{
-  page.classList.remove("active");
- });
-
- document.getElementById("sellerDashboard").classList.add("active");
-
- document.getElementById("sellerWelcome").textContent =
- "Welcome, " + (data.name || "Seller");
-
- document.getElementById("sellerBusinessName").textContent =
- data.businessName || "Not provided";
-
- document.getElementById("sellerBusinessAddress").textContent =
- data.businessAddress || "Not provided";
-
- window.scrollTo(0,0);
-}
-
-/* BUYER PANEL NAVIGATION */
-
-window.openShopPanel = function(panel,button){
-
- const home = document.getElementById("homePanel");
- const panels = document.querySelectorAll(".shop-panel");
- const navButtons = document.querySelectorAll(".bottom-item");
-
- home.style.display = "none";
- panels.forEach(item=>{
-  item.classList.remove("active");
- });
-
- navButtons.forEach(item=>{
-  item.classList.remove("active");
- });
-
- if(panel === "home"){
-  home.style.display = "block";
- }else if(panel === "categories"){
-  home.style.display = "block";
-  document.querySelector(".category-list").scrollIntoView({
-   behavior:"smooth",
-   block:"start"
-  });
- }else{
-  const target = document.getElementById(panel + "Panel");
-  if(target){
-   target.classList.add("active");
-  }
- }
-
- if(button && button.classList.contains("bottom-item")){
-  button.classList.add("active");
- }else{
-  const matching = Array.from(navButtons).find(item=>{
-   return item.getAttribute("onclick") &&
-   item.getAttribute("onclick").includes("'" + panel + "'");
-  });
-  if(matching) matching.classList.add("active");
- }
-
- window.scrollTo({top:0,behavior:"smooth"});
-
- if(panel === "cart") renderCart();
- if(panel === "wishlist") renderWishlist();
-};
-
-/* RESET HOME */
-
-function resetBuyerHome(){
- document.getElementById("homePanel").style.display = "block";
-
- document.querySelectorAll(".shop-panel").forEach(panel=>{
-  panel.classList.remove("active");
- });
-
- document.querySelectorAll(".bottom-item").forEach(button=>{
-  button.classList.remove("active");
- });
-
- document.querySelector(".bottom-item").classList.add("active");
-
- document.getElementById("productSearch").value = "";
- activeCategory = "all";
-
- document.querySelectorAll(".category").forEach(category=>{
-  category.classList.remove("selected");
- });
-
- document.querySelector(".category").classList.add("selected");
-
- filterProducts();
-}
-
-/* CATEGORIES */
-
-window.chooseCategory = function(category,element){
- activeCategory = category;
-
- document.querySelectorAll(".category").forEach(item=>{
-  item.classList.remove("selected");
- });
-
- if(element){
-  element.classList.add("selected");
- }
-
- document.getElementById("productHeading").textContent =
- category === "all" ? "Featured Products" : category.charAt(0).toUpperCase()+category.slice(1);
-
- filterProducts();
-};
-
-window.showAllProducts = function(){
- activeCategory = "all";
-
- document.querySelectorAll(".category").forEach(item=>{
-  item.classList.remove("selected");
- });
-
- document.querySelector(".category").classList.add("selected");
-
- document.getElementById("productHeading").textContent = "Featured Products";
-
- document.getElementById("productSearch").value = "";
-
- filterProducts();
-};
-
-/* PRODUCT SEARCH */
-
-window.filterProducts = function(){
- const search = document.getElementById("productSearch").value.toLowerCase().trim();
-
- const cards = document.querySelectorAll(".product-card");
- let visible = 0;
-
- cards.forEach(card=>{
-  const name = card.dataset.name.toLowerCase();
-  const category = card.dataset.category.toLowerCase();
-
-  const matchesSearch = name.includes(search);
-  const matchesCategory = activeCategory === "all" || category === activeCategory;
-
-  if(matchesSearch && matchesCategory){
-   card.style.display = "block";
-   visible++;
-  }else{
-   card.style.display = "none";
-  }
- });
-
- const empty = document.getElementById("emptyProducts");
- empty.style.display = visible === 0 ? "block" : "none";
-};
-
-/* CART */
-
-window.addToCart = function(name,price){
- const existing = cart.find(item=>item.name === name);
-
- if(existing){
-  existing.quantity++;
- }else{
-  cart.push({
-   name:name,
-   price:price,
-   quantity:1
-  });
- }
-
- renderCart();
- alert(name + " added to cart!");
-};
-
-window.removeFromCart = function(index){
- cart.splice(index,1);
- renderCart();
-};
-
-function renderCart(){
- const container = document.getElementById("cartItems");
-
- if(cart.length === 0){
-  container.className = "panel-empty";
-  container.innerHTML = "Your cart is empty.";
-  return;
- }
-
- container.className = "";
- container.innerHTML = "";
-
- cart.forEach((item,index)=>{
-  const row = document.createElement("div");
-  row.className = "cart-row";
-
-  const info = document.createElement("div");
-  info.innerHTML = "<strong></strong><br><span></span>";
-
-  info.querySelector("strong").textContent = item.name;
-  info.querySelector("span").textContent =
-   item.price + " × " + item.quantity;
-
-  const remove = document.createElement("button");
-  remove.textContent = "Remove";
-  remove.onclick = ()=>removeFromCart(index);
-
-  row.appendChild(info);
-  row.appendChild(remove);
-
-  container.appendChild(row);
- });
-
- const note = document.createElement("div");
- note.className = "cart-total";
- note.textContent = "Items in cart: " + cart.reduce((sum,item)=>sum+item.quantity,0);
-
- container.appendChild(note);
-}
-
-/* WISHLIST */
-
-window.toggleWishlist = function(name,button){
- const index = wishlist.indexOf(name);
-
- if(index === -1){
-  wishlist.push(name);
-  if(button){
-   button.innerHTML = "♥";
-   button.classList.add("liked");
-  }
-  alert(name + " added to wishlist.");
- }else{
-  wishlist.splice(index,1);
-  if(button){
-   button.innerHTML = "♡";
-   button.classList.remove("liked");
-  }
-  alert(name + " removed from wishlist.");
- }
-
- renderWishlist();
-};
-
-window.removeFromWishlist = function(name){
- const index = wishlist.indexOf(name);
-
- if(index !== -1){
-  wishlist.splice(index,1);
- }
-
- document.querySelectorAll(".heart-button").forEach(button=>{
-  const clickText = button.getAttribute("onclick") || "";
-
-  if(clickText.includes(name)){
-   button.innerHTML = "♡";
-   button.classList.remove("liked");
-  }
- });
-
- renderWishlist();
-};
-
-function renderWishlist(){
- const container = document.getElementById("wishlistItems");
-
- if(wishlist.length === 0){
-  container.className = "panel-empty";
-  container.innerHTML = "Your wishlist is empty.";
-  return;
- }
-
- container.className = "";
- container.innerHTML = "";
-
- wishlist.forEach(name=>{
-  const row = document.createElement("div");
-  row.className = "cart-row";
-
-  const title = document.createElement("strong");
-  title.textContent = "♡ " + name;
-
-  const remove = document.createElement("button");
-  remove.textContent = "Remove";
-  remove.onclick = ()=>removeFromWishlist(name);
-
-  row.appendChild(title);
-  row.appendChild(remove);
-  container.appendChild(row);
- });
-}
-
-/* LOGOUT */
-
-window.logoutUser = async function(){
- const confirmLogout = confirm("Are you sure you want to logout?");
-
- if(!confirmLogout) return;
-
- try{
-  await signOut(auth);
-
-  currentUserData = null;
-  cart = [];
-  wishlist = [];
-
-  document.querySelectorAll(".page").forEach(page=>{
-   page.classList.remove("active");
+let selectedProduct = null;
+
+let productsListener = null;
+let sellerProductsListener = null;
+let announcementListener = null;
+
+let currentCategory = "All";
+let currentSearch = "";
+ 
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.add("hidden");
   });
 
-  document.getElementById("welcome").classList.add("active");
+  const page = document.getElementById(pageId);
+  if (page) page.classList.remove("hidden");
+}
 
-  window.scrollTo(0,0);
+function getElement(id) {
+  return document.getElementById(id);
+}
 
- }catch(error){
-  alert("Logout Error: " + error.message);
+function safeText(value) {
+  return String(value ?? "");
+}
+
+function formatPrice(price) {
+  return "₦" + Number(price || 0).toLocaleString("en-NG");
+}
+
+function getGreeting() {
+  const hour = new Date().getHours();
+
+  if (hour < 12) return "Good morning";
+  if (hour < 17) return "Good afternoon";
+  return "Good evening";
+}
+
+function showMessage(id, message) {
+  const element = getElement(id);
+  if (element) element.textContent = message;
+}
+
+
+// =============================
+// REGISTER
+// =============================
+
+const registerForm = getElement("registerForm");
+
+if (registerForm) {
+  registerForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = getElement("registerName")?.value.trim();
+    const email = getElement("registerEmail")?.value.trim();
+    const password = getElement("registerPassword")?.value;
+    const role = getElement("registerRole")?.value;
+
+    if (!name || !email || !password || !role) {
+      alert("Please complete all fields.");
+      return;
+    }
+
+    const btn = registerForm.querySelector('button[type="submit"]');
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Creating account...";
  }
-};
+     try {
+      const credential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-/* AUTH SESSION */
+      await setDoc(doc(db, "users", credential.user.uid), {
+        name: name,
+        email: email,
+        role: role,
+        createdAt: serverTimestamp()
+      });
 
-auth.onAuthStateChanged(async user=>{
- if(user){
-  const currentPage = document.querySelector(".page.active");
+      alert("Account created successfully.");
 
-  if(currentPage && (
-   currentPage.id === "welcome" ||
-   currentPage.id === "login" ||
-   currentPage.id === "register"
-  )){
-   await loadDashboard(user);
+      if (role === "seller") {
+        showPage("sellerDashboard");
+      } else {
+        showPage("buyerDashboard");
+      }
+
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Create Account";
+      }
+    }
+  });
+}
+
+
+// =============================
+// LOGIN
+// =============================
+
+const loginForm = getElement("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = getElement("loginEmail")?.value.trim();
+    const password = getElement("loginPassword")?.value;
+
+    if (!email || !password) {
+      alert("Enter your email and password.");
+      return;
+    }
+
+    const btn = loginForm.querySelector('button[type="submit"]');
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Logging in...";
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+
+    } catch (error) {
+      alert(error.message);
+
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Login";
+      }
+    }
+  });
+ }
+// =============================
+// FORGOT PASSWORD
+// =============================
+
+const forgotForm = getElement("forgotForm");
+
+if (forgotForm) {
+  forgotForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = getElement("forgotEmail")?.value.trim();
+
+    if (!email) {
+      alert("Enter your email address.");
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+
+      alert("Password reset email sent. Please check your inbox.");
+
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+}
+
+
+// =============================
+// AUTHENTICATION SESSION
+// =============================
+
+onAuthStateChanged(auth, async user => {
+  currentUser = user;
+
+  if (!user) {
+    currentUserData = null;
+    showPage("welcomePage");
+    return;
   }
- }
+
+  try {
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+
+    if (!userDoc.exists()) {
+      alert("User profile not found.");
+      await signOut(auth);
+      return;
+    }
+
+    currentUserData = userDoc.data();
+
+    const role = currentUserData.role;
+
+    if (role === "buyer") {
+      setupBuyerDashboard();
+      showPage("buyerDashboard");
+
+    } else if (role === "seller") {
+      setupSellerDashboard();
+      showPage("sellerDashboard");
+
+    } else {
+      alert("Your account role is not recognized.");
+      await signOut(auth);
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Unable to load account information.");
+  }
 });
+// =============================
+// BUYER DASHBOARD
+// =============================
+
+function setupBuyerDashboard() {
+  if (!currentUserData) return;
+
+  const greeting = getGreeting();
+
+  const buyerGreeting = getElement("buyerWelcome");
+
+  if (buyerGreeting) {
+    buyerGreeting.textContent =
+      greeting + ", " + (currentUserData.name || "Buyer");
+  }
+
+  loadApprovedProducts();
+  loadAnnouncements();
+  updateCartDisplay();
+  updateWishlistDisplay();
+}
+
+
+// =============================
+// SELLER DASHBOARD
+// =============================
+
+function setupSellerDashboard() {
+  if (!currentUserData) return;
+
+  const sellerWelcome = getElement("sellerWelcome");
+
+  if (sellerWelcome) {
+    sellerWelcome.textContent =
+      getGreeting() + ", " + (currentUserData.name || "Seller");
+  }
+
+  loadSellerProducts();
+  loadAnnouncements();
+}
+
+
+// =============================
+// APPROVED PRODUCTS
+// BUYER CAN SEE APPROVED PRODUCTS ONLY
+// =============================
+
+function loadApprovedProducts() {
+
+  if (productsListener) {
+    productsListener();
+    productsListener = null;
+  }
+
+  const q = query(
+    collection(db, "products"),
+    where("status", "==", "approved")
+  );
+
+  productsListener = onSnapshot(q, snapshot => {
+
+    approvedProducts = [];
+
+    snapshot.forEach(docSnap => {
+      approvedProducts.push({
+        id: docSnap.id,
+        ...docSnap.data()
+      });
+    });
+
+    renderProducts();
+    renderCategoryButtons();
+
+  }, error => {
+    console.error(error);
+  });
+}
+
+
+// =============================
+// RENDER BUYER PRODUCTS
+// =============================
+
+function renderProducts() {
+
+  const container = getElement("productsContainer");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  let products = [...approvedProducts];
+
+  if (currentCategory !== "All") {
+    products = products.filter(product =>
+      product.category === currentCategory
+    );
+  }
+
+  if (currentSearch) {
+    const search = currentSearch.toLowerCase();
+
+    products = products.filter(product =>
+      safeText(product.name).toLowerCase().includes(search) ||
+      safeText(product.category).toLowerCase().includes(search) ||
+      safeText(product.description).toLowerCase().includes(search)
+    );
+ }
+  if (products.length === 0) {
+    container.innerHTML =
+      '<div class="empty-state">No products found.</div>';
+    return;
+  }
+
+  products.forEach(product => {
+
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    const image = document.createElement("img");
+    image.src = product.imageUrl || "";
+    image.alt = safeText(product.name);
+    image.className = "product-card-image";
+
+    const info = document.createElement("div");
+    info.className = "product-card-info";
+
+    const name = document.createElement("h3");
+    name.textContent = safeText(product.name);
+
+    const price = document.createElement("p");
+    price.className = "product-price";
+    price.textContent = formatPrice(product.price);
+
+    const category = document.createElement("p");
+    category.className = "product-category";
+    category.textContent = safeText(product.category);
+
+    const detailsBtn = document.createElement("button");
+    detailsBtn.textContent = "View Details";
+    detailsBtn.className = "view-product-btn";
+
+    detailsBtn.addEventListener("click", () => {
+      openProductDetails(product.id);
+    });
+       const wishBtn = document.createElement("button");
+    wishBtn.textContent = wishlist.includes(product.id)
+      ? "♥ Saved"
+      : "♡ Wishlist";
+
+    wishBtn.className = "wishlist-product-btn";
+
+    wishBtn.addEventListener("click", () => {
+      toggleWishlist(product.id);
+    });
+
+    info.appendChild(name);
+    info.appendChild(price);
+    info.appendChild(category);
+    info.appendChild(detailsBtn);
+    info.appendChild(wishBtn);
+
+    card.appendChild(image);
+    card.appendChild(info);
+
+    container.appendChild(card);
+  });
+}
+
+
+// =============================
+// CATEGORY BUTTONS
+// =============================
+
+function renderCategoryButtons() {
+
+  const container = getElement("categoryContainer");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const categories = [
+    "All",
+    ...new Set(
+      approvedProducts.map(product => product.category)
+        .filter(Boolean)
+    )
+  ];
+
+  categories.forEach(category => {
+
+    const button = document.createElement("button");
+
+    button.textContent = category;
+    button.className = "category-btn";
+
+    if (currentCategory === category) {
+      button.classList.add("active");
+    }
+
+    button.addEventListener("click", () => {
+      currentCategory = category;
+      renderCategoryButtons();
+      renderProducts();
+    });
+
+    container.appendChild(button);
+  });
+ }
+ // =============================
+// SEARCH
+// =============================
+
+const searchInput = getElement("searchInput");
+
+if (searchInput) {
+  searchInput.addEventListener("input", function() {
+    currentSearch = this.value.trim();
+    renderProducts();
+  });
+}
+
+
+// =============================
+// PRODUCT DETAILS MODAL
+// =============================
+
+function openProductDetails(productId) {
+
+  const product = approvedProducts.find(
+    item => item.id === productId
+  );
+
+  if (!product) return;
+
+  selectedProduct = product;
+
+  const modal = getElement("productDetailsModal");
+  const body = getElement("productDetailsBody");
+
+  if (!modal || !body) return;
+
+  body.innerHTML = "";
+
+  const image = document.createElement("img");
+  image.src = product.imageUrl || "";
+  image.alt = safeText(product.name);
+  image.className = "details-product-image";
+
+  const name = document.createElement("h2");
+  name.textContent = safeText(product.name);
+
+  const price = document.createElement("h3");
+  price.className = "details-product-price";
+  price.textContent = formatPrice(product.price);
+
+  const category = document.createElement("p");
+  category.textContent = "Category: " + safeText(product.category);
+
+  const descriptionTitle = document.createElement("h3");
+  descriptionTitle.textContent = "Product Description";
+
+  const description = document.createElement("p");
+  description.className = "details-description";
+  description.textContent =
+    safeText(product.description || "No description available.");
+
+  const addCart = document.createElement("button");
+  addCart.textContent = "Add to Cart";
+  addCart.className = "primary-btn";
+
+  addCart.addEventListener("click", () => {
+    addToCart(product.id);
+  });
+
+  body.appendChild(image);
+  body.appendChild(name);
+  body.appendChild(price);
+  body.appendChild(category);
+  body.appendChild(descriptionTitle);
+  body.appendChild(description);
+  body.appendChild(addCart);
+
+  modal.classList.remove("hidden");
+ }
+ window.closeProductDetails = function() {
+  getElement("productDetailsModal")?.classList.add("hidden");
+};
+
+
+// =============================
+// CART
+// =============================
+
+function addToCart(productId) {
+
+  const product = approvedProducts.find(
+    item => item.id === productId
+  );
+
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === productId);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      imageUrl: product.imageUrl,
+      quantity: 1
+    });
+  }
+
+  updateCartDisplay();
+
+  alert("Product added to cart.");
+}
+
+function updateCartDisplay() {
+
+  const cartCount = getElement("cartCount");
+
+  if (cartCount) {
+    cartCount.textContent = cart.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+  }
+
+  renderCart();
+}
+
+function renderCart() {
+
+  const container = getElement("cartContainer");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.textContent = "Your cart is empty.";
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach(item => {
+
+    total += item.price * item.quantity;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    const name = document.createElement("p");
+    name.textContent = item.name;
+
+    const price = document.createElement("p");
+    price.textContent = formatPrice(item.price);
+
+    const quantity = document.createElement("p");
+    quantity.textContent = "Quantity: " + item.quantity;
+
+    const remove = document.createElement("button");
+    remove.textContent = "Remove";
+    remove.addEventListener("click", () => {
+      removeFromCart(item.id);
+    });
+     row.appendChild(name);
+    row.appendChild(price);
+    row.appendChild(quantity);
+    row.appendChild(remove);
+
+    container.appendChild(row);
+  });
+
+  const totalText = document.createElement("h3");
+  totalText.textContent = "Total: " + formatPrice(total);
+
+  container.appendChild(totalText);
+}
+
+function removeFromCart(productId) {
+
+  cart = cart.filter(item => item.id !== productId);
+
+  updateCartDisplay();
+}
+
+
+// =============================
+// WISHLIST
+// =============================
+
+function toggleWishlist(productId) {
+
+  if (wishlist.includes(productId)) {
+    wishlist = wishlist.filter(id => id !== productId);
+  } else {
+    wishlist.push(productId);
+  }
+
+  updateWishlistDisplay();
+  renderProducts();
+}
+
+function updateWishlistDisplay() {
+
+  const count = getElement("wishlistCount");
+
+  if (count) {
+    count.textContent = wishlist.length;
+  }
+
+  renderWishlist();
+}
+
+function renderWishlist() {
+
+  const container = getElement("wishlistContainer");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const products = approvedProducts.filter(product =>
+    wishlist.includes(product.id)
+  );
+
+  if (products.length === 0) {
+    container.textContent = "Your wishlist is empty.";
+    return;
+  }
+
+  products.forEach(product => {
+
+    const item = document.createElement("div");
+    item.className = "wishlist-item";
+
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+
+    const price = document.createElement("p");
+    price.textContent = formatPrice(product.price);
+
+    const view = document.createElement("button");
+    view.textContent = "View Details";
+
+    view.addEventListener("click", () => {
+      openProductDetails(product.id);
+    });
+       const remove = document.createElement("button");
+    remove.textContent = "Remove";
+
+    remove.addEventListener("click", () => {
+      toggleWishlist(product.id);
+    });
+
+    item.appendChild(name);
+    item.appendChild(price);
+    item.appendChild(view);
+    item.appendChild(remove);
+
+    container.appendChild(item);
+  });
+}
+
+
+// =============================
+// SELLER PRODUCT UPLOAD
+// =============================
+
+const productUploadForm = getElement("productUploadForm");
+
+if (productUploadForm) {
+
+  productUploadForm.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    if (!currentUser || !currentUserData ||
+        currentUserData.role !== "seller") {
+      alert("Please login using a seller account.");
+      return;
+    }
+
+    const file = getElement("productImage")?.files?.[0];
+
+    const name = getElement("productName")?.value.trim();
+
+    const price = Number(getElement("productPrice")?.value);
+
+    const category = getElement("productCategory")?.value;
+
+    const description =
+      getElement("productDescription")?.value.trim();
+
+    if (!file || !name || !price || !category || !description) {
+      alert("Please complete all product fields.");
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please select a valid image.");
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image must not exceed 5 MB.");
+      return;
+    }
+
+    const btn = getElement("uploadProductBtn");
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Uploading...";
+    }
+
+    showMessage("uploadMessage", "Uploading product...");
+
+    try {
+
+      const imageRef = ref(
+        storage,
+        "products/" + currentUser.uid + "/" +
+        Date.now() + "_" + file.name.replace(/[^a-zA-Z0-9._-]/g, "_")
+      );
+
+      await uploadBytes(imageRef, file);
+
+      const imageUrl = await getDownloadURL(imageRef);
+
+      await addDoc(collection(db, "products"), {
+
+        sellerUid: currentUser.uid,
+        sellerName: currentUserData.name || "",
+        name: name,
+        price: price,
+        category: category,
+        description: description,
+        imageUrl: imageUrl,
+        status: "pending",
+        createdAt: serverTimestamp()
+
+      });
+
+      productUploadForm.reset();
+
+      getElement("productImagePreview")?.classList.add("hidden");
+
+      showMessage(
+        "uploadMessage",
+        "Product uploaded successfully. It is awaiting admin approval."
+      );
+
+      alert("Product submitted. It will appear to buyers after approval.");
+
+      loadSellerProducts();
+
+    } catch (error) {
+
+      console.error(error);
+
+      showMessage(
+        "uploadMessage",
+        "Upload failed: " + error.message
+      );
+      alert("Product upload failed. Please try again.");
+
+    } finally {
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Upload Product";
+      }
+    }
+  });
+}
+
+
+// =============================
+// IMAGE PREVIEW
+// =============================
+
+const productImageInput = getElement("productImage");
+
+if (productImageInput) {
+
+  productImageInput.addEventListener("change", function() {
+
+    const file = this.files?.[0];
+
+    const previewBox = getElement("productImagePreview");
+    const previewImage = getElement("previewProductImage");
+
+    if (!file || !previewBox || !previewImage) {
+      previewBox?.classList.add("hidden");
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image.");
+      this.value = "";
+      previewBox.classList.add("hidden");
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image must not exceed 5 MB.");
+      this.value = "";
+      previewBox.classList.add("hidden");
+      return;
+    }
+
+    previewImage.src = URL.createObjectURL(file);
+
+    previewBox.classList.remove("hidden");
+  });
+}
+
+
+// =============================
+// SELLER PRODUCTS
+// =============================
+
+function loadSellerProducts() {
+
+  if (!currentUser) return;
+
+  if (sellerProductsListener) {
+    sellerProductsListener();
+    sellerProductsListener = null;
+  }
+
+  const q = query(
+    collection(db, "products"),
+    where("sellerUid", "==", currentUser.uid)
+  );
+
+  sellerProductsListener = onSnapshot(q, snapshot => {
+
+    sellerProducts = [];
+
+    snapshot.forEach(docSnap => {
+      sellerProducts.push({
+        id: docSnap.id,
+        ...docSnap.data()
+      });
+    });
+
+    renderSellerProducts();
+
+  }, error => {
+    console.error(error);
+    showMessage("uploadMessage", error.message);
+  });
+}
+
+function renderSellerProducts() {
+
+  const container = getElement("sellerProductsList");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const pending = sellerProducts.filter(
+    product => product.status === "pending"
+  ).length;
+
+  const approved = sellerProducts.filter(
+    product => product.status === "approved"
+  ).length;
+
+  if (getElement("sellerProductCount")) {
+    getElement("sellerProductCount").textContent =
+      sellerProducts.length;
+  }
+
+  if (getElement("sellerPendingCount")) {
+    getElement("sellerPendingCount").textContent = pending;
+ }
+ if (getElement("sellerApprovedCount")) {
+    getElement("sellerApprovedCount").textContent = approved;
+  }
+
+  if (sellerProducts.length === 0) {
+    container.textContent = "You have not uploaded any products yet.";
+    return;
+  }
+
+  sellerProducts.forEach(product => {
+
+    const card = document.createElement("div");
+    card.className = "seller-product-card";
+
+    const image = document.createElement("img");
+    image.src = product.imageUrl || "";
+    image.alt = safeText(product.name);
+
+    const name = document.createElement("h3");
+    name.textContent = safeText(product.name);
+
+    const price = document.createElement("p");
+    price.textContent = formatPrice(product.price);
+
+    const category = document.createElement("p");
+    category.textContent = "Category: " + safeText(product.category);
+
+    const status = document.createElement("p");
+    status.textContent = "Status: " + safeText(product.status);
+
+    status.className = "product-status";
+
+    card.appendChild(image);
+    card.appendChild(name);
+    card.appendChild(price);
+    card.appendChild(category);
+    card.appendChild(status);
+
+    container.appendChild(card);
+  });
+}
+
+
+// =============================
+// ADMIN ANNOUNCEMENTS
+// =============================
+
+function loadAnnouncements() {
+
+  if (announcementListener) {
+    announcementListener();
+    announcementListener = null;
+  }
+
+  announcementListener = onSnapshot(
+    collection(db, "announcements"),
+    snapshot => {
+
+      let messages = [];
+
+      snapshot.forEach(docSnap => {
+
+        const data = docSnap.data();
+
+        if (data.active === true && data.message) {
+          messages.push(data.message);
+        }
+      });
+
+      const message = messages.join("  •  ");
+
+      updateAnnouncement(
+        "buyerAnnouncement",
+        "buyerAnnouncementText",
+        message
+      );
+
+      updateAnnouncement(
+        "sellerAnnouncement",
+        "sellerAnnouncementText",
+        message
+      );
+
+    },
+    error => {
+      console.error("Announcement error:", error);
+    }
+  );
+}
+
+function updateAnnouncement(boxId, textId, message) {
+
+  const box = getElement(boxId);
+  const text = getElement(textId);
+
+  if (!box || !text) return;
+
+  if (!message) {
+    box.classList.add("hidden");
+    text.textContent = "";
+    return;
+  }
+
+  box.classList.remove("hidden");
+
+  text.textContent = message;
+}
+
+
+// =============================
+// DASHBOARD NAVIGATION
+// =============================
+
+window.showBuyerPanel = function(panelName) {
+
+  document.querySelectorAll(".buyer-panel").forEach(panel => {
+    panel.classList.add("hidden");
+  });
+
+  const selected = getElement(panelName);
+
+  if (selected) {
+    selected.classList.remove("hidden");
+  }
+
+  if (panelName === "productsPanel") {
+    renderProducts();
+  }
+
+  if (panelName === "wishlistPanel") {
+    renderWishlist();
+  }
+
+  if (panelName === "cartPanel") {
+    renderCart();
+  }
+};
+
+
+// =============================
+// LOGOUT
+// =============================
+
+window.logout = async function() {
+
+  try {
+
+    if (productsListener) {
+      productsListener();
+      productsListener = null;
+    }
+
+    if (sellerProductsListener) {
+      sellerProductsListener();
+      sellerProductsListener = null;
+    }
+
+    if (announcementListener) {
+      announcementListener();
+      announcementListener = null;
+    }
+
+    cart = [];
+    wishlist = [];
+
+    await signOut(auth);
+
+    showPage("welcomePage");
+
+  } catch (error) {
+
+    alert(error.message);
+  }
+};
+
+// =============================
+// WELCOME / LOGIN NAVIGATION
+// =============================
+
+window.goToLogin = function() {
+  showPage("loginPage");
+};
+
+window.goToRegister = function() {
+  showPage("registerPage");
+};
+
+window.goToForgotPassword = function() {
+  showPage("forgotPage");
+};
+
+window.goToWelcome = function() {
+  showPage("welcomePage");
+};
+
+
+// =============================
+// END OF ZENTRA SCRIPT
+// =============================
 
 </script>
 
 </body>
-  </html>
+</html> 
