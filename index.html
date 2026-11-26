@@ -6,6 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZENTRA</title>
 
+<!-- Preload Welcome Background Image -->
+<link rel="preload" as="image"
+href="file_0000000064348210808862c10ba5b1be.png">
+
 <style>
 *{
   box-sizing:border-box;
@@ -121,7 +125,15 @@ body{
   display:block;
   margin:0 auto 15px;
   object-fit:contain;
-  }
+}
+
+/* DARK BLUE LOGO ON LOGIN, REGISTER AND FORGOT */
+
+.auth-logo{
+  filter:brightness(0) saturate(100%)
+  invert(16%) sepia(21%) saturate(1780%)
+  hue-rotate(169deg) brightness(93%) contrast(91%);
+}
 
 h2{
   text-align:center;
@@ -203,6 +215,17 @@ h2{
   padding:25px;
   border-radius:15px;
   margin-bottom:20px;
+}
+
+/* WHITE DASHBOARD LOGO */
+
+.dashboard-logo{
+  width:115px;
+  max-width:45%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  margin-bottom:15px;
 }
 
 .dashboard-content{
@@ -421,10 +444,15 @@ Continue
 <section id="buyerDashboard" class="page dashboard">
 
 <div class="dashboard-header">
+
+<img src="20261125_122020.png" class="dashboard-logo">
+
 <h2 style="color:white;text-align:left;">
 Buyer Dashboard
 </h2>
+
 <p>Welcome to ZENTRA Shopping.</p>
+
 </div>
 
 <div class="dashboard-content">
@@ -450,10 +478,15 @@ Logout
 <section id="sellerDashboard" class="page dashboard">
 
 <div class="dashboard-header">
+
+<img src="20261125_122020.png" class="dashboard-logo">
+
 <h2 style="color:white;text-align:left;">
 Seller Dashboard
 </h2>
+
 <p>Welcome to ZENTRA Sellers.</p>
+
 </div>
 
 <div class="dashboard-content">
