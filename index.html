@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,7 @@ body{
 .page.active{
   display:flex;
 }
+
 /* WELCOME */
 
 #welcome{
@@ -49,7 +51,7 @@ body{
   background-position:center;
   opacity:0.60;
   z-index:-1;
-  }
+}
 
 .logo{
   width:180px;
@@ -73,11 +75,17 @@ body{
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
-    }
+}
+
 .btn2{
   background:white;
   color:#1677d2;
   border:2px solid #1677d2;
+}
+
+.btn:disabled{
+  opacity:0.6;
+  cursor:not-allowed;
 }
 
 .welcome-buttons{
@@ -105,6 +113,7 @@ body{
   border-radius:18px;
   box-shadow:0 5px 25px rgba(0,0,0,.07);
 }
+
 .auth-logo{
   width:100px;
   display:block;
@@ -145,7 +154,8 @@ h2{
   font-size:15px;
   background:white;
 }
-field input:focus,
+
+.field input:focus,
 .field select:focus{
   border-color:#1677d2;
 }
@@ -166,8 +176,9 @@ field input:focus,
   text-align:center;
   margin-top:20px;
   font-size:14px;
-    }
-back{
+}
+
+.back{
   display:block;
   margin-top:20px;
   text-align:center;
@@ -175,7 +186,7 @@ back{
   cursor:pointer;
 }
 
-/* DASHBOARD TEST */
+/* DASHBOARD */
 
 .dashboard{
   flex-direction:column;
@@ -207,13 +218,12 @@ back{
   font-size:13px;
   color:#777;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME SCREEN -->
+<!-- WELCOME -->
 
 <section id="welcome" class="page active">
 
@@ -233,7 +243,6 @@ Login
 
 </div>
 </section>
-
 
 <!-- LOGIN -->
 
@@ -259,14 +268,15 @@ placeholder="Enter your email" required>
 <label>Password</label>
 <input type="password" id="loginPassword"
 placeholder="Enter your password" required>
-    </div>
+</div>
+
 <div class="text-right">
 <span class="link" onclick="showPage('forgot')">
 Forgot Password?
 </span>
 </div>
 
-<button class="btn" type="submit">
+<button class="btn" id="loginBtn" type="submit">
 Login
 </button>
 
@@ -284,7 +294,6 @@ Create Account
 </span>
 
 </div>
-
 </section>
 
 <!-- REGISTER -->
@@ -303,17 +312,20 @@ Create Account
 
 <div class="field">
 <label>Full Name</label>
-<input type="text" id="regName" placeholder="Enter your full name" required>
+<input type="text" id="regName"
+placeholder="Enter your full name" required>
 </div>
 
 <div class="field">
 <label>Email Address</label>
-<input type="email" id="regEmail" placeholder="Enter your email" required>
+<input type="email" id="regEmail"
+placeholder="Enter your email" required>
 </div>
 
 <div class="field">
 <label>Phone Number</label>
-<input type="tel" id="regPhone" placeholder="Enter your phone number" required>
+<input type="tel" id="regPhone"
+placeholder="Enter your phone number" required>
 </div>
 
 <div class="field">
@@ -329,27 +341,33 @@ Create Account
 
 <div class="field">
 <label>Business Name</label>
-<input type="text" id="businessName" placeholder="Enter your business name">
+<input type="text" id="businessName"
+placeholder="Enter your business name">
 </div>
 
 <div class="field">
 <label>Business Address</label>
-<input type="text" id="businessAddress" placeholder="Enter your business address">
+<input type="text" id="businessAddress"
+placeholder="Enter your business address">
 </div>
 
 </div>
 
 <div class="field">
 <label>Password</label>
-<input type="password" id="regPassword" placeholder="Create password" required>
+<input type="password" id="regPassword"
+placeholder="Create password" required>
 </div>
 
 <div class="field">
 <label>Confirm Password</label>
-<input type="password" id="regConfirm" placeholder="Confirm password" required>
+<input type="password" id="regConfirm"
+placeholder="Confirm password" required>
 </div>
 
-<button class="btn" type="submit">Create Account</button>
+<button class="btn" id="registerBtn" type="submit">
+Create Account
+</button>
 
 </form>
 
@@ -361,9 +379,7 @@ Already have an account?
 <span class="back" onclick="showPage('welcome')">← Back</span>
 
 </div>
-  </section>
-
-
+</section>
 
 <!-- FORGOT PASSWORD -->
 
@@ -376,28 +392,28 @@ Already have an account?
 <h2>Forgot Password?</h2>
 
 <p class="sub">
-Password recovery will be connected when we add authentication.
+Enter your email to receive a password reset link.
 </p>
 
 <div class="field">
 <label>Email Address</label>
 <input type="email" id="forgotEmail"
-placeholder="Enter your email">
+placeholder="Enter your email" required>
 </div>
 
-<button class="btn" onclick="forgotMessage()">
+<button class="btn" id="forgotBtn"
+onclick="forgotMessage()">
 Continue
 </button>
+
 <span class="back" onclick="showPage('login')">
 ← Back to Login
 </span>
 
 </div>
-
 </section>
 
-
-<!-- BUYER DASHBOARD TEST -->
+<!-- BUYER DASHBOARD -->
 
 <section id="buyerDashboard" class="page dashboard">
 
@@ -415,7 +431,7 @@ Buyer Dashboard
 <p id="buyerWelcome" style="margin-top:15px;"></p>
 
 <p class="notice">
-This is the first dashboard prototype.
+Your ZENTRA buyer account is connected.
 Shopping features will be added next.
 </p>
 
@@ -424,11 +440,9 @@ Logout
 </button>
 
 </div>
-
 </section>
 
-
-<!-- SELLER DASHBOARD TEST -->
+<!-- SELLER DASHBOARD -->
 
 <section id="sellerDashboard" class="page dashboard">
 
@@ -446,8 +460,8 @@ Seller Dashboard
 <p id="sellerWelcome" style="margin-top:15px;"></p>
 
 <p class="notice">
-Your seller registration is a prototype.
-Seller approval and product upload will be added later.
+Your ZENTRA seller account is connected.
+Seller approval and product upload will be added next.
 </p>
 
 <button class="btn logout" onclick="logoutUser()">
@@ -455,159 +469,369 @@ Logout
 </button>
 
 </div>
-
 </section>
 
+<!-- FIREBASE -->
 
-<script>
+<script type="module">
+
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut
+} from
+"https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp
+} from
+"https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
+
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",
+  authDomain: "zenta-d60e5.firebaseapp.com",
+  projectId: "zenta-d60e5",
+  storageBucket: "zenta-d60e5.firebasestorage.app",
+  messagingSenderId: "449281141527",
+  appId: "1:449281141527:web:9e20e1e406508d8d91e552"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
 /* PAGE NAVIGATION */
 
-function showPage(pageId){
+window.showPage = function(pageId){
 
-document.querySelectorAll(".page").forEach(page=>{
-page.classList.remove("active");
-});
+  document.querySelectorAll(".page").forEach(page=>{
+    page.classList.remove("active");
+  });
 
-document.getElementById(pageId).classList.add("active");
+  document.getElementById(pageId).classList.add("active");
 
-}
+};
 
 
-/* TEMPORARY TEST REGISTRATION */
+/* SELLER FIELDS */
 
-let testAccount = null;
+window.toggleSellerFields = function(){
+
+  const role = document.getElementById("regRole").value;
+
+  const sellerFields = document.getElementById("sellerFields");
+
+  const businessName = document.getElementById("businessName");
+
+  const businessAddress = document.getElementById("businessAddress");
+
+  if(role === "seller"){
+
+    sellerFields.style.display = "block";
+    businessName.required = true;
+    businessAddress.required = true;
+
+  }else{
+
+    sellerFields.style.display = "none";
+    businessName.required = false;
+    businessAddress.required = false;
+
+  }
+
+};
 
 
 /* REGISTER */
 
-function registerUser(event){
+window.registerUser = async function(event){
 
-event.preventDefault();
+  event.preventDefault();
 
-const name = document.getElementById("regName").value.trim();
-const email = document.getElementById("regEmail").value.trim();
-const phone = document.getElementById("regPhone").value.trim();
-const role = document.getElementById("regRole").value;
-const businessName = document.getElementById("businessName").value.trim();
-const businessAddress = document.getElementById("businessAddress").value.trim();
-const password = document.getElementById("regPassword").value;
-const confirm = document.getElementById("regConfirm").value;
+  const button = document.getElementById("registerBtn");
 
-if(password !== confirm){
+  const name = document.getElementById("regName").value.trim();
+  const email = document.getElementById("regEmail").value.trim();
+  const phone = document.getElementById("regPhone").value.trim();
+  const role = document.getElementById("regRole").value;
 
-alert("Passwords do not match!");
-return;
+  const businessName =
+    document.getElementById("businessName").value.trim();
 
-}
+  const businessAddress =
+    document.getElementById("businessAddress").value.trim();
 
-if(password.length < 8){
+  const password =
+    document.getElementById("regPassword").value;
 
-alert("Password must be at least 8 characters.");
-return;
-}
-testAccount = {
-name: name,
-email: email,
-phone: phone,
-role: role,
-businessName: businessName,
-businessAddress: businessAddress,
-password: password
-};  
+  const confirm =
+    document.getElementById("regConfirm").value;
 
-alert("Test account created! You can now login.");
 
-document.getElementById("loginEmail").value = email;
-document.getElementById("loginPassword").value = password;  
+  if(password !== confirm){
 
-document.getElementById("loginPassword").value = "";
-document.querySelector("#register form").reset();
-toggleSellerFields();
-  
-showPage("login");
+    alert("Passwords do not match!");
+    return;
 
-}
+  }
+
+  if(password.length < 8){
+
+    alert("Password must be at least 8 characters.");
+    return;
+
+  }
+
+  if(role !== "buyer" && role !== "seller"){
+
+    alert("Please choose an account type.");
+    return;
+
+  }
+
+  if(role === "seller" && (!businessName || !businessAddress)){
+
+    alert("Please enter your business name and address.");
+    return;
+
+  }
+
+  button.disabled = true;
+  button.innerText = "Creating Account...";
+
+  try{
+
+    const userCredential =
+      await createUserWithEmailAndPassword(auth, email, password);
+
+    const user = userCredential.user;
+
+    const userData = {
+      name: name,
+      email: email,
+      phone: phone,
+      role: role,
+      createdAt: serverTimestamp()
+    };
+
+    if(role === "seller"){
+
+      userData.businessName = businessName;
+      userData.businessAddress = businessAddress;
+
+    }
+
+    await setDoc(doc(db, "users", user.uid), userData);
+
+    alert("ZENTRA account created successfully!");
+
+    document.querySelector("#register form").reset();
+
+    toggleSellerFields();
+
+    document.getElementById("loginEmail").value = email;
+    document.getElementById("loginPassword").value = "";
+
+    showPage("login");
+
+  }catch(error){
+
+    console.error("Registration error:", error);
+
+    if(error.code === "auth/email-already-in-use"){
+
+      alert("This email already has a ZENTRA account. Please login.");
+
+    }else if(error.code === "auth/weak-password"){
+
+      alert("Please use a stronger password.");
+
+    }else if(error.code === "auth/invalid-email"){
+
+      alert("Please enter a valid email address.");
+
+    }else{
+
+      alert("Registration failed: " + error.message);
+
+    }
+
+  }finally{
+
+    button.disabled = false;
+    button.innerText = "Create Account";
+
+  }
+
+};
 
 
 /* LOGIN */
 
-function loginUser(event){
+window.loginUser = async function(event){
 
-event.preventDefault();
+  event.preventDefault();
 
-const email = document.getElementById("loginEmail").value.trim();
-const password = document.getElementById("loginPassword").value;
+  const button = document.getElementById("loginBtn");
 
-if(!testAccount){
+  const email =
+    document.getElementById("loginEmail").value.trim();
 
-alert("Please create a test account first.");
-return;
+  const password =
+    document.getElementById("loginPassword").value;
 
-}
+  button.disabled = true;
+  button.innerText = "Logging in...";
 
-if(email !== testAccount.email ||
-password !== testAccount.password){
+  try{
 
-alert("Incorrect email or password.");
-return;
+    const userCredential =
+      await signInWithEmailAndPassword(auth, email, password);
 
-}
+    const user = userCredential.user;
 
-if(testAccount.role === "buyer"){
+    const profileRef = doc(db, "users", user.uid);
 
-document.getElementById("buyerWelcome").innerText =
-"Welcome, " + testAccount.name;
+    const { getDoc } = await import(
+      "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js"
+    );
 
-showPage("buyerDashboard");
+    const profileSnapshot = await getDoc(profileRef);
 
-}
+    if(!profileSnapshot.exists()){
 
-else if(testAccount.role === "seller"){
-
-document.getElementById("sellerWelcome").innerText =
-"Welcome, " + testAccount.name;
-
-showPage("sellerDashboard");
-
-}
+      alert("Account profile not found. Please contact ZENTRA support.");
+      await signOut(auth);
+      return;
 
     }
+
+    const profile = profileSnapshot.data();
+
+    if(profile.role === "buyer"){
+
+      document.getElementById("buyerWelcome").innerText =
+        "Welcome, " + profile.name;
+
+      showPage("buyerDashboard");
+
+    }else if(profile.role === "seller"){
+
+      document.getElementById("sellerWelcome").innerText =
+        "Welcome, " + profile.name;
+
+      showPage("sellerDashboard");
+
+    }else{
+
+      alert("Invalid account type.");
+      await signOut(auth);
+
+    }
+
+  }catch(error){
+
+    console.error("Login error:", error);
+
+    if(error.code === "auth/invalid-credential" ||
+       error.code === "auth/wrong-password" ||
+       error.code === "auth/user-not-found"){
+
+      alert("Incorrect email or password.");
+
+    }else{
+
+      alert("Login failed: " + error.message);
+
+    }
+
+  }finally{
+
+    button.disabled = false;
+    button.innerText = "Login";
+
+  }
+
+};
+
+
 /* FORGOT PASSWORD */
 
-function forgotMessage(){
+window.forgotMessage = async function(){
 
-alert("Password recovery will be connected later.");
+  const email =
+    document.getElementById("forgotEmail").value.trim();
 
-}
+  const button = document.getElementById("forgotBtn");
+
+  if(!email){
+
+    alert("Please enter your email address.");
+    return;
+
+  }
+
+  button.disabled = true;
+  button.innerText = "Sending...";
+
+  try{
+
+    await sendPasswordResetEmail(auth, email);
+
+    alert("Password reset email sent. Please check your inbox.");
+
+    showPage("login");
+
+  }catch(error){
+
+    console.error("Password reset error:", error);
+
+    alert("Unable to send reset email: " + error.message);
+
+  }finally{
+
+    button.disabled = false;
+    button.innerText = "Continue";
+
+  }
+
+};
 
 
 /* LOGOUT */
 
-function logoutUser(){
+window.logoutUser = async function(){
 
-document.getElementById("loginPassword").value = "";
+  try{
 
-showPage("welcome");
+    await signOut(auth);
 
-}
-function toggleSellerFields() {
-  const role = document.getElementById("regRole").value;
-  const sellerFields = document.getElementById("sellerFields");
-  const businessName = document.getElementById("businessName");
-  const businessAddress = document.getElementById("businessAddress");
+    document.getElementById("loginPassword").value = "";
 
-  if (role === "seller") {
-    sellerFields.style.display = "block";
-    businessName.required = true;
-    businessAddress.required = true;
-  } else {
-    sellerFields.style.display = "none";
-    businessName.required = false;
-    businessAddress.required = false;
+    showPage("welcome");
+
+  }catch(error){
+
+    alert("Logout failed: " + error.message);
+
   }
-  }
+
+};
+
 </script>
 
 </body>
-</html>    
-    
+  </html>
+  
