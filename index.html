@@ -6,1503 +6,347 @@
 <title>ZENTRA Marketplace</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f4f8fc;color:#17324d}
-.hidden{display:none!important}
-.page{display:none;min-height:100vh}
-.page.active{display:flex}
-button{cursor:pointer}
-button:disabled{opacity:.6;cursor:not-allowed}
-input,select,textarea{font:inherit}
-
-.btn{
-border:0;padding:13px;width:100%;border-radius:10px;
-background:#1677d2;color:white;font-size:15px;font-weight:bold
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+ font-family:Arial,sans-serif;
 }
-.btn2{background:white;color:#1677d2;border:2px solid #1677d2}
-.logout{background:#d9534f;margin-top:15px}
-.field{margin-bottom:14px}
-.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
-.field input,.field select,.field textarea{
-width:100%;padding:12px;border:1px solid #d5dfe9;
-border-radius:9px;outline:none;font-size:14px;background:white
-}
-.field textarea{min-height:90px;resize:vertical}
-.link{color:#1677d2;cursor:pointer}
-.back{display:block;text-align:center;margin-top:18px;color:#1677d2;cursor:pointer}
 
-#welcome{
-flex-direction:column;align-items:center;justify-content:center;
-text-align:center;padding:25px;background:#eaf5ff
+body{
+ background:#f4f8fc;
+ color:#17324d;
 }
-.logo{width:170px;max-width:70%;margin-bottom:15px}
-.tagline{font-size:14px;margin:10px 0 35px;color:#526b80}
-.welcome-buttons{width:100%;max-width:350px;display:grid;gap:13px}
 
-.auth-page{justify-content:center;align-items:center;padding:20px}
+button,input,select,textarea{
+ font:inherit;
+}
+
+button{
+ cursor:pointer;
+ border:none;
+}
+
+.hidden{
+ display:none!important;
+}
+
+#app{
+ min-height:100vh;
+}
+
+.auth-page{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ background:
+ linear-gradient(rgba(255,255,255,.68),rgba(255,255,255,.68)),
+ url('female.png');
+ background-size:cover;
+ background-position:center;
+}
+
 .auth-box{
-width:100%;max-width:420px;background:white;padding:24px;
-border-radius:17px;box-shadow:0 5px 25px #00000010
+ width:100%;
+ max-width:430px;
+ background:rgba(255,255,255,.94);
+ backdrop-filter:blur(10px);
+ -webkit-backdrop-filter:blur(10px);
+ border-radius:20px;
+ padding:28px;
+ box-shadow:0 10px 40px rgba(30,100,180,.12);
+ border:1px solid rgba(220,235,250,.8);
 }
-.auth-box h2{text-align:center;color:#1768b2;margin-bottom:8px}
-.sub{text-align:center;color:#777;font-size:13px;margin-bottom:22px}
-.bottom-text{text-align:center;margin-top:18px;font-size:13px}
 
-.dashboard{
-flex-direction:column;padding:0 0 85px;
-background:#f4f8fc;min-height:100vh
+.logo{
+ width:85px;
+ height:85px;
+ object-fit:contain;
+ display:block;
+ margin:0 auto 12px;
 }
-.dash-header{
-background:#1677d2;color:white;padding:18px 16px 20px;
+
+.brand{
+ text-align:center;
+ font-size:28px;
+ font-weight:bold;
+ color:#1684e8;
+ letter-spacing:2px;
 }
-.dash-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.dash-logo{width:130px;max-height:55px;object-fit:contain}
-.dash-header h2{font-size:19px;color:white;text-align:left;margin-top:12px}
-.dash-header p{font-size:13px;margin-top:5px}
-.dash-actions{display:flex;gap:8px}
-.header-btn{
-border:1px solid #ffffff55;background:#ffffff20;color:white;
-padding:9px 11px;border-radius:9px;font-size:18px
+
+.brand-sub{
+ text-align:center;
+ font-size:13px;
+ color:#667788;
+ margin:6px 0 22px;
 }
-.dash-content{padding:15px 16px}
-.dash-section{
-background:white;border-radius:13px;padding:15px;margin-bottom:14px
+
+.auth-box h2{
+ text-align:center;
+ margin-bottom:20px;
+ color:#17324d;
 }
-.dash-section h3{font-size:16px;margin-bottom:13px}
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.stat{
-background:#eaf4ff;border-radius:10px;padding:13px
+
+.field{
+ margin-bottom:15px;
 }
-.stat strong{display:block;color:#1677d2;font-size:20px;margin-bottom:5px}
-.stat span{font-size:12px;color:#526b80}
-.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.product-card{
-background:white;border:1px solid #e7edf4;border-radius:12px;
-overflow:hidden;min-width:0
+
+.field label{
+ display:block;
+ margin-bottom:7px;
+ font-size:14px;
+ font-weight:bold;
 }
-.product-picture{
-height:125px;background:#eaf2fa;display:flex;
-align-items:center;justify-content:center;position:relative
+
+.field input,
+.field select,
+.field textarea{
+ width:100%;
+ padding:13px;
+ border:1px solid #d8e2ec;
+ border-radius:10px;
+ outline:none;
+ background:#fff;
 }
-.product-picture img{width:100%;height:100%;object-fit:cover}
-.product-info{padding:10px}
-.product-info h4{font-size:13px;line-height:1.4;min-height:35px}
-.product-price{color:#1677d2;font-weight:bold;font-size:15px;margin:7px 0}
-.product-info small{display:block;color:#888;font-size:11px;margin-bottom:9px}
-.small-btn{
-border:0;border-radius:7px;background:#1677d2;color:white;
-padding:9px 5px;width:100%;font-size:12px;font-weight:bold
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+ border-color:#69b5ff;
+ box-shadow:0 0 0 2px rgba(105,181,255,.12);
 }
-.heart-button{
-position:absolute;top:8px;right:8px;border:0;background:white;
-border-radius:50%;width:30px;height:30px;font-size:17px
+
+.primary-btn{
+ width:100%;
+ padding:14px;
+ border-radius:10px;
+ background:#1684e8;
+ color:white;
+ font-weight:bold;
+ transition:.2s;
 }
-.heart-button.liked{color:#e04465}
-.category-list{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.category{
-border:1px solid #e4edf6;border-radius:11px;background:white;
-padding:11px 4px;text-align:center
+
+.primary-btn:hover{
+ background:#0872d1;
 }
-.category-icon{font-size:23px;margin-bottom:6px}
-.category p{font-size:10px;font-weight:bold}
-.category.selected{border:2px solid #1677d2;background:#eaf4ff}
-.shop-search{display:flex;background:white;border-radius:9px;overflow:hidden;height:43px;margin-top:14px}
-.shop-search input{flex:1;min-width:0;border:0;outline:none;padding:0 12px}
-.shop-search button{border:0;background:#eaf4ff;color:#1677d2;padding:0 14px}
-.panel{display:none}
-.panel.active{display:block}
-.panel-empty{
-text-align:center;padding:25px 10px;color:#777;
-background:white;border-radius:10px;font-size:13px
+
+.auth-switch{
+ text-align:center;
+ margin-top:17px;
+ font-size:14px;
 }
-.item-row{
-background:white;border:1px solid #e7edf4;border-radius:10px;
-padding:12px;margin-bottom:10px;font-size:13px
+
+.auth-switch span{
+ color:#1684e8;
+ font-weight:bold;
+ cursor:pointer;
 }
-.item-row p{margin-top:6px}
-.item-row button{margin-top:9px}
-.account-box{background:white;border-radius:12px;padding:15px}
-.account-box p{font-size:13px;margin:11px 0;overflow-wrap:anywhere}
-.cart-total{
-background:white;padding:14px;border-radius:10px;margin-top:12px;
-font-weight:bold;display:flex;justify-content:space-between
+
+.forgot{
+ text-align:right;
+ font-size:13px;
+ margin:10px 0 16px;
+ color:#1684e8;
+ cursor:pointer;
 }
-.search-box{padding:14px 16px}
-.section-title{font-size:17px;margin-bottom:12px}
-.banner{
-margin:12px 16px;background:linear-gradient(120deg,#0755a1,#1687e5);
-border-radius:13px;color:white;padding:18px
+
+.auth-message{
+ text-align:center;
+ margin-top:12px;
+ font-size:13px;
+ color:#d32f2f;
 }
-.banner h3{font-size:18px;margin-bottom:7px}
-.banner p{font-size:12px;line-height:1.5}
-.bottom-nav{
-position:fixed;bottom:0;left:0;right:0;background:white;
-border-top:1px solid #e2eaf2;display:grid;
-grid-template-columns:repeat(5,1fr);padding:7px 3px;
-z-index:100;padding-bottom:max(7px,env(safe-area-inset-bottom))
-}
-.bottom-item{
-border:0;background:white;color:#8493a3;
-display:flex;flex-direction:column;align-items:center;
-gap:4px;padding:5px 2px;font-size:10px
-}
-.bottom-item .nav-icon{font-size:20px}
-.bottom-item.active{color:#1677d2;font-weight:bold}
-.form-note{font-size:12px;color:#777;line-height:1.5;margin:8px 0}
-.delivery-option{
-border:1px solid #dce6ef;padding:12px;border-radius:9px;
-margin-bottom:9px;display:flex;gap:9px;align-items:center;font-size:13px
-}
-.delivery-option input{width:auto}
-.status{font-size:12px;font-weight:bold;color:#1677d2}
-@media(min-width:700px){
-.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.dash-content{max-width:1000px;width:100%;margin:auto}
+
+@media(max-width:480px){
+ .auth-box{
+  padding:23px;
+ }
 }
 </style>
 </head>
+
 <body>
 
-<!-- WELCOME -->
-<div id="welcome" class="page active">
-<img src="20261125_122020.png" class="logo" onerror="this.style.display='none'">
-<h1>ZENTRA</h1>
-<p class="tagline">Your Marketplace, Your Choice</p>
-<div class="welcome-buttons">
-<button class="btn" onclick="showPage('loginPage')">Login</button>
-<button class="btn btn2" onclick="showPage('registerPage')">Create Account</button>
+<div id="app">
+
+<!-- WELCOME PAGE -->
+<section id="welcomePage" class="auth-page">
+
+<div class="auth-box">
+
+<img src="20261125_122020.png" class="logo"
+onerror="this.style.display='none'">
+
+<div class="brand">ZENTRA</div>
+<div class="brand-sub">Marketplace</div>
+
+<h2>Welcome</h2>
+
+<button class="primary-btn"
+onclick="showPage('loginPage')">
+Login
+</button>
+
+<br><br>
+
+<button class="primary-btn"
+onclick="showPage('registerPage')">
+Create Account
+</button>
+
 </div>
+</section>
+
+
+<!-- LOGIN PAGE -->
+<section id="loginPage" class="auth-page hidden">
+
+<div class="auth-box">
+
+<img src="20261125_122020.png" class="logo"
+onerror="this.style.display='none'">
+
+<div class="brand">ZENTRA</div>
+<div class="brand-sub">Marketplace</div>
+
+<h2>Login</h2>
+
+<div class="field">
+<label>Email Address</label>
+<input type="email" id="loginEmail"
+placeholder="Enter email">
 </div>
 
-<!-- LOGIN -->
-<div id="loginPage" class="page auth-page">
-<div class="auth-box">
-<h2>Welcome Back</h2>
-<p class="sub">Login to your ZENTRA account</p>
-<div class="field">
-<label>Email or Admin Username</label>
-<input id="loginEmail" placeholder="Email or username">
-</div>
 <div class="field">
 <label>Password</label>
-<input id="loginPassword" type="password" placeholder="Password">
-</div>
-<p class="form-note">Admin can use the designated Admin username or registered email.</p>
-<div style="text-align:right;margin-bottom:18px">
-<span class="link" onclick="showPage('forgotPage')">Forgot Password?</span>
-</div>
-<button class="btn" id="loginBtn" onclick="loginUser()">Login</button>
-<p class="bottom-text">Don't have an account? <span class="link" onclick="showPage('registerPage')">Register</span></p>
-<span class="back" onclick="showPage('welcome')">Back</span>
-</div>
+<input type="password" id="loginPassword"
+placeholder="Enter password">
 </div>
 
-<!-- REGISTER -->
-<div id="registerPage" class="page auth-page">
+<div class="forgot"
+onclick="showPage('forgotPage')">
+Forgot Password?
+</div>
+
+<button class="primary-btn"
+onclick="loginUser()">
+Login
+</button>
+
+<div id="loginMessage" class="auth-message"></div>
+
+<div class="auth-switch">
+Don't have an account?
+<span onclick="showPage('registerPage')">
+Create Account
+</span>
+</div>
+
+</div>
+</section>
+
+
+<!-- REGISTER PAGE -->
+<section id="registerPage" class="auth-page hidden">
+
 <div class="auth-box">
+
+<img src="20261125_122020.png" class="logo"
+onerror="this.style.display='none'">
+
+<div class="brand">ZENTRA</div>
+<div class="brand-sub">Marketplace</div>
+
 <h2>Create Account</h2>
-<p class="sub">Join ZENTRA Marketplace</p>
-<div class="field"><label>Full Name</label><input id="regName" placeholder="Full name"></div>
-<div class="field"><label>Email</label><input id="regEmail" type="email" placeholder="Email"></div>
-<div class="field"><label>Phone</label><input id="regPhone" type="tel" placeholder="Phone number"></div>
+
+<div class="field">
+<label>Full Name</label>
+<input type="text" id="registerName"
+placeholder="Enter full name">
+</div>
+
+<div class="field">
+<label>Email Address</label>
+<input type="email" id="registerEmail"
+placeholder="Enter email">
+</div>
+
+<div class="field">
+<label>Phone Number</label>
+<input type="tel" id="registerPhone"
+placeholder="Enter phone number">
+</div>
+
 <div class="field">
 <label>Account Type</label>
-<select id="regRole" onchange="toggleBusinessFields()">
+<select id="registerRole">
 <option value="buyer">Buyer</option>
 <option value="seller">Seller</option>
 </select>
 </div>
-<div id="businessFields" class="hidden">
-<div class="field"><label>Business Name</label><input id="businessName" placeholder="Business name"></div>
-<div class="field"><label>Business Address</label><textarea id="businessAddress" placeholder="Business address"></textarea></div>
+
+<div class="field">
+<label>Password</label>
+<input type="password" id="registerPassword"
+placeholder="Create password">
 </div>
-<div class="field"><label>Password</label><input id="regPassword" type="password"></div>
-<div class="field"><label>Confirm Password</label><input id="regConfirm" type="password"></div>
-<button class="btn" id="registerBtn" onclick="registerUser()">Create Account</button>
-<p class="bottom-text">Already registered? <span class="link" onclick="showPage('loginPage')">Login</span></p>
-<span class="back" onclick="showPage('welcome')">Back</span>
+
+<div class="field">
+<label>Confirm Password</label>
+<input type="password" id="registerConfirm"
+placeholder="Confirm password">
 </div>
+
+<button class="primary-btn"
+onclick="registerUser()">
+Create Account
+</button>
+
+<div id="registerMessage" class="auth-message"></div>
+
+<div class="auth-switch">
+Already have an account?
+<span onclick="showPage('loginPage')">
+Login
+</span>
 </div>
+
+</div>
+</section>
+
 
 <!-- FORGOT PASSWORD -->
-<div id="forgotPage" class="page auth-page">
+<section id="forgotPage" class="auth-page hidden">
+
 <div class="auth-box">
+
+<div class="brand">ZENTRA</div>
+<div class="brand-sub">Marketplace</div>
+
 <h2>Reset Password</h2>
-<p class="sub">Enter your registered email</p>
-<div class="field"><label>Email</label><input id="resetEmail" type="email"></div>
-<button class="btn" onclick="resetPassword()">Send Reset Link</button>
-<span class="back" onclick="showPage('loginPage')">Back to Login</span>
-</div>
-</div>
 
-<!-- BUYER DASHBOARD -->
-<div id="buyerDashboard" class="page dashboard">
-<header class="dash-header">
-<div class="dash-top">
-<img src="20261125_122020.png" class="dash-logo" onerror="this.style.display='none'">
-<div class="dash-actions">
-<button class="header-btn" onclick="openPanel('buyerAccount')">👤</button>
-<button class="header-btn" onclick="openPanel('buyerCart')">🛒</button>
-</div>
-</div>
-<h2 id="buyerGreeting">Welcome!</h2>
-<p>Discover products on ZENTRA</p>
-<div class="shop-search">
-<input id="buyerSearch" placeholder="Search products...">
-<button onclick="searchProducts('buyer')">⌕</button>
-</div>
-</header>
-
-<div class="dash-content">
-<div id="buyerHome" class="panel active">
-<h3 class="section-title">Categories</h3>
-<div class="category-list">
-<div class="category" onclick="filterCategory('Fashion',this,'buyer')"><div class="category-icon">👕</div><p>Fashion</p></div>
-<div class="category" onclick="filterCategory('Electronics',this,'buyer')"><div class="category-icon">📱</div><p>Electronics</p></div>
-<div class="category" onclick="filterCategory('Home',this,'buyer')"><div class="category-icon">🏠</div><p>Home</p></div>
-<div class="category" onclick="filterCategory('Beauty',this,'buyer')"><div class="category-icon">✨</div><p>Beauty</p></div>
-<div class="category" onclick="filterCategory('Food',this,'buyer')"><div class="category-icon">🍎</div><p>Food</p></div>
-<div class="category" onclick="filterCategory('Accessories',this,'buyer')"><div class="category-icon">👜</div><p>Accessories</p></div>
-<div class="category" onclick="filterCategory('Other',this,'buyer')"><div class="category-icon">📦</div><p>Other</p></div>
-<div class="category" onclick="filterCategory('',this,'buyer')"><div class="category-icon">🌐</div><p>All</p></div>
-</div>
-<div class="banner"><h3>Welcome to ZENTRA</h3><p>Explore products from different sellers and discover what you need.</p></div>
-<h3 class="section-title">Marketplace Products</h3>
-<div id="buyerProductGrid" class="product-grid"></div>
-</div>
-
-<div id="buyerWishlist" class="panel">
-<h3 class="section-title">My Wishlist ❤️</h3>
-<div id="wishlistContent"></div>
-</div>
-
-<div id="buyerCart" class="panel">
-<h3 class="section-title">My Cart 🛒</h3>
-<div id="cartContent"></div>
-</div>
-
-<div id="buyerOrders" class="panel">
-<h3 class="section-title">My Orders</h3>
-<div id="buyerOrdersContent" class="panel-empty">Your orders will appear here.</div>
-</div>
-
-<div id="buyerAccount" class="panel">
-<h3 class="section-title">My Account</h3>
-<div class="account-box" id="buyerAccountContent"></div>
-<div class="dash-section" style="margin-top:12px">
-<h3>ZENTRA Customer Care</h3>
-<div id="buyerCustomerCare">Loading contact details...</div>
-</div>
-<button class="btn logout" onclick="logoutUser()">Logout</button>
-</div>
-</div>
-
-<nav class="bottom-nav">
-<button class="bottom-item active" onclick="openPanel('buyerHome',this,'buyer')"><span class="nav-icon">🏠</span>Home</button>
-<button class="bottom-item" onclick="openPanel('buyerWishlist',this,'buyer')"><span class="nav-icon">❤️</span>Wishlist</button>
-<button class="bottom-item" onclick="openPanel('buyerCart',this,'buyer')"><span class="nav-icon">🛒</span>Cart</button>
-<button class="bottom-item" onclick="openPanel('buyerOrders',this,'buyer')"><span class="nav-icon">📦</span>Orders</button>
-<button class="bottom-item" onclick="openPanel('buyerAccount',this,'buyer')"><span class="nav-icon">👤</span>Account</button>
-</nav>
-</div>
-
-<!-- SELLER DASHBOARD -->
-<div id="sellerDashboard" class="page dashboard">
-<header class="dash-header">
-<div class="dash-top">
-<img src="20261125_122020.png" class="dash-logo" onerror="this.style.display='none'">
-<div class="dash-actions">
-<button class="header-btn" onclick="openPanel('sellerAccount')">👤</button>
-<button class="header-btn" onclick="openPanel('sellerAddProduct')">＋</button>
-</div>
-</div>
-<h2 id="sellerGreeting">Seller Dashboard</h2>
-<p>Manage your products and explore the marketplace</p>
-<div class="shop-search">
-<input id="sellerSearch" placeholder="Search marketplace products...">
-<button onclick="searchProducts('seller')">⌕</button>
-</div>
-</header>
-
-<div class="dash-content">
-<div id="sellerHome" class="panel active">
-<div class="stats-grid">
-<div class="stat"><strong id="sellerTotalProducts">0</strong><span>My Products</span></div>
-<div class="stat"><strong id="sellerApprovedProducts">0</strong><span>Approved</span></div>
-<div class="stat"><strong id="sellerPendingProducts">0</strong><span>Pending</span></div>
-<div class="stat"><strong id="sellerSoldProducts">0</strong><span>Items Sold</span></div>
-</div>
-<div style="margin-top:18px">
-<h3 class="section-title">Marketplace Products</h3>
-<div id="sellerProductGrid" class="product-grid"></div>
-</div>
-</div>
-
-<div id="sellerAddProduct" class="panel">
-<h3 class="section-title">＋ Add Product</h3>
-<div class="dash-section">
-<form id="productUploadForm">
-<div class="field"><label>Product Image</label><input type="file" id="productImage" accept="image/*" required></div>
-<div class="field"><label>Product Name</label><input id="productName" required></div>
-<div class="field"><label>Price (₦)</label><input id="productPrice" type="number" min="1" required></div>
 <div class="field">
-<label>Category</label>
-<select id="productCategory" required>
-<option value="">Select Category</option>
-<option>Fashion</option><option>Electronics</option><option>Home</option>
-<option>Beauty</option><option>Food</option><option>Accessories</option><option>Other</option>
-</select>
-</div>
-<div class="field"><label>Description</label><textarea id="productDescription" required></textarea></div>
-<div class="field"><label>Total Stock</label><input id="productQuantity" type="number" min="1" required></div>
-<div class="field"><label>Delivery Fee (₦)</label><input id="deliveryFee" type="number" min="0" value="0" required></div>
-<p class="form-note">Set the delivery fee for this product. The buyer will see the total before checkout.</p>
-<button type="submit" class="btn" id="uploadProductBtn">Upload Product</button>
-</form>
-</div>
+<label>Email Address</label>
+<input type="email" id="resetEmail"
+placeholder="Enter your email">
 </div>
 
-<div id="sellerMyProducts" class="panel">
-<h3 class="section-title">My Products</h3>
-<div id="sellerMyProductsList"></div>
+<button class="primary-btn"
+onclick="resetPassword()">
+Send Reset Link
+</button>
+
+<div id="resetMessage" class="auth-message"></div>
+
+<div class="auth-switch">
+<span onclick="showPage('loginPage')">
+Back to Login
+</span>
 </div>
 
-<div id="sellerOrders" class="panel">
-<h3 class="section-title">Orders</h3>
-<div id="sellerOrdersContent" class="panel-empty">Your orders will appear here.</div>
 </div>
+</section>
 
-<div id="sellerAccount" class="panel">
-<h3 class="section-title">My Account</h3>
-<div class="account-box" id="sellerAccountContent"></div>
-<div class="dash-section" style="margin-top:12px">
-<h3>ZENTRA Customer Care</h3>
-<div id="sellerCustomerCare">Loading contact details...</div>
-</div>
-<button class="btn logout" onclick="logoutUser()">Logout</button>
-</div>
-</div>
-
-<nav class="bottom-nav">
-<button class="bottom-item active" onclick="openPanel('sellerHome',this,'seller')"><span class="nav-icon">🏠</span>Home</button>
-<button class="bottom-item" onclick="openPanel('sellerMyProducts',this,'seller')"><span class="nav-icon">📦</span>My Products</button>
-<button class="bottom-item" onclick="openPanel('sellerAddProduct',this,'seller')"><span class="nav-icon">＋</span>Add Product</button>
-<button class="bottom-item" onclick="openPanel('sellerOrders',this,'seller')"><span class="nav-icon">🧾</span>Orders</button>
-<button class="bottom-item" onclick="openPanel('sellerAccount',this,'seller')"><span class="nav-icon">👤</span>Account</button>
-</nav>
-</div>
-
-<!-- ADMIN DASHBOARD -->
-<div id="adminDashboard" class="page dashboard">
-<header class="dash-header">
-<div class="dash-top">
-<img src="20261125_122020.png" class="dash-logo" onerror="this.style.display='none'">
-<button class="header-btn" onclick="logoutUser()">Logout</button>
-</div>
-<h2>Admin Dashboard</h2>
-<p>ZENTRA Marketplace Management</p>
-</header>
-<div class="dash-content">
-<div class="dash-section">
-<h3>ZENTRA Customer Care Settings</h3>
-<div class="field"><label>Customer Care Email</label><input id="adminCareEmail" type="email" placeholder="support@example.com"></div>
-<div class="field"><label>Customer Care Phone</label><input id="adminCarePhone" type="tel" placeholder="Phone number"></div>
-<button class="btn" onclick="saveCustomerCare()">Save Customer Care</button>
-</div>
-<div class="dash-section">
-<h3>Product Approvals</h3>
-<div id="adminProductsList">Loading products...</div>
-</div>
-</div>
-</div>
-
-<!-- PRODUCT DETAILS / CHECKOUT MODAL -->
-<div id="productModal" class="page auth-page" style="position:fixed;inset:0;background:#0008;z-index:300;overflow:auto">
-<div class="auth-box" style="margin:auto">
-<h2 id="modalProductName">Product Details</h2>
-<div id="modalProductContent"></div>
-<button class="btn btn2" onclick="closeProductModal()" style="margin-top:12px">Close</button>
-</div>
-</div>
-
-<div id="messageBox" class="hidden"></div>
-
-<script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
-
-import {
- getFirestore,
- collection,
- doc,
- setDoc,
- getDoc,
- addDoc,
- getDocs,
- query,
- where,
- updateDoc,
- deleteDoc,
- runTransaction,
- serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
-
-import {
- getFirestore,collection,doc,setDoc,getDoc,
- addDoc,getDocs,query,where,updateDoc,
- runTransaction,serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
-
-import {
- getStorage,ref,uploadBytes,getDownloadURL
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-storage.js";
-
-const firebaseConfig={
-apiKey:"AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",
-authDomain:"zenta-d60e5.firebaseapp.com",
-projectId:"zenta-d60e5",
-storageBucket:"zenta-d60e5.firebasestorage.app",
-messagingSenderId:"449281141527",
-appId:"1:449281141527:web:9e20e1e406508d8d91e552"
-};
-
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app);
-const db=getFirestore(app);
-const storage=getStorage(app);
-
-const ADMIN_UID="9amLADJ1QRVr0Vm6wjN0KCAEvu83";
-const ADMIN_EMAIL="adamsmith14141@gmail.com";
-const ADMIN_USERNAME="ZENTRA@12";
-
-let currentUser=null;
-let currentProfile=null;
-let products=[];
-let selectedCategory="";
-let searchText="";
-let wishlist=JSON.parse(localStorage.getItem("zentraWishlist")||"[]");
-let cart=JSON.parse(localStorage.getItem("zentraCart")||"[]");
-let customerCare={email:"",phone:""};
-
-window.showPage=function(id){
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
- const el=document.getElementById(id);
- if(el)el.classList.add("active");
-};
-
-window.toggleBusinessFields=function(){
- const role=document.getElementById("regRole").value;
- document.getElementById("businessFields").classList.toggle("hidden",role!=="seller");
-};
-
-function message(text){
- alert(text);
-}
-
-function price(value){
- return "₦"+Number(value||0).toLocaleString("en-NG");
-}
-
-function greeting(){
- const h=new Date().getHours();
- return h<12?"Good morning":h<16?"Good afternoon":"Good evening";
-}
-
-function escapeHtml(value){
- return String(value??"").replace(/[&<>"']/g,c=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
-}
-
-/* REGISTER */
-
-window.registerUser=async function(){
- const name=document.getElementById("regName").value.trim();
- const email=document.getElementById("regEmail").value.trim();
- const phone=document.getElementById("regPhone").value.trim();
- const role=document.getElementById("regRole").value;
- const pass=document.getElementById("regPassword").value;
- const confirm=document.getElementById("regConfirm").value;
-
- if(!name||!email||!phone||!pass||!confirm)
-  return message("Please complete all fields.");
-
- if(pass!==confirm)
-  return message("Passwords do not match.");
-
- if(pass.length<6)
-  return message("Password must be at least 6 characters.");
-
- if(role==="seller"&&(
-  !document.getElementById("businessName").value.trim()||
-  !document.getElementById("businessAddress").value.trim()
- ))
-  return message("Please complete business information.");
-
- const btn=document.getElementById("registerBtn");
- btn.disabled=true;
- btn.textContent="Creating Account...";
-
- try{
-  const result=await createUserWithEmailAndPassword(auth,email,pass);
-
-  const profile={
-   uid:result.user.uid,
-   name,
-   email,
-   phone,
-   role,
-   businessName:role==="seller"?document.getElementById("businessName").value.trim():"",
-   businessAddress:role==="seller"?document.getElementById("businessAddress").value.trim():"",
-   createdAt:serverTimestamp()
-  };
-
-  await setDoc(doc(db,"users",result.user.uid),profile);
-  message("Account created successfully.");
- }catch(e){
-  message(e.message);
- }finally{
-  btn.disabled=false;
-  btn.textContent="Create Account";
- }
-};
-
-/* LOGIN */
-
-window.loginUser=async function(){
- let email=document.getElementById("loginEmail").value.trim();
- const pass=document.getElementById("loginPassword").value;
-
- if(!email||!pass)
-  return message("Enter your login details.");
-
- if(email.toUpperCase()===ADMIN_USERNAME){
-  email=ADMIN_EMAIL;
- }
-
- const btn=document.getElementById("loginBtn");
- btn.disabled=true;
- btn.textContent="Logging in...";
-
- try{
-  await signInWithEmailAndPassword(auth,email,pass);
- }catch(e){
-  message(e.message);
- }finally{
-  btn.disabled=false;
-  btn.textContent="Login";
- }
-};
-
-/* FORGOT PASSWORD */
-
-window.resetPassword=async function(){
- const email=document.getElementById("resetEmail").value.trim();
- if(!email)return message("Enter your email.");
-
- try{
-  await sendPasswordResetEmail(auth,email);
-  message("Password reset link sent to your email.");
-  showPage("loginPage");
- }catch(e){
-  message(e.message);
- }
-};
-
-/* LOGOUT */
-
-window.logoutUser=async function(){
- try{
-  await signOut(auth);
-  currentUser=null;
-  currentProfile=null;
-  showPage("welcome");
- }catch(e){
-  message(e.message);
- }
-};
-
-/* LOAD PROFILE AND OPEN CORRECT DASHBOARD */
-
-async function loadProfile(user){
- const snap=await getDoc(doc(db,"users",user.uid));
-
- if(!snap.exists()&&user.uid!==ADMIN_UID){
-  await signOut(auth);
-  return message("Your account profile was not found.");
- }
-
- currentUser=user;
-
- if(user.uid===ADMIN_UID){
-  currentProfile=snap.exists()?snap.data():{
-   name:"ZENTRA Admin",
-   email:ADMIN_EMAIL,
-   role:"admin"
-  };
-
-  currentProfile.role="admin";
-  showPage("adminDashboard");
-  await loadCustomerCare();
-  await loadAdminProducts();
-  return;
- }
-
- currentProfile=snap.data();
-
- if(currentProfile.role==="seller"){
-  document.getElementById("sellerGreeting").textContent=
-   greeting()+", "+currentProfile.name;
-
-  document.getElementById("sellerAccountContent").innerHTML=`
-   <p><b>Name:</b> ${escapeHtml(currentProfile.name)}</p>
-   <p><b>Email:</b> ${escapeHtml(currentProfile.email)}</p>
-   <p><b>Phone:</b> ${escapeHtml(currentProfile.phone||"")}</p>
-   <p><b>Account Type:</b> Seller</p>`;
-
-  showPage("sellerDashboard");
-  await loadProducts();
-  await loadSellerProducts();
-  await loadCustomerCare();
- }else{
-  document.getElementById("buyerGreeting").textContent=
-   greeting()+", "+currentProfile.name;
-
-  document.getElementById("buyerAccountContent").innerHTML=`
-   <p><b>Name:</b> ${escapeHtml(currentProfile.name)}</p>
-   <p><b>Email:</b> ${escapeHtml(currentProfile.email)}</p>
-   <p><b>Phone:</b> ${escapeHtml(currentProfile.phone||"")}</p>
-   <p><b>Account Type:</b> Buyer</p>`;
-
-  showPage("buyerDashboard");
-  await loadProducts();
-  await loadCustomerCare();
- }
-}
-
-/* CHECK LOGIN STATE */
-
-onAuthStateChanged(auth,async user=>{
- currentUser=user;
-
- if(user){
-  try{
-   await loadProfile(user);
-  }catch(e){
-   message(e.message);
-  }
- }else{
-  currentProfile=null;
-  showPage("welcome");
- }
-});
-
-/* PRODUCT UPLOAD */
-
-document.getElementById("productUploadForm").addEventListener("submit",async e=>{
- e.preventDefault();
-
- if(!currentUser||currentProfile?.role!=="seller")
-  return message("Seller login required.");
-
- const file=document.getElementById("productImage").files[0];
- if(!file)return message("Select product image.");
-
- if(file.size>5*1024*1024)
-  return message("Image must be under 5 MB.");
-
- const name=document.getElementById("productName").value.trim();
- const productPrice=Number(document.getElementById("productPrice").value);
- const quantity=Number(document.getElementById("productQuantity").value);
- const deliveryFee=Number(document.getElementById("deliveryFee").value);
-
- if(!name||productPrice<1||quantity<1||deliveryFee<0)
-  return message("Please check product details.");
-
- const btn=document.getElementById("uploadProductBtn");
- btn.disabled=true;
- btn.textContent="Uploading...";
-
- try{
-  const imageRef=ref(
-   storage,
-   "products/"+currentUser.uid+"/"+Date.now()+"_"+file.name
-  );
-
-  await uploadBytes(imageRef,file);
-  const imageUrl=await getDownloadURL(imageRef);
-
-  await addDoc(collection(db,"products"),{
-   sellerUid:currentUser.uid,
-   sellerName:currentProfile.name,
-   businessName:currentProfile.businessName||"",
-   name,
-   price:productPrice,
-   category:document.getElementById("productCategory").value,
-   description:document.getElementById("productDescription").value.trim(),
-   imageUrl,
-   totalStock:quantity,
-   stock:quantity,
-   soldCount:0,
-   deliveryFee,
-   status:"pending",
-   createdAt:serverTimestamp()
-  });
-
-  message("Product uploaded. Waiting for admin approval.");
-  e.target.reset();
-  document.getElementById("deliveryFee").value="0";
-  await loadProducts();
-  await loadSellerProducts();
-  openPanel("sellerMyProducts",null,"seller");
-
- }catch(err){
-  message("Upload failed: "+err.message);
- }finally{
-  btn.disabled=false;
-  btn.textContent="Upload Product";
- }
-});
-
-/* SELLER'S OWN PRODUCTS */
-
-async function loadSellerProducts(){
- if(!currentUser)return;
-
- const q=query(
-  collection(db,"products"),
-  where("sellerUid","==",currentUser.uid)
- );
-
- const snap=await getDocs(q);
- const list=snap.docs.map(d=>({id:d.id,...d.data()}));
-
- const approved=list.filter(p=>p.status==="approved");
- const pending=list.filter(p=>p.status==="pending");
- const sold=list.reduce((sum,p)=>sum+Number(p.soldCount||0),0);
-
- document.getElementById("sellerTotalProducts").textContent=list.length;
- document.getElementById("sellerApprovedProducts").textContent=approved.length;
- document.getElementById("sellerPendingProducts").textContent=pending.length;
- document.getElementById("sellerSoldProducts").textContent=sold;
-
- const area=document.getElementById("sellerMyProductsList");
- area.innerHTML="";
-
- if(!list.length){
-  area.innerHTML='<div class="panel-empty">You have not uploaded any products yet.</div>';
-  return;
- }
-
- list.forEach(p=>{
-  const div=document.createElement("div");
-  div.className="item-row";
-
-  div.innerHTML=`
-   <b>${escapeHtml(p.name)}</b>
-   <p>Price: ${price(p.price)}</p>
-   <p>Stock remaining: ${Number(p.stock||0)}</p>
-   <p>Sold: ${Number(p.soldCount||0)} / ${Number(p.totalStock||0)}</p>
-   <p>Status: <span class="status">${escapeHtml(p.status||"pending")}</span></p>
-   <button class="small-btn"
-    ${p.status!=="approved"||Number(p.stock)<=0?"disabled":""}
-    data-sell="${p.id}">Mark 1 Sold</button>
-  `;
-
-  area.appendChild(div);
-  div.querySelector("[data-sell]").addEventListener("click",()=>{
-   markSold(p.id);
-  });
- });
-}
-
-/* MARK ONE ITEM SOLD */
-
-async function markSold(id){
- if(!currentUser||currentProfile?.role!=="seller")
-  return message("Only the seller can update sales.");
-
- try{
-  await runTransaction(db,async tx=>{
-   const productRef=doc(db,"products",id);
-   const snap=await tx.get(productRef);
-
-   if(!snap.exists())throw new Error("Product not found.");
-
-   const p=snap.data();
-
-   if(p.sellerUid!==currentUser.uid)
-    throw new Error("You cannot update another seller's product.");
-
-   if(p.status!=="approved")
-    throw new Error("Product is not approved.");
-
-   if(Number(p.stock)<=0)
-    throw new Error("Sold out.");
-
-   tx.update(productRef,{
-    stock:Number(p.stock)-1,
-    soldCount:Number(p.soldCount||0)+1
-   });
-  });
-
-  message("Sale recorded successfully.");
-  await loadProducts();
-  await loadSellerProducts();
-
- }catch(e){
-  message(e.message);
- }
-}
-
-/* MARKETPLACE PRODUCTS - APPROVED PRODUCTS ONLY */
-
-async function loadProducts(){
- const q=query(
-  collection(db,"products"),
-  where("status","==","approved")
- );
-
- const snap=await getDocs(q);
-
- products=snap.docs
-  .map(d=>({id:d.id,...d.data()}))
-  .filter(p=>Number(p.stock)>0);
-
- renderProducts("buyer");
- renderProducts("seller");
- } 
-
- // ===============================
-// PRODUCT DISPLAY
-// ===============================
-
-function openPanel(panelId,button,role){
- const dashboard=document.getElementById(role+"Dashboard");
- if(!dashboard)return;
-
- dashboard.querySelectorAll(".panel").forEach(p=>{
-  p.classList.remove("active");
- });
-
- const panel=document.getElementById(panelId);
- if(panel)panel.classList.add("active");
-
- dashboard.querySelectorAll(".bottom-item").forEach(b=>{
-  b.classList.remove("active");
- });
-
- if(button)button.classList.add("active");
-
- if(panelId.toLowerCase().includes("wishlist"))renderWishlist();
- if(panelId.toLowerCase().includes("cart"))renderCart();
- if(panelId.toLowerCase().includes("order"))loadOrders(role);
- if(panelId.toLowerCase().includes("product"))loadSellerProducts();
- if(panelId.toLowerCase().includes("care"))loadCustomerCare();
-}
-
-function filterCategory(category,element,role){
- selectedCategory=category;
-
- document.querySelectorAll(".category-btn").forEach(b=>{
-  b.classList.remove("active");
- });
-
- if(element)element.classList.add("active");
-
- renderProducts(role);
-}
-
-function searchProducts(role){
- const input=document.getElementById(role+"Search");
- searchText=input?input.value.toLowerCase().trim():"";
- renderProducts(role);
-}
-
-function renderProducts(role){
- const container=document.getElementById(role+"Products");
- if(!container)return;
-
- let list=products.filter(p=>{
-  const categoryMatch=
-   selectedCategory==="All" ||
-   p.category===selectedCategory;
-
-  const searchMatch=
-   !searchText ||
-   (p.name||"").toLowerCase().includes(searchText) ||
-   (p.description||"").toLowerCase().includes(searchText);
-
-  return categoryMatch && searchMatch;
- });
-
- if(!list.length){
-  container.innerHTML="<p>No products found.</p>";
-  return;
- }
-
- container.innerHTML=list.map(p=>{
-  const wished=wishlist.includes(p.id);
-
-  return `
-   <div class="product-card">
-    <img src="${escapeHTML(p.imageUrl||"")}" alt="Product">
-    <h3>${escapeHTML(p.name||"Product")}</h3>
-    <p>₦${Number(p.price||0).toLocaleString()}</p>
-    <p>Stock: ${Number(p.stock||0)}</p>
-    <p>${escapeHTML(p.category||"")}</p>
-
-    <button onclick="openProduct('${p.id}')">
-     View Details
-    </button>
-
-    <button onclick="toggleWishlist('${p.id}')">
-     ${wished?"♥ Saved":"♡ Wishlist"}
-    </button>
-
-    ${role==="buyer"?`
-     <button onclick="addToCart('${p.id}')">
-      Add to Cart
-     </button>
-    `:""}
-   </div>
-  `;
- }).join("");
-}
-
-function escapeHTML(value){
- return String(value??"").replace(/[&<>"']/g,c=>({
-  "&":"&amp;",
-  "<":"&lt;",
-  ">":"&gt;",
-  '"':"&quot;",
-  "'":"&#39;"
- }[c]));
-}
-
-// ===============================
-// PRODUCT DETAILS
-// ===============================
-
-function openProduct(id){
- const p=products.find(x=>x.id===id);
- if(!p)return;
-
- const modal=document.getElementById("productModal");
- const content=modal.querySelector(".modal-content")||modal;
-
- content.innerHTML=`
-  <button onclick="closeProduct()" class="close-btn">✕</button>
-  <img src="${escapeHTML(p.imageUrl||"")}" style="width:100%;max-height:250px;object-fit:contain">
-  <h2>${escapeHTML(p.name)}</h2>
-  <h3>₦${Number(p.price||0).toLocaleString()}</h3>
-  <p>${escapeHTML(p.description||"No description")}</p>
-  <p>Available stock: ${Number(p.stock||0)}</p>
-  <p>Delivery fee: ₦${Number(p.deliveryFee||0).toLocaleString()}</p>
-  ${currentProfile?.role==="buyer"?`
-   <button onclick="addToCart('${p.id}');closeProduct()">
-    Add to Cart
-   </button>
-  `:""}
- `;
-
- modal.classList.add("active");
-}
-
-function closeProduct(){
- document.getElementById("productModal").classList.remove("active");
-}
-
-// ===============================
-// WISHLIST
-// ===============================
-
-function toggleWishlist(id){
- if(wishlist.includes(id)){
-  wishlist=wishlist.filter(x=>x!==id);
- }else{
-  wishlist.push(id);
- }
-
- localStorage.setItem("zentraWishlist",JSON.stringify(wishlist));
-
- renderProducts("buyer");
- renderProducts("seller");
- renderWishlist();
-}
-
-function renderWishlist(){
- const box=document.getElementById("wishlistProducts");
- if(!box)return;
-
- const items=products.filter(p=>wishlist.includes(p.id));
-
- box.innerHTML=items.length?items.map(p=>`
-  <div class="product-card">
-   <img src="${escapeHTML(p.imageUrl||"")}" alt="Product">
-   <h3>${escapeHTML(p.name)}</h3>
-   <p>₦${Number(p.price||0).toLocaleString()}</p>
-   <button onclick="openProduct('${p.id}')">View Details</button>
-   <button onclick="toggleWishlist('${p.id}')">Remove</button>
-  </div>
- `).join(""):"<p>Your wishlist is empty.</p>";
-}
-
-// ===============================
-// SHOPPING CART
-// ===============================
-
-let cart=JSON.parse(localStorage.getItem("zentraCart")||"[]");
-
-function saveCart(){
- localStorage.setItem("zentraCart",JSON.stringify(cart));
- renderCart();
-}
-
-function addToCart(id){
- const p=products.find(x=>x.id===id);
- if(!p||Number(p.stock)<=0){
-  alert("This product is out of stock.");
-  return;
- }
-
- const existing=cart.find(x=>x.id===id);
-
- if(existing){
-  if(existing.qty>=Number(p.stock)){
-   alert("Maximum available stock reached.");
-   return;
-  }
-  existing.qty++;
- }else{
-  cart.push({id:id,qty:1});
- }
-
- saveCart();
- alert("Product added to cart.");
-}
-
-function changeCartQty(id,change){
- const item=cart.find(x=>x.id===id);
- const p=products.find(x=>x.id===id);
- if(!item||!p)return;
-
- item.qty+=change;
-
- if(item.qty<=0){
-  cart=cart.filter(x=>x.id!==id);
- }else if(item.qty>Number(p.stock)){
-  item.qty=Number(p.stock);
-  alert("Available stock limit reached.");
- }
-
- saveCart();
-}
-
-function removeCartItem(id){
- cart=cart.filter(x=>x.id!==id);
- saveCart();
-}
-
-function renderCart(){
- const box=document.getElementById("cartProducts");
- if(!box)return;
-
- let total=0;
-
- const items=cart.map(item=>{
-  const p=products.find(x=>x.id===item.id);
-  if(!p)return "";
-
-  const price=Number(p.price||0);
-  const fee=Number(p.deliveryFee||0);
-  const lineTotal=(price*item.qty)+fee;
-
-  total+=lineTotal;
-
-  return `
-   <div class="product-card">
-    <h3>${escapeHTML(p.name)}</h3>
-    <p>Price: ₦${price.toLocaleString()}</p>
-    <p>Quantity: ${item.qty}</p>
-    <p>Delivery fee: ₦${fee.toLocaleString()}</p>
-    <p>Subtotal: ₦${lineTotal.toLocaleString()}</p>
-
-    <button onclick="changeCartQty('${p.id}',-1)">−</button>
-    <button onclick="changeCartQty('${p.id}',1)">+</button>
-    <button onclick="removeCartItem('${p.id}')">Remove</button>
-   </div>
-  `;
- }).join("");
-
- box.innerHTML=items||"<p>Your cart is empty.</p>";
-
- const totalBox=document.getElementById("cartTotal");
- if(totalBox)totalBox.textContent="Total: ₦"+total.toLocaleString();
-
- const checkout=document.getElementById("checkoutButton");
- if(checkout)checkout.disabled=cart.length===0;
-}
-
-// ===============================
-// CHECKOUT AND DELIVERY
-// ===============================
-
-function showCheckout(){
- if(!cart.length){
-  alert("Your cart is empty.");
-  return;
- }
-
- const box=document.getElementById("checkoutArea");
- if(!box)return;
-
- let total=0;
-
- cart.forEach(item=>{
-  const p=products.find(x=>x.id===item.id);
-  if(p)total+=(Number(p.price||0)*item.qty)+Number(p.deliveryFee||0);
- });
-
- box.innerHTML=`
-  <h2>Checkout</h2>
-  <p>Choose your delivery option:</p>
-
-  <label>Delivery option</label>
-  <select id="deliveryMethod" onchange="deliveryChanged()">
-   <option value="">Select option</option>
-   <option value="delivery">With Delivery</option>
-   <option value="pickup">Pickup</option>
-  </select>
-
-  <div id="deliveryLocation"></div>
-
-  <h3 id="checkoutTotal">Total: ₦${total.toLocaleString()}</h3>
-
-  <button onclick="placeOrders()">Place Order</button>
- `;
-
- box.scrollIntoView({behavior:"smooth"});
-}
-
-function deliveryChanged(){
- const method=document.getElementById("deliveryMethod").value;
- const area=document.getElementById("deliveryLocation");
- if(!area)return;
-
- if(method==="delivery"){
-  area.innerHTML=`
-   <label>Delivery area</label>
-   <select id="deliveryArea" onchange="deliveryAreaChanged()">
-    <option value="">Select area</option>
-    <option value="Hadejia">Hadejia</option>
-    <option value="Outside Hadejia">Outside Hadejia</option>
-   </select>
-   <div id="deliveryAddressBox"></div>
-  `;
- }else if(method==="pickup"){
-  area.innerHTML="<p>You will arrange collection with the seller.</p>";
- }else{
-  area.innerHTML="";
- }
-}
-
-function deliveryAreaChanged(){
- const area=document.getElementById("deliveryArea").value;
- const box=document.getElementById("deliveryAddressBox");
- if(!box)return;
-
- if(area==="Hadejia"){
-  box.innerHTML=`
-   <label>Describe your location in Hadejia</label>
-   <textarea id="deliveryAddress" placeholder="Enter your location"></textarea>
-  `;
- }else if(area==="Outside Hadejia"){
-  box.innerHTML=`
-   <label>Select Motor Park</label>
-   <select id="motorPark">
-    <option value="">Select motor park</option>
-    <option value="Dutse Motor Park">Dutse Motor Park</option>
-    <option value="Ringim Motor Park">Ringim Motor Park</option>
-    <option value="Malam Madori Motor Park">Malam Madori Motor Park</option>
-   </select>
-  `;
- }else{
-  box.innerHTML="";
- }
-}
-
-async function placeOrders(){
- const method=document.getElementById("deliveryMethod")?.value;
-
- if(!method){
-  alert("Please select a delivery option.");
-  return;
- }
-
- let deliveryArea="";
- let deliveryAddress="";
- let motorPark="";
-
- if(method==="delivery"){
-  deliveryArea=document.getElementById("deliveryArea")?.value;
-
-  if(!deliveryArea){
-   alert("Please select your delivery area.");
-   return;
-  }
-
-  if(deliveryArea==="Hadejia"){
-   deliveryAddress=document.getElementById("deliveryAddress")?.value.trim();
-
-   if(!deliveryAddress){
-    alert("Please describe your location.");
-    return;
-   }
-  }
-
-  if(deliveryArea==="Outside Hadejia"){
-   motorPark=document.getElementById("motorPark")?.value;
-
-   if(!motorPark){
-    alert("Please select a motor park.");
-    return;
-   }
-  }
- }
-
- try{
-  for(const item of cart){
-   const p=products.find(x=>x.id===item.id);
-   if(!p)continue;
-
-   if(Number(p.stock)<item.qty){
-    throw new Error("Not enough stock for "+p.name);
-   }
-
-   const deliveryFee=method==="delivery"?Number(p.deliveryFee||0):0;
-
-   await addDoc(collection(db,"orders"),{
-    buyerUid:currentUser.uid,
-    sellerUid:p.sellerUid,
-    productId:p.id,
-    productName:p.name,
-    price:Number(p.price),
-    quantity:item.qty,
-    deliveryFee:deliveryFee,
-    total:(Number(p.price)*item.qty)+deliveryFee,
-    deliveryMethod:method,
-    deliveryArea:deliveryArea,
-    deliveryAddress:deliveryAddress,
-    motorPark:motorPark,
-    status:"pending",
-    createdAt:serverTimestamp()
-   });
-  }
-
-  cart=[];
-  saveCart();
-
-  const box=document.getElementById("checkoutArea");
-  if(box)box.innerHTML="<h3>Order submitted successfully. Status: Pending.</h3><p>Payment is not processed by this website yet. Contact the seller to arrange payment.</p>";
-
-  await loadOrders("buyer");
-
- }catch(error){
-  console.error(error);
-  alert("Order failed: "+error.message);
- }
-}
-
-// ===============================
-// CUSTOMER CARE
-// ===============================
-
-async function loadCustomerCare(){
- try{
-  const snap=await getDoc(doc(db,"settings","customerCare"));
-
-  if(snap.exists()){
-   customerCare=snap.data();
-  }else{
-   customerCare={email:"",phone:""};
-  }
-
-  const email=document.getElementById("customerCareEmail");
-  const phone=document.getElementById("customerCarePhone");
-
-  if(email)email.value=customerCare.email||"";
-  if(phone)phone.value=customerCare.phone||"";
-
-  document.querySelectorAll(".customer-care-display").forEach(el=>{
-   el.innerHTML=`
-    <p>Email: ${escapeHTML(customerCare.email||"Not available")}</p>
-    <p>Phone: ${escapeHTML(customerCare.phone||"Not available")}</p>
-   `;
-  });
-
- }catch(error){
-  console.error("Customer Care:",error);
- }
-}
-
-async function saveCustomerCare(){
- const email=document.getElementById("customerCareEmail")?.value.trim()||"";
- const phone=document.getElementById("customerCarePhone")?.value.trim()||"";
-
- try{
-  await setDoc(doc(db,"settings","customerCare"),{
-   email:email,
-   phone:phone,
-   updatedAt:serverTimestamp()
-  });
-
-  customerCare={email,phone};
-  alert("Customer Care details saved.");
-  await loadCustomerCare();
-
- }catch(error){
-  console.error(error);
-  alert("Could not save Customer Care details: "+error.message);
- }
-}
-
-// ===============================
-// ADMIN PRODUCT APPROVALS
-// ===============================
-
-async function loadAdminProducts(){
- const box=document.getElementById("adminProducts");
- if(!box)return;
-
- try{
-  const snap=await getDocs(collection(db,"products"));
-
-  const list=snap.docs.map(d=>({id:d.id,...d.data()}));
-
-  const pending=list.filter(p=>p.status==="pending");
-
-  if(!pending.length){
-   box.innerHTML="<p>No products waiting for approval.</p>";
-   return;
-  }
-
-  box.innerHTML=pending.map(p=>`
-   <div class="product-card">
-    <img src="${escapeHTML(p.imageUrl||"")}" alt="Product">
-    <h3>${escapeHTML(p.name)}</h3>
-    <p>Price: ₦${Number(p.price||0).toLocaleString()}</p>
-    <p>Seller: ${escapeHTML(p.sellerUid||"")}</p>
-    <button onclick="approveProduct('${p.id}')">Approve</button>
-    <button onclick="deleteProduct('${p.id}')">Delete</button>
-   </div>
-  `).join("");
-
- }catch(error){
-  console.error(error);
-  box.innerHTML="<p>Could not load products.</p>";
- }
-}
-
-async function approveProduct(id){
- try{
-  await updateDoc(doc(db,"products",id),{
-   status:"approved"
-  });
-
-  alert("Product approved.");
-  await loadAdminProducts();
-  await loadProducts();
-
- }catch(error){
-  alert("Approval failed: "+error.message);
- }
-}
-
-async function deleteProduct(id){
- if(!confirm("Delete this product?"))return;
-
- try{
-  await deleteDoc(doc(db,"products",id));
-  alert("Product deleted.");
-  await loadAdminProducts();
-  await loadProducts();
-
- }catch(error){
-  alert("Delete failed: "+error.message);
- }
-}
-
-// ===============================
-// ORDERS
-// ===============================
-
-async function loadOrders(role){
- const box=document.getElementById(role+"Orders");
- if(!box)return;
-
- try{
-  const field=role==="seller"?"sellerUid":"buyerUid";
-
-  const q=query(
-   collection(db,"orders"),
-   where(field,"==",currentUser.uid)
-  );
-
-  const snap=await getDocs(q);
-
-  if(snap.empty){
-   box.innerHTML="<p>No orders yet.</p>";
-   return;
-  }
-
-  box.innerHTML=snap.docs.map(d=>{
-   const o=d.data();
-
-   return `
-    <div class="product-card">
-     <h3>${escapeHTML(o.productName)}</h3>
-     <p>Quantity: ${Number(o.quantity||0)}</p>
-     <p>Total: ₦${Number(o.total||0).toLocaleString()}</p>
-     <p>Delivery: ${escapeHTML(o.deliveryMethod||"")}</p>
-     <p>Location: ${escapeHTML(o.deliveryAddress||o.motorPark||"Pickup")}</p>
-     <p>Status: ${escapeHTML(o.status||"pending")}</p>
-     ${role==="seller"?`
-      <button onclick="updateOrderStatus('${d.id}')">
-       Mark as Processing
-      </button>
-     `:""}
-    </div>
-   `;
-  }).join("");
-
- }catch(error){
-  console.error(error);
-  box.innerHTML="<p>Could not load orders.</p>";
- }
-}
-
-async function updateOrderStatus(id){
- try{
-  await updateDoc(doc(db,"orders",id),{
-   status:"processing"
-  });
-
-  alert("Order status updated.");
-  await loadOrders("seller");
-
- }catch(error){
-  alert("Could not update order: "+error.message);
- }
-}
-
-// ===============================
-// STARTUP
-// ===============================
-
-document.addEventListener("DOMContentLoaded",()=>{
- renderCart();
-});
-
-</script>
-</body>
-</html>
+ </div>
