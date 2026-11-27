@@ -4,131 +4,722 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZENTRA</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 body{background:#f4f8fc;color:#17324d}
-.hidden{display:none!important}.page{display:none;min-height:100vh}.page.active{display:flex}
-#welcome{position:relative;overflow:hidden;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px;isolation:isolate;background:#eaf5ff}
-#welcome:before{content:"";position:absolute;inset:0;background:url("20261125_122020.png") center/cover;opacity:.10;z-index:-1}
-.logo{width:180px;max-width:70%;margin-bottom:12px}.tagline{font-size:14px;margin-bottom:35px}
-.btn,.primary-btn{border:0;padding:14px;width:100%;border-radius:10px;background:#1677d2;color:white;font-size:16px;font-weight:bold;cursor:pointer}
-.btn2{background:white;color:#1677d2;border:2px solid #1677d2}.btn:disabled,button:disabled{opacity:.6;cursor:not-allowed}
-.welcome-buttons{width:100%;max-width:350px;display:flex;flex-direction:column;gap:15px;transform:translateY(20px)}
-.auth-page{justify-content:center;align-items:center;padding:20px}.auth-box{width:100%;max-width:420px;background:white;padding:25px;border-radius:18px;box-shadow:0 5px 25px rgba(0,0,0,.07)}
-.auth-logo{width:130px;max-width:60%;height:auto;display:block;margin:0 auto 15px;object-fit:contain}
-h2{text-align:center;margin-bottom:8px;color:#1768b2}.sub{text-align:center;font-size:14px;color:#777;margin-bottom:25px}
-.field{margin-bottom:17px}.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}
-.field input,.field select,.field textarea,input,select,textarea{padding:12px;border:1px solid #d5dfe9;border-radius:9px;outline:none;font-size:15px;background:white}
-.field input,.field select,.field textarea{width:100%}.field textarea{resize:vertical;min-height:100px}
-.link{color:#1677d2;text-decoration:none;cursor:pointer;font-size:14px}.text-right{text-align:right;margin-bottom:20px}.bottom-text{text-align:center;margin-top:20px;font-size:14px}.back{display:block;margin-top:20px;text-align:center;color:#1677d2;cursor:pointer}
-.dashboard{flex-direction:column;padding:20px;background:#f4f8fc}.dashboard-header{background:#1677d2;color:white;padding:20px;border-radius:15px;margin-bottom:18px}
-.dashboard-content{background:white;padding:20px;border-radius:15px}.logout{margin-top:20px;background:#d9534f}.notice{margin-top:15px;font-size:13px;color:#777}
-#buyerDashboard{min-height:100vh;padding:0 0 78px;background:#f4f8fc;flex-direction:column}.shop-header{background:#1677d2;color:white;padding:18px 16px 22px}
-.shop-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.shop-logo{width:145px;max-height:65px;object-fit:contain}
-.shop-icons{display:flex;gap:12px;align-items:center}.shop-icon{color:white;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:9px 11px;font-size:19px;cursor:pointer}
-.shop-search{display:flex;background:white;border-radius:10px;overflow:hidden;height:46px}.shop-search input{flex:1;min-width:0;border:0;outline:none;padding:0 13px;font-size:14px}.shop-search button{border:0;background:#eaf4ff;color:#1677d2;padding:0 16px;font-size:20px;cursor:pointer}
-.shop-welcome{padding:18px 16px 5px}.shop-welcome h2{text-align:left;color:#17324d;font-size:20px;margin-bottom:5px}.shop-welcome p{font-size:13px;color:#777}
-.shop-section{padding:15px 16px 5px}.section-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.section-heading h3{font-size:17px}.section-heading span{color:#1677d2;font-size:12px;cursor:pointer}
-.category-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.category{border:1px solid #e4edf6;border-radius:12px;background:white;padding:13px 5px;text-align:center;cursor:pointer}.category-icon{font-size:25px;margin-bottom:7px}.category p{font-size:11px;font-weight:bold;color:#29445e}.category.selected{border:2px solid #1677d2;background:#eaf4ff}
-.shop-banner{margin:15px 16px 5px;background:linear-gradient(120deg,#0755a1,#1687e5);border-radius:14px;color:white;padding:20px}.shop-banner h3{font-size:19px;margin-bottom:7px}.shop-banner p{font-size:13px;line-height:1.5}.shop-banner small{display:inline-block;margin-top:12px;background:white;color:#1269b8;padding:7px 12px;border-radius:7px;font-weight:bold}
-.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product-card{background:white;border:1px solid #e7edf4;border-radius:12px;overflow:hidden;min-width:0}.product-picture{height:125px;background:#eaf2fa;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative}.product-picture img{width:100%;height:100%;object-fit:cover}
-.heart-button{position:absolute;top:8px;right:8px;border:0;background:white;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:17px}.heart-button.liked{color:#e04465}.product-info{padding:11px}.product-info h4{font-size:13px;line-height:1.4;min-height:35px;color:#243d56}.product-price{color:#1677d2;font-weight:bold;font-size:15px;margin:8px 0}.product-info small{display:block;color:#888;font-size:11px;margin-bottom:9px}.add-cart{width:100%;border:0;border-radius:7px;background:#1677d2;color:white;padding:10px 5px;font-weight:bold;cursor:pointer;font-size:12px}
-.empty-products{padding:25px 10px;text-align:center;color:#777;font-size:14px;grid-column:1/-1}.shop-panel{display:none;padding:18px 16px;min-height:250px}.shop-panel.active{display:block}.shop-panel h3{margin-bottom:15px}.panel-empty{text-align:center;padding:30px 10px;color:#777;background:white;border-radius:12px;font-size:14px}
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:white;padding:13px;margin-bottom:9px;border-radius:10px;font-size:13px}.cart-row button{border:0;background:#ffecec;color:#c33;padding:7px 9px;border-radius:6px;cursor:pointer}.account-box{background:white;border-radius:12px;padding:18px}.account-box p{margin:12px 0;font-size:14px}.cart-total{background:white;padding:15px;border-radius:10px;margin-top:12px;font-weight:bold;display:flex;justify-content:space-between}
-.shop-bottom{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #e2eaf2;display:grid;grid-template-columns:repeat(5,1fr);padding:9px 3px 7px;z-index:100;padding-bottom:max(7px,env(safe-area-inset-bottom))}
-.bottom-item{border:0;background:none;color:#7c8b99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;cursor:pointer;min-height:45px}.bottom-item span{font-size:20px;line-height:22px}.bottom-item.active{color:#1677d2;font-weight:bold}
-.announcement{display:none;background:#e7f3ff;color:#0755a1;padding:10px 0;overflow:hidden;white-space:nowrap;border-bottom:1px solid #cde3f8}.announcement.active{display:block}.announcement-text{display:inline-block;padding-left:100%;animation:announcementMove 18s linear infinite;font-weight:bold;font-size:13px}@keyframes announcementMove{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;align-items:center;justify-content:center;padding:15px}.modal.active{display:flex}.modal-box{background:white;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;border-radius:16px;padding:20px}.modal-image{width:100%;height:240px;object-fit:cover;border-radius:12px;background:#eaf2fa}.modal-title{font-size:20px;margin:15px 0 8px}.modal-price{font-size:20px;font-weight:bold;color:#1677d2;margin:10px 0}.modal-description{font-size:14px;line-height:1.7;color:#52677b;white-space:pre-wrap;margin:12px 0}.modal-category{font-size:12px;color:#777;margin-bottom:15px}.modal-buttons{display:flex;gap:10px;margin-top:15px}.modal-buttons button{flex:1}.close-modal{border:0;background:#edf3f8;border-radius:8px;padding:10px 15px;cursor:pointer;font-size:15px}
-.seller-products{margin-top:25px}.seller-product-item{background:#f5f8fc;padding:12px;border:1px solid #e3eaf2;border-radius:10px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}.seller-product-item img{width:65px;height:65px;object-fit:cover;border-radius:8px}.seller-product-item div{min-width:0;flex:1}.seller-product-item strong{display:block;word-break:break-word}
-.status-pending{color:#d99b00;font-weight:bold;font-size:12px}.status-approved{color:#16834c;font-weight:bold;font-size:12px}.upload-preview{width:100%;max-height:220px;object-fit:contain;background:#f2f6fa;border-radius:10px;margin:10px 0}
-.seller-dashboard-content{background:white;border-radius:15px;padding:20px}.seller-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}.stat-card{background:#eaf4ff;padding:13px;border-radius:12px;text-align:center}.stat-card h3{font-size:12px}.stat-card p{font-size:22px;font-weight:bold;color:#1677d2;margin-top:8px}.seller-section{margin-bottom:25px}.seller-section h3{margin-bottom:8px}.seller-subtitle{font-size:13px;color:#777;margin-bottom:15px}.seller-dashboard-content form label{display:block;font-weight:bold;font-size:14px;margin:12px 0 7px}.seller-dashboard-content form input,.seller-dashboard-content form select,.seller-dashboard-content form textarea{width:100%;display:block}.upload-image-box{margin-bottom:12px}.product-image-preview img{max-width:100%;max-height:220px;object-fit:contain;margin-top:10px}.seller-product-item button{margin-top:8px;padding:8px;border:0;border-radius:7px;background:#1677d2;color:white;cursor:pointer}.seller-product-item
- button:disabled{background:#888}
-@media(min-width:650px){.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.shop-header,.shop-welcome,.shop-section{padding-left:30px;padding-right:30px}.shop-banner{margin-left:30px;margin-right:30px}.product-picture{height:160px}}
+.hidden{display:none!important}
+.page{display:none;min-height:100vh}
+.page.active{display:flex}
+
+button{cursor:pointer}
+button:disabled{opacity:.6;cursor:not-allowed}
+
+#welcome{
+position:relative;overflow:hidden;flex-direction:column;
+align-items:center;justify-content:center;text-align:center;
+padding:25px;isolation:isolate;background:#eaf5ff
+}
+#welcome:before{
+content:"";position:absolute;inset:0;
+background:url("file_0000000064348210808862c10ba5b1be.png") center/cover;
+opacity:.10;z-index:-1
+}
+.logo{width:180px;max-width:70%;margin-bottom:12px}
+.tagline{font-size:14px;margin-bottom:35px}
+.btn,.primary-btn{
+border:0;padding:14px;width:100%;border-radius:10px;
+background:#1677d2;color:white;font-size:16px;font-weight:bold
+}
+.btn2{background:white;color:#1677d2;border:2px solid #1677d2}
+.welcome-buttons{
+width:100%;max-width:350px;display:flex;
+flex-direction:column;gap:15px;transform:translateY(20px)
+}
+
+.auth-page{justify-content:center;align-items:center;padding:20px}
+.auth-box{
+width:100%;max-width:420px;background:white;padding:25px;
+border-radius:18px;box-shadow:0 5px 25px rgba(0,0,0,.07)
+}
+.auth-logo{
+width:130px;max-width:60%;height:auto;display:block;
+margin:0 auto 15px;object-fit:contain
+}
+.logo-fallback{
+display:flex!important;align-items:center;justify-content:center;
+min-height:60px;background:#eaf4ff;border-radius:12px;
+color:#1677d2;font-weight:900;font-size:25px;letter-spacing:2px
+}
+h2{text-align:center;margin-bottom:8px;color:#1768b2}
+.sub{text-align:center;font-size:14px;color:#777;margin-bottom:25px}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}
+.field input,.field select,.field textarea{
+width:100%;padding:12px;border:1px solid #d5dfe9;
+border-radius:9px;outline:none;font-size:15px;background:white
+}
+.field textarea{resize:vertical;min-height:100px}
+.link{color:#1677d2;text-decoration:none;cursor:pointer;font-size:14px}
+.text-right{text-align:right;margin-bottom:20px}
+.bottom-text{text-align:center;margin-top:20px;font-size:14px}
+.back{display:block;margin-top:20px;text-align:center;color:#1677d2;cursor:pointer}
+
+.dashboard{flex-direction:column;padding:20px;background:#f4f8fc}
+.dashboard-header{
+background:#1677d2;color:white;padding:20px;
+border-radius:15px;margin-bottom:18px
+}
+.dashboard-logo{width:150px;max-height:70px;object-fit:contain;margin-bottom:12px}
+.dashboard-content{background:white;padding:20px;border-radius:15px}
+.logout{margin-top:20px;background:#d9534f}
+.notice{margin-top:15px;font-size:13px;color:#777}
+
+#buyerDashboard{
+min-height:100vh;padding:0 0 85px;background:#f4f8fc;flex-direction:column
+}
+.shop-header{background:#1677d2;color:white;padding:18px 16px 22px}
+.shop-top{
+display:flex;align-items:center;justify-content:space-between;
+gap:10px;margin-bottom:18px
+}
+.shop-logo{width:145px;max-height:65px;object-fit:contain}
+.shop-icons{display:flex;gap:12px;align-items:center}
+.shop-icon{
+color:white;background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.25);
+border-radius:10px;padding:9px 11px;font-size:19px
+}
+.shop-search{display:flex;background:white;border-radius:10px;overflow:hidden;height:46px}
+.shop-search input{flex:1;min-width:0;border:0;outline:none;padding:0 13px;font-size:14px}
+.shop-search button{border:0;background:#eaf4ff;color:#1677d2;padding:0 16px;font-size:20px}
+
+.shop-welcome{padding:18px 16px 5px}
+.shop-welcome h2{text-align:left;color:#17324d;font-size:20px;margin-bottom:5px}
+.shop-welcome p{font-size:13px;color:#777}
+
+.shop-section{padding:15px 16px 5px}
+.section-heading{
+display:flex;justify-content:space-between;
+align-items:center;margin-bottom:13px
+}
+.section-heading h3{font-size:17px}
+.section-heading span{color:#1677d2;font-size:12px;cursor:pointer}
+
+.category-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.category{
+border:1px solid #e4edf6;border-radius:12px;background:white;
+padding:13px 5px;text-align:center
+}
+.category-icon{font-size:25px;margin-bottom:7px}
+.category p{font-size:11px;font-weight:bold;color:#29445e}
+.category.selected{border:2px solid #1677d2;background:#eaf4ff}
+
+.shop-banner{
+margin:15px 16px 5px;background:linear-gradient(120deg,#0755a1,#1687e5);
+border-radius:14px;color:white;padding:20px
+}
+.shop-banner h3{font-size:19px;margin-bottom:7px}
+.shop-banner p{font-size:13px;line-height:1.5}
+.shop-banner small{
+display:inline-block;margin-top:12px;background:white;color:#1269b8;
+padding:7px 12px;border-radius:7px;font-weight:bold
+}
+
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product-card{
+background:white;border:1px solid #e7edf4;
+border-radius:12px;overflow:hidden;min-width:0
+}
+.product-picture{
+height:125px;background:#eaf2fa;display:flex;
+align-items:center;justify-content:center;font-size:48px;position:relative
+}
+.product-picture img{width:100%;height:100%;object-fit:cover}
+.heart-button{
+position:absolute;top:8px;right:8px;border:0;background:white;
+border-radius:50%;width:30px;height:30px;font-size:17px
+}
+.heart-button.liked{color:#e04465}
+.product-info{padding:11px}
+.product-info h4{font-size:13px;line-height:1.4;min-height:35px;color:#243d56}
+.product-price{color:#1677d2;font-weight:bold;font-size:15px;margin:8px 0}
+.product-info small{display:block;color:#888;font-size:11px;margin-bottom:9px}
+.add-cart{
+width:100%;border:0;border-radius:7px;background:#1677d2;
+color:white;padding:10px 5px;font-weight:bold;font-size:12px
+}
+.empty-products{
+padding:25px 10px;text-align:center;color:#777;
+font-size:14px;grid-column:1/-1
+}
+
+.shop-panel{display:none;padding:18px 16px;min-height:250px}
+.shop-panel.active{display:block}
+.shop-panel h3{margin-bottom:15px}
+.panel-empty{text-align:center;padding:30px 10px;color:#777;background:white;border-radius:12px;font-size:14px}
+
+.cart-row{
+display:flex;justify-content:space-between;align-items:center;
+gap:10px;background:white;padding:13px;margin-bottom:9px;
+border-radius:10px;font-size:13px
+}
+.cart-row button{border:0;background:#ffecec;color:#c33;padding:7px 9px;border-radius:6px}
+.account-box{background:white;border-radius:12px;padding:18px}
+.account-box p{margin:12px 0;font-size:14px}
+.cart-total{
+background:white;padding:15px;border-radius:10px;margin-top:12px;
+font-weight:bold;display:flex;justify-content:space-between
+}
+
+.shop-bottom{
+position:fixed;bottom:0;left:0;right:0;background:white;
+border-top:1px solid #e2eaf2;display:grid;
+grid-template-columns:repeat(5,1fr);padding:9px 3px 7px;
+z-index:100;padding-bottom:max(7px,env(safe-area-inset-bottom))
+}
+.bottom-item{
+border:0;background:white;color:#8493a3;
+display:flex;flex-direction:column;align-items:center;
+justify-content:center;gap:4px;padding:5px 2px;font-size:11px
+}
+.bottom-item .nav-icon{font-size:21px}
+.bottom-item.active{color:#1677d2;font-weight:bold}
+
+@media(min-width:700px){
+.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+</style>
 </style>
 </head>
 <body>
-<section id="welcome" class="page active">
-<img src="20261125_122020.png" class="logo" alt="ZENTRA logo"><p class="tagline">Smart Shopping, Better Living.</p>
-<div class="welcome-buttons"><button class="btn" onclick="showPage('register')">Begin Now</button><button class="btn btn2" onclick="showPage('login')">Login</button></div>
+
+<div id="welcome" class="page active">
+<img src="20261125_122020.png" class="logo" onerror="this.style.display='none'">
+<h1>ZENTRA</h1>
+<p class="tagline">Your Marketplace, Your Choice</p>
+<div class="welcome-buttons">
+<button class="btn" onclick="showPage('loginPage')">Login</button>
+<button class="btn btn2" onclick="showPage('registerPage')">Create Account</button>
+</div>
+</div>
+
+<div id="loginPage" class="page auth-page">
+<div class="auth-box">
+<h2>Welcome Back</h2>
+<p class="sub">Login to your ZENTRA account</p>
+<div class="field"><label>Email</label><input id="loginEmail" type="email" placeholder="Email address"></div>
+<div class="field"><label>Password</label><input id="loginPassword" type="password" placeholder="Password"></div>
+<div class="text-right"><span class="link" onclick="showPage('forgotPage')">Forgot Password?</span></div>
+<button class="btn" onclick="loginUser()">Login</button>
+<p class="bottom-text">Don't have an account? <span class="link" onclick="showPage('registerPage')">Register</span></p>
+<span class="back" onclick="showPage('welcome')">Back</span>
+</div>
+</div>
+
+<div id="registerPage" class="page auth-page">
+<div class="auth-box">
+<h2>Create Account</h2>
+<p class="sub">Join ZENTRA Marketplace</p>
+<div class="field"><label>Full Name</label><input id="regName" placeholder="Full name"></div>
+<div class="field"><label>Email</label><input id="regEmail" type="email" placeholder="Email"></div>
+<div class="field"><label>Phone</label><input id="regPhone" type="tel" placeholder="Phone number"></div>
+<div class="field"><label>Account Type</label>
+<select id="regRole" onchange="toggleBusinessFields()">
+<option value="buyer">Buyer</option>
+<option value="seller">Seller</option>
+</select></div>
+<div id="businessFields" class="hidden">
+<div class="field"><label>Business Name</label><input id="businessName" placeholder="Business name"></div>
+<div class="field"><label>Business Address</label><textarea id="businessAddress" placeholder="Business address"></textarea></div>
+</div>
+<div class="field"><label>Password</label><input id="regPassword" type="password" placeholder="Password"></div>
+<div class="field"><label>Confirm Password</label><input id="regConfirm" type="password" placeholder="Confirm password"></div>
+<button class="btn" onclick="registerUser()">Create Account</button>
+<p class="bottom-text">Already registered? <span class="link" onclick="showPage('loginPage')">Login</span></p>
+<span class="back" onclick="showPage('welcome')">Back</span>
+</div>
+</div>
+
+<div id="forgotPage" class="page auth-page">
+<div class="auth-box">
+<h2>Reset Password</h2>
+<p class="sub">Enter your email to receive a reset link</p>
+<div class="field"><label>Email</label><input id="resetEmail" type="email"></div>
+<button class="btn" onclick="resetPassword()">Send Reset Link</button>
+<span class="back" onclick="showPage('loginPage')">Back to Login</span>
+</div>
+</div>
+
+<div id="sellerDashboard" class="page dashboard">
+<div class="dashboard-header">
+<h2 style="color:white;text-align:left">Seller Dashboard</h2>
+<p id="sellerWelcome"></p>
+</div>
+<div class="dashboard-content">
+<h3>Add Product</h3>
+<form id="productUploadForm">
+<div class="field"><label>Product Image</label><input type="file" id="productImage" accept="image/*" required></div>
+<div class="field"><label>Product Name</label><input id="productName" required></div>
+<div class="field"><label>Price (₦)</label><input id="productPrice" type="number" min="1" required></div>
+<div class="field"><label>Category</label>
+<select id="productCategory" required>
+<option value="">Select Category</option>
+<option>Fashion</option><option>Electronics</option>
+<option>Home</option><option>Beauty</option>
+<option>Food</option><option>Accessories</option>
+<option>Other</option>
+</select></div>
+<div class="field"><label>Description</label><textarea id="productDescription" required></textarea></div>
+<div class="field"><label>Total Stock</label><input id="productQuantity" type="number" min="1" required></div>
+<button type="submit" class="btn" id="uploadProductBtn">Upload Product</button>
+</form>
+<hr style="margin:20px 0">
+<h3>My Products</h3>
+<p id="sellerProductCount"></p>
+<p id="sellerPendingCount"></p>
+<p id="sellerApprovedCount"></p>
+<div id="sellerProductsList"></div>
+<button class="btn logout" onclick="logoutUser()">Logout</button>
+</div>
+</div>
+
+<div id="buyerDashboard" class="page">
+<header class="shop-header">
+<div class="shop-top">
+<img src="20261125_122020.png" class="shop-logo" onerror="this.style.display='none'">
+<div class="shop-icons">
+<button class="shop-icon" onclick="openShopPanel('accountPanel')">👤</button>
+<button class="shop-icon" onclick="openShopPanel('cartPanel')">🛒</button>
+</div>
+</div>
+<div class="shop-search">
+<input id="productSearch" placeholder="Search products...">
+<button onclick="searchProducts()">⌕</button>
+</div>
+</header>
+<div class="shop-welcome">
+<h2 id="buyerGreeting">Hello!</h2>
+<p>Discover products on ZENTRA</p>
+</div>
+<section class="shop-section">
+<div class="section-heading"><h3>Categories</h3></div>
+<div class="category-list">
+<div class="category" onclick="filterCategory('Fashion',this)"><div class="category-icon">👕</div><p>Fashion</p></div>
+<div class="category" onclick="filterCategory('Electronics',this)"><div class="category-icon">📱</div><p>Electronics</p></div>
+<div class="category" onclick="filterCategory('Home',this)"><div class="category-icon">🏠</div><p>Home</p></div>
+<div class="category" onclick="filterCategory('Beauty',this)"><div class="category-icon">✨</div><p>Beauty</p></div>
+<div class="category" onclick="filterCategory('Food',this)"><div class="category-icon">🍎</div><p>Food</p></div>
+<div class="category" onclick="filterCategory('Accessories',this)"><div class="category-icon">👜</div><p>Accessories</p></div>
+<div class="category" onclick="filterCategory('Other',this)"><div class="category-icon">📦</div><p>Other</p></div>
+<div class="category" onclick="filterCategory('',this)"><div class="category-icon">🌐</div><p>All</p></div>
+</div>
 </section>
-<section id="login" class="page auth-page"><div class="auth-box">
-<img src="20261125_122020.png" class="auth-logo" alt="ZENTRA"><h2>Login to ZENTRA</h2><p class="sub">Welcome back! Login to your account.</p>
-<form id="loginForm"><div class="field"><label>Email Address</label><input type="email" id="loginEmail" placeholder="Enter your email" required></div><div class="field"><label>Password</label><input type="password" id="loginPassword" placeholder="Enter your password" required></div><div class="text-right"><span class="link" onclick="showPage('forgot')">Forgot Password?</span></div><button class="btn" type="submit">Login</button></form>
-<p class="bottom-text">Don't have an account? <span class="link" onclick="showPage('register')">Create Account</span></p><span class="back" onclick="showPage('welcome')">← Back</span></div></section>
-<section id="register" class="page auth-page"><div class="auth-box">
-<img src="20261125_122020.png" class="auth-logo" alt="ZENTRA"><h2>Create Account</h2><p class="sub">Join ZENTRA today.</p>
-<form id="registerForm"><div class="field"><label>Full Name</label><input id="regName" required></div><div class="field"><label>Email Address</label><input type="email" id="regEmail" required></div><div class="field"><label>Phone Number</label><input type="tel" id="regPhone" required></div><div class="field"><label>Account Type</label><select id="regRole" onchange="toggleSellerFields()" required><option value="">Choose account type</option><option value="buyer">Buyer</option><option value="seller">Seller</option></select></div>
-<div id="sellerFields" class="hidden"><div class="field"><label>Business Name</label><input id="businessName" placeholder="Business name"></div><div class="field"><label>Business Address</label><input id="businessAddress" placeholder="Business address"></div></div>
-<div class="field"><label>Password</label><input type="password" id="regPassword" minlength="6" required></div><div class="field"><label>Confirm Password</label><input type="password" id="regConfirm" minlength="6" required></div><button class="btn" type="submit">Create Account</button></form>
-<p class="bottom-text">Already have an account? <span class="link" onclick="showPage('login')">Login</span></p><span class="back" onclick="showPage('welcome')">← Back</span></div></section>
-<section id="forgot" class="page auth-page"><div class="auth-box"><img src="20261125_122020.png" class="auth-logo" alt="ZENTRA"><h2>Forgot Password?</h2><p class="sub">Enter your email to receive a password reset link.</p><form id="forgotForm"><div class="field"><label>Email Address</label><input type="email" id="forgotEmail" required></div><button class="btn" type="submit">Continue</button></form><span class="back" onclick="showPage('login')">← Back to Login</span></div></section>
-<section id="buyerDashboard" class="page">
-<header class="shop-header"><div class="shop-top"><img src="20261125_122020.png" class="shop-logo" alt="ZENTRA"><div class="shop-icons"><button class="shop-icon" onclick="openShopPanel('wishlist')">♡ <span id="wishlistCount">0</span></button><button class="shop-icon" onclick="openShopPanel('cart')">🛒 <span id="cartCount">0</span></button></div></div><div class="shop-search"><input type="search" id="productSearch" placeholder="Search products on ZENTRA..." oninput="filterProducts()"><button onclick="filterProducts()">⌕</button></div></header>
-<div id="buyerAnnouncement" class="announcement"><div id="buyerAnnouncementText" class="announcement-text"></div></div>
-<div id="homePanel" class="shop-panel active"><div class="shop-welcome"><h2 id="buyerGreeting">Hello, Buyer!</h2><p>Discover products you'll love.</p></div>
-<div class="shop-section"><div class="section-heading"><h3>Shop by Category</h3><span onclick="showAllProducts()">View all</span></div><div class="category-list">
-<div class="category selected" data-cat="all" onclick="chooseCategory('all',this)"><div class="category-icon">🛍️</div><p>All</p></div><div class="category" data-cat="electronics" onclick="chooseCategory('electronics',this)"><div class="category-icon">📱</div><p>Electronics</p></div><div class="category" data-cat="fashion" onclick="chooseCategory('fashion',this)"><div class="category-icon">👕</div><p>Fashion</p></div><div class="category" data-cat="shoes" onclick="chooseCategory('shoes',this)"><div class="category-icon">👟</div><p>Shoes</p></div><div class="category" data-cat="home" onclick="chooseCategory('home',this)"><div class="category-icon">🏠</div><p>Home</p></div><div class="category" data-cat="beauty" onclick="chooseCategory('beauty',this)"><div class="category-icon">✨</div><p>Beauty</p></div><div class="category" data-cat="bags" onclick="chooseCategory('bags',this)"><div class="category-icon">👜</div><p>Bags</p></div><div class="category" data-cat="accessories" onclick="chooseCategory('accessories',this)"><div class="category-icon">⌚</div><p>Others</p></div></div></div>
-<div class="shop-banner"><h3>Welcome to ZENTRA</h3><p>Smart Shopping, Better Living. Discover products from sellers in one place.</p><small>Explore Products</small></div>
-<div class="shop-section"><div class="section-heading"><h3 id="productHeading">Featured Products</h3><span onclick="showAllProducts()">See all</span></div><div class="product-grid" id="productGrid"><div class="empty-products">Loading products...</div></div></div></div>
-<div class="shop-panel" id="categoriesPanel"><h3>Shop Categories</h3><div class="category-list" id="categoryPanelList"></div></div>
-<div class="shop-panel" id="wishlistPanel"><h3>My Wishlist</h3><div id="wishlistItems" class="panel-empty">Your wishlist is empty.</div></div>
-<div class="shop-panel" id="cartPanel"><h3>My Shopping Cart</h3><div id="cartItems" class="panel-empty">Your cart is empty.</div></div>
-<div class="shop-panel" id="ordersPanel"><h3>My Orders</h3><div class="panel-empty">Order placement is not enabled yet.</div></div>
-<div class="shop-panel" id="accountPanel"><h3>My Account</h3><div class="account-box"><p><strong>Name:</strong> <span id="accountBuyerName"></span></p><p><strong>Email:</strong> <span id="accountBuyerEmail"></span></p><p><strong>Phone:</strong> <span id="accountBuyerPhone"></span></p><button class="btn logout" onclick="logout()">Logout</button></div></div>
-<div class="shop-bottom"><button class="bottom-item active" onclick="openShopPanel('home',this)"><span>⌂</span>Home</button><button class="bottom-item" onclick="openShopPanel('categories',this)"><span>▦</span>Categories</button><button class="bottom-item" onclick="openShopPanel('orders',this)"><span>▤</span>Orders</button><button class="bottom-item" onclick="openShopPanel('cart',this)"><span>🛒</span>Cart</button><button class="bottom-item" onclick="openShopPanel('account',this)"><span>♙</span>Account</button></nav></section>
-<section id="sellerDashboard" class="page dashboard"><header class="dashboard-header"><img src="20261125_122020.png" class="dashboard-logo" alt="ZENTRA"><h2 style="color:white;text-align:left">Seller Dashboard</h2><p id="sellerWelcome">Welcome to ZENTRA</p><button class="btn logout" onclick="logout()">Logout</button></header>
-<div id="sellerAnnouncement" class="announcement"><div id="sellerAnnouncementText" class="announcement-text"></div></div><div class="seller-dashboard-content"><div class="seller-stats"><div class="stat-card"><h3>My Products</h3><p id="sellerProductCount">0</p></div><div class="stat-card"><h3>Pending</h3><p id="sellerPendingCount">0</p></div><div class="stat-card"><h3>Approved</h3><p id="sellerApprovedCount">0</p></div></div>
-<div class="seller-section"><h3>Upload New Product</h3><p class="seller-subtitle">Add your product details below.</p><form id="productUploadForm"><div class="upload-image-box"><label for="productImage">Product Image</label><input type="file" id="productImage" accept="image/*" required><div id="productImagePreview" class="hidden"><img id="previewProductImage" alt="Product preview" class="upload-preview"></div></div>
-<label for="productName">Product Name</label><input id="productName" placeholder="Enter product name" required><label for="productPrice">Price (₦)</label><input type="number" id="productPrice" min="1" required><label for="productCategory">Category</label><select id="productCategory" required><option value="">Select category</option><option value="Fashion">Fashion</option><option value="Electronics">Electronics</option><option value="Phones">Phones</option><option value="Home">Home & Living</option><option value="Beauty">Beauty</option><option value="Food">Food</option><option value="Shoes">Shoes</option><option value="Accessories">Accessories</option><option value="Bags">Bags</option><option value="Other">Other</option></select>
-<label for="productStock">Quantity / Total Stock</label><input type="number" id="productStock" min="1" value="1" required><label for="productDescription">Product Description</label><textarea id="productDescription" rows="5" required placeholder="Describe your product, features, condition and other details"></textarea><button type="submit" id="uploadProductBtn" class="primary-btn" style="margin-top:15px">Upload Product</button></form><div id="uploadMessage" class="notice"></div></div>
-<div class="seller-section"><h3>My Uploaded Products</h3><p class="seller-subtitle">View stock and approval status of your products.</p><div id="sellerProductsList">Loading products...</div></div></div></section>
-<div id="productDetailsModal" class="modal"><div class="modal-box"><button class="close-modal" onclick="closeProductDetails()" style="float:right">× Close</button><div id="productDetailsBody"></div></div></div>
+<div class="shop-banner">
+<h3>Welcome to ZENTRA</h3>
+<p>Explore products from different sellers and discover what you need.</p>
+<small>Explore Marketplace</small>
+</div>
+<section class="shop-section">
+<div class="section-heading"><h3>Products</h3><span onclick="filterCategory('',null)">View All</span></div>
+<div id="productGrid" class="product-grid"></div>
+</section>
 
-<script type="module">
+<div id="wishlistPanel" class="shop-panel">
+<h3>My Wishlist ❤️</h3><div id="wishlistContent"></div>
+</div>
+<div id="cartPanel" class="shop-panel">
+<h3>My Cart 🛒</h3><div id="cartContent"></div>
+</div>
+<div id="ordersPanel" class="shop-panel">
+<h3>My Orders</h3><div class="panel-empty">Orders will appear here.</div>
+</div>
+<div id="accountPanel" class="shop-panel">
+<h3>My Account</h3>
+<div class="account-box" id="accountContent"></div>
+<button class="btn logout" onclick="logoutUser()">Logout</button>
+</div>
+
+<nav class="shop-bottom">
+<button class="bottom-item active" onclick="openShopPanel('homePanel',this)"><span class="nav-icon">🏠</span>Home</button>
+<button class="bottom-item" onclick="openShopPanel('wishlistPanel',this)"><span class="nav-icon">❤️</span>Wishlist</button>
+<button class="bottom-item" onclick="openShopPanel('cartPanel',this)"><span class="nav-icon">🛒</span>Cart</button>
+<button class="bottom-item" onclick="openShopPanel('ordersPanel',this)"><span class="nav-icon">📦</span>Orders</button>
+<button class="bottom-item" onclick="openShopPanel('accountPanel',this)"><span class="nav-icon">👤</span>Account</button>
+</nav>
+</div>
+
+<div id="messageBox" class="hidden"></div>
+
+ <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
-import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendPasswordResetEmail,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
-import {getFirestore,doc,setDoc,getDoc,collection,addDoc,query,where,onSnapshot,serverTimestamp,runTransaction} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
-import {getStorage,ref,uploadBytes,getDownloadURL} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-storage.js";
+import {
+ getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,
+ signOut,sendPasswordResetEmail,onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+import {
+ getFirestore,collection,doc,setDoc,getDoc,addDoc,getDocs,
+ query,where,updateDoc,runTransaction,serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+import {
+ getStorage,ref,uploadBytes,getDownloadURL
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-storage.js";
 
-const firebaseConfig={apiKey:"AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",authDomain:"zenta-d60e5.firebaseapp.com",projectId:"zenta-d60e5",storageBucket:"zenta-d60e5.firebasestorage.app",messagingSenderId:"449281141527",appId:"1:449281141527:web:9e20e1e406508d8d91e552"};
-const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),storage=getStorage(app);
-let currentUser=null,currentUserData=null,approvedProducts=[],sellerProducts=[],cart=[],wishlist=[],selectedProduct=null;
-let productsListener=null,sellerProductsListener=null,announcementListener=null,currentCategory="all",currentSearch="";
-const $=id=>document.getElementById(id),safeText=v=>String(v??""),formatPrice=v=>"₦"+Number(v||0).toLocaleString("en-NG");
-function showMessage(id,msg){if($(id))$(id).textContent=msg}
-function greeting(){let h=new Date().getHours();return h<12?"Good morning":h<17?"Good afternoon":"Good evening"}
-function showPage(id){document.querySelectorAll(".page").forEach(p=>{p.classList.remove("active");p.classList.add("hidden")});let p=$(id);if(p){p.classList.remove("hidden");p.classList.add("active")}}
-window.showPage=showPage;
-window.toggleSellerFields=()=>{$("sellerFields").classList.toggle("hidden",$("regRole").value!=="seller")};
-function stopListeners(){if(productsListener){productsListener();productsListener=null}if(sellerProductsListener){sellerProductsListener();sellerProductsListener=null}if(announcementListener){announcementListener();announcementListener=null}}
-$("registerForm").addEventListener("submit",async e=>{e.preventDefault();let name=$("regName").value.trim(),email=$("regEmail").value.trim(),phone=$("regPhone").value.trim(),role=$("regRole").value,password=$("regPassword").value,confirm=$("regConfirm").value;if(password!==confirm){alert("Passwords do not match.");return}if(role==="seller"&&(!$("businessName").value.trim()||!$("businessAddress").value.trim())){alert("Please complete business details.");return}let btn=e.submitter;btn.disabled=true;btn.textContent="Creating account...";try{let c=await createUserWithEmailAndPassword(auth,email,password);await setDoc(doc(db,"users",c.user.uid),{name,email,phone,role,businessName:role==="seller"?$("businessName").value.trim():"",businessAddress:role==="seller"?$("businessAddress").value.trim():"",createdAt:serverTimestamp()});alert("Account created successfully.");}catch(err){alert(err.message)}finally{btn.disabled=false;btn.textContent="Create Account"}});
- ("businessName").value.trim():"",businessAddress:role==="seller"?$("businessAddress").value.trim():"",createdAt:serverTimestamp()});alert("Account created successfully.");}catch(err){alert(err.message)}finally{btn.disabled=false;btn.textContent="Create Account"}});
-$("loginForm").addEventListener("submit",async e=>{e.preventDefault();let btn=e.submitter;btn.disabled=true;btn.textContent="Logging in...";try{await signInWithEmailAndPassword(auth,$("loginEmail").value.trim(),$("loginPassword").value)}catch(err){alert(err.message)}finally{btn.disabled=false;btn.textContent="Login"}});
-$("forgotForm").addEventListener("submit",async e=>{e.preventDefault();try{await sendPasswordResetEmail(auth,$("forgotEmail").value.trim());alert("Password reset email sent. Please check your inbox.")}catch(err){alert(err.message)}});
-onAuthStateChanged(auth,async user=>{currentUser=user;if(!user){currentUserData=null;showPage("welcome");return}try{let snap=await getDoc(doc(db,"users",user.uid));if(!snap.exists()){alert("User profile not found.");await signOut(auth);return}currentUserData=snap.data();if(currentUserData.role==="buyer"){setupBuyer();showPage("buyerDashboard")}else if(currentUserData.role==="seller"){setupSeller();showPage("sellerDashboard")}else{alert("Account role not recognized.");await signOut(auth)}}catch(err){console.error(err);alert("Unable to load account information: "+err.message)}});
-function setupBuyer(){if(!currentUserData)return;$("buyerGreeting").textContent=greeting()+", "+(currentUserData.name||"Buyer");$("accountBuyerName").textContent=currentUserData.name||"";$("accountBuyerEmail").textContent=currentUserData.email||currentUser.email||"";$("accountBuyerPhone").textContent=currentUserData.phone||"";loadApproved();loadAnnouncements();renderCart();renderWishlist()}
-function setupSeller(){if(!currentUserData)return;$("sellerWelcome").textContent=greeting()+", "+(currentUserData.name||"Seller");loadSellerProducts();loadAnnouncements()}
-function loadApproved(){if(productsListener)productsListener();let q=query(collection(db,"products"),where("status","==","approved"));productsListener=onSnapshot(q,s=>{approvedProducts=s.docs.map(d=>({id:d.id,...d.data()}));renderProducts();renderWishlist()},err=>{console.error(err);$("productGrid").innerHTML='<div class="empty-products">Unable to load products.</div>'})}
-function loadSellerProducts(){if(!currentUser) return;if(sellerProductsListener)sellerProductsListener();let q=query(collection(db,"products"),where("sellerUid","==",currentUser.uid));sellerProductsListener=onSnapshot(q,s=>{sellerProducts=s.docs.map(d=>({id:d.id,...d.data()}));renderSellerProducts()},err=>{console.error(err);showMessage("uploadMessage",err.message)})}
-function stockLeft(p){return Math.max(0,Number(p.stock??p.totalStock??0))}
-function renderProducts(){let container=$("productGrid");if(!container)return;container.innerHTML="";let list=approvedProducts.filter(p=>currentCategory==="all"||safeText(p.category).toLowerCase().includes(currentCategory));if(currentSearch){let s=currentSearch.toLowerCase();list=list.filter(p=>[p.name,p.category,p.description].some(v=>safeText(v).toLowerCase().includes(s)))}if(!list.length){container.innerHTML='<div class="empty-products">No products found.</div>';return}list.forEach(p=>{let card=document.createElement("article");card.className="product-card";let pic=document.createElement("div");pic.className="product-picture";let im=document.createElement("img");im.src=p.imageUrl||"";im.alt=safeText(p.name);pic.appendChild(im);let heart=document.createElement("button");heart.className="heart-button"+(wishlist.includes(p.id)?" liked":"");heart.textContent=wishlist.includes(p.id)?"♥":"♡";heart.setAttribute("aria-label","Wishlist");heart.onclick=e=>{e.stopPropagation();toggleWishlist(p.id)};pic.appendChild(heart);pic.onclick=()=>openProductDetails(p.id);let info=document.createElement("div");info.className="product-info";let name=document.createElement("h4");name.textContent=safeText(p.name);let price=document.createElement("p");price.className="product-price";price.textContent=formatPrice(p.price);let small=document.createElement("small");small.textContent=`${Number(p.soldCount||0)} sold • ${stockLeft(p)} remaining`;let btn=document.createElement("button");btn.className="add-cart";btn.textContent=stockLeft(p)?"View / Add to Cart":"Sold Out";btn.disabled=stockLeft(p)<=0;btn.onclick=()=>openProductDetails(p.id);info.append(name,price,small,btn);card.append(pic,info);container.appendChild(card)})}
-window.filterProducts=()=>{currentSearch=$("productSearch").value.trim();renderProducts()};
-window.chooseCategory=(cat,el)=>{currentCategory=cat;document.querySelectorAll(".category[data-cat]").forEach(x=>x.classList.toggle("selected",x.dataset.cat===cat));$("productHeading").textContent=cat==="all"?"Featured Products":cat.charAt(0).toUpperCase()+cat.slice(1);renderProducts();openShopPanel("home")};
-window.showAllProducts=()=>{currentCategory="all";currentSearch="";$("productSearch").value="";document.querySelectorAll(".category[data-cat]").forEach(x=>x.classList.toggle("selected",x.dataset.cat==="all"));renderProducts();openShopPanel("home")};
-window.openShopPanel=(name,button)=>{document.querySelectorAll("#buyerDashboard .shop-panel").forEach(p=>p.classList.remove("active"));let panel=$(name==="home"?"homePanel":name==="categories"?"categoriesPanel":name+"Panel");if(panel)panel.classList.add("active");document.querySelectorAll(".bottom-item").forEach(b=>b.classList.remove("active"));if(button)button.classList.add("active");else{let nav=[...document.querySelectorAll(".bottom-item")].find(b=>b.textContent.toLowerCase().includes(name));if(nav)nav.classList.add("active")}if(name==="cart")renderCart();if(name==="wishlist")renderWishlist();if(name==="categories")renderCategoryPanel()};
-function renderCategoryPanel(){let c=$("categoryPanelList");if(!c)return;c.innerHTML="";document.querySelectorAll(".category[data-cat]").forEach(original=>{let copy=original.cloneNode(true);copy.onclick=()=>{currentCategory=copy.dataset.cat;document.querySelectorAll(".category[data-cat]").forEach(x=>x.classList.toggle("selected",x.dataset.cat===currentCategory));renderProducts();openShopPanel("home")};c.appendChild(copy)})}
-function openProductDetails(id){let p=approvedProducts.find(x=>x.id===id);if(!p)return;selectedProduct=p;let b=$("productDetailsBody");b.innerHTML="";let img=document.createElement("img");img.className="modal-image";img.src=p.imageUrl||"";img.alt=p.name||"Product";let name=document.createElement("h2");name.className="modal-title";name.textContent=safeText(p.name);let price=document.createElement("div");price.className="modal-price";price.textContent=formatPrice(p.price);let cat=document.createElement("p");cat.className="modal-category";cat.textContent="Category: "+safeText(p.category);let desc=document.createElement("p");desc.className="modal-description";desc.textContent=safeText(p.description||"No description.");let stock=document.createElement("p");stock.textContent=`${Number(p.soldCount||0)} sold • ${stockLeft(p)} remaining`;let btn=document.createElement("button");btn.className="btn";btn.textContent=stockLeft(p)>0?"Add to Cart":"Sold Out";btn.disabled=stockLeft(p)<=0;btn.onclick=()=>addToCart(p.id);b.append(img,name,price,cat,desc,stock,btn);$("productDetailsModal").classList.add("active")};window.closeProductDetails=()=>{$("productDetailsModal").classList.remove("active")};
-function addToCart(id){let p=approvedProducts.find(x=>x.id===id);if(!p||stockLeft(p)<=0){alert("This product is sold out.");return}let item=cart.find(x=>x.id===id);if(item){if(item.quantity>=stockLeft(p)){alert("You cannot add more than the remaining stock.");return}item.quantity++}else cart.push({id:p.id,name:p.name,price:Number(p.price),imageUrl:p.imageUrl,quantity:1});renderCart();alert("Added to cart.");}
-function renderCart(){let c=$("cartItems");if(!c)return;c.innerHTML="";if(!cart.length){c.className="panel-empty";c.textContent="Your cart is empty.";return}c.className="";let total=0;cart.forEach(item=>{total+=item.price*item.quantity;let row=document.createElement("div");row.className="cart-row";let text=document.createElement("div");text.textContent=`${item.name} • ${formatPrice(item.price)} × ${item.quantity}`;let rm=document.createElement("button");rm.textContent="Remove";rm.onclick=()=>{cart=cart.filter(x=>x.id!==item.id);renderCart()};row.append(text,rm);c.appendChild(row)});let sum=document.createElement("div");sum.className="cart-total";sum.textContent="Cart total: "+formatPrice(total);c.appendChild(sum);let note=document.createElement("p");note.className="notice";note.textContent="Checkout/payment and order submission are not enabled yet.";c.appendChild(note);$("cartCount").textContent=cart.reduce((n,x)=>n+x.quantity,0)}
-window.toggleWishlist=id=>{wishlist.includes(id)?wishlist=wishlist.filter(x=>x!==id):wishlist.push(id);renderProducts();renderWishlist()};
-function renderWishlist(){let c=$("wishlistItems");if(!c)return;c.innerHTML="";let items=approvedProducts.filter(p=>wishlist.includes(p.id));if(!items.length){c.className="panel-empty";c.textContent="Your wishlist is empty.";return}c.className="";items.forEach(p=>{let row=document.createElement("div");row.className="cart-row";let text=document.createElement("span");text.textContent=p.name+" • "+formatPrice(p.price);let view=document.createElement("button");view.textContent="View";view.onclick=()=>openProductDetails(p.id);let remove=document.createElement("button");remove.textContent="Remove";remove.onclick=()=>toggleWishlist(p.id);row.append(text,view,remove);c.appendChild(row)});$("wishlistCount").textContent=wishlist.length}
-$("productUploadForm").addEventListener("submit",async e=>{e.preventDefault();if(!currentUser||currentUserData?.role!=="seller"){alert("Please login with a seller account.");return}let file=$("productImage").files[0],name=$("productName").value.trim(),price=Number($("productPrice").value),category=$("productCategory").value,stock=Number($("productStock").value),description=$("productDescription").value.trim();if(!file||!name||!price||!category||!stock||!description){alert("Complete all fields.");return}if(!file.type.startsWith("image/")||file.size>5*1024*1024){alert("Choose an image file under 5 MB.");return}let btn=$("uploadProductBtn");btn.disabled=true;btn.textContent="Uploading...";showMessage("uploadMessage","Uploading product image...");try{let imageRef=ref(storage,"products/"+currentUser.uid+"/"+Date.now()+"_"+file.name.replace(/[^a-zA-Z0-9._-]/g,"_"));await uploadBytes(imageRef,file);let imageUrl=await getDownloadURL(imageRef);await addDoc(collection(db,"products"),{sellerUid:currentUser.uid,sellerName:currentUserData.name||"",name,price,category,description,imageUrl,totalStock:stock,stock:stock,soldCount:0,status:"pending",createdAt:serverTimestamp()});e.target.reset();$("productImagePreview").classList.add("hidden");showMessage("uploadMessage","Product submitted and awaiting admin approval.");alert("Product submitted. Buyers can see it after admin approval.");}catch(err){console.error(err);showMessage("uploadMessage","Upload failed: "+err.message);alert("Upload failed: "+err.message)}finally{btn.disabled=false;btn.textContent="Upload Product"}});
-$("productImage").addEventListener("change",e=>{let file=e.target.files[0];if(!file){ $("productImagePreview").classList.add("hidden");return}if(!file.type.startsWith("image/")||file.size>5*1024*1024){alert("Select an image under 5 MB.");e.target.value="";$("productImagePreview").classList.add("hidden");return}let img=$("previewProductImage");img.src=URL.createObjectURL(file);$("productImagePreview").classList.remove("hidden")});
-function renderSellerProducts(){let c=$("sellerProductsList");if(!c)return;c.innerHTML="";let pend=sellerProducts.filter(p=>p.status==="pending").length,approved=sellerProducts.filter(p=>p.status==="approved").length;$("sellerProductCount").textContent=sellerProducts.length;$("sellerPendingCount").textContent=pend;$("sellerApprovedCount").textContent=approved;if(!sellerProducts.length){c.textContent="You have not uploaded any products yet.";return}sellerProducts.forEach(p=>{let row=document.createElement("div");row.className="seller-product-item";let im=document.createElement("img");im.src=p.imageUrl||"";im.alt=p.name||"Product";let info=document.createElement("div");let title=document.createElement("strong");title.textContent=safeText(p.name);let price=document.createElement("p");price.textContent=formatPrice(p.price);let status=document.createElement("p");status.className=p.status==="approved"?"status-approved":"status-pending";status.textContent="Status: "+safeText(p.status);let stock=document.createElement("p");stock.textContent=`Total: ${Number(p.totalStock??p.stock??0)} • Sold: ${Number(p.soldCount||0)} • Remaining: ${stockLeft(p)}`;info.append(title,price,status,stock);if(p.status==="approved"&&stockLeft(p)>0){let btn=document.createElement("button");btn.textContent="Mark 1 Sold";btn.onclick=()=>markOneSold(p.id,btn);info.append(btn)}row.append(im,info);c.append(row)})}
-async function markOneSold(id,button){if(!currentUser||currentUserData?.role!=="seller")return;button.disabled=true;button.textContent="Updating...";try{await runTransaction(db,async tx=>{let r=doc(db,"products",id),snap=await tx.get(r);if(!snap.exists())throw new Error("Product not found");let data=snap.data();if(data.sellerUid!==currentUser.uid)throw new Error("You can only update your own product.");if(data.status!=="approved")throw new Error("Product is not approved.");let remain=Number(data.stock??data.totalStock??0);if(remain<=0)throw new Error("Stock is sold out.");tx.update(r,{stock:remain-1,soldCount:Number(data.soldCount||0)+1})});}catch(err){alert(err.message)}finally{button.disabled=false;button.textContent="Mark 1 Sold"}}
-function loadAnnouncements(){if(announcementListener)announcementListener();announcementListener=onSnapshot(collection(db,"announcements"),s=>{let msgs=[];s.forEach(d=>{let x=d.data();if(x.active===true&&x.message)msgs.push(x.message)});let msg=msgs.join(" • ");setAnnouncement("buyerAnnouncement","buyerAnnouncementText",msg);setAnnouncement("sellerAnnouncement","sellerAnnouncementText",msg)},err=>console.error("Announcements:",err))}
-function setAnnouncement(boxId,textId,msg){let b=$(boxId),t=$(textId);if(!b||!t)return;b.classList.toggle("active",!!msg);t.textContent=msg||""}
-window.logout=async()=>{stopListeners();cart=[];wishlist=[];await signOut(auth)};
+const firebaseConfig={
+apiKey:"AIzaSyB1l8FXMZXLtSGL6g3q3funmI2N7qAgAa8",
+authDomain:"zenta-d60e5.firebaseapp.com",
+projectId:"zenta-d60e5",
+storageBucket:"zenta-d60e5.firebasestorage.app",
+messagingSenderId:"449281141527",
+appId:"1:449281141527:web:9e20e1e406508d8d91e552"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+const storage=getStorage(app);
+
+let currentUser=null,currentProfile=null;
+let products=[],selectedCategory="",searchText="";
+let wishlist=JSON.parse(localStorage.getItem("zentraWishlist")||"[]");
+let cart=JSON.parse(localStorage.getItem("zentraCart")||"[]");
+
+window.showPage=function(id){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+const el=document.getElementById(id);
+if(el)el.classList.add("active");
+};
+
+window.toggleBusinessFields=function(){
+document.getElementById("businessFields").classList.toggle("hidden",document.getElementById("regRole").value!=="seller");
+};
+
+function message(text){
+alert(text);
+}
+
+function price(value){
+return "₦"+Number(value||0).toLocaleString("en-NG");
+}
+
+function greeting(){
+let h=new Date().getHours();
+return h<12?"Good morning":h<16?"Good afternoon":"Good evening";
+}
+
+window.registerUser=async function(){
+const name=document.getElementById("regName").value.trim();
+const email=document.getElementById("regEmail").value.trim();
+const phone=document.getElementById("regPhone").value.trim();
+const role=document.getElementById("regRole").value;
+const pass=document.getElementById("regPassword").value;
+const confirm=document.getElementById("regConfirm").value;
+
+if(!name||!email||!phone||!pass||!confirm)return message("Please complete all fields.");
+if(pass!==confirm)return message("Passwords do not match.");
+if(pass.length<6)return message("Password must be at least 6 characters.");
+if(role==="seller"&&(!document.getElementById("businessName").value.trim()||!document.getElementById("businessAddress").value.trim()))return message("Please complete business information.");
+
+try{
+const result=await createUserWithEmailAndPassword(auth,email,pass);
+const profile={
+uid:result.user.uid,name,email,phone,role,
+businessName:role==="seller"?document.getElementById("businessName").value.trim():"",
+businessAddress:role==="seller"?document.getElementById("businessAddress").value.trim():"",
+createdAt:serverTimestamp()
+};
+await setDoc(doc(db,"users",result.user.uid),profile);
+message("Account created successfully.");
+}catch(e){message(e.message);}
+};
+
+window.loginUser=async function(){
+const email=document.getElementById("loginEmail").value.trim();
+const pass=document.getElementById("loginPassword").value;
+if(!email||!pass)return message("Enter email and password.");
+try{
+await signInWithEmailAndPassword(auth,email,pass);
+}catch(e){message(e.message);}
+};
+
+window.resetPassword=async function(){
+const email=document.getElementById("resetEmail").value.trim();
+if(!email)return message("Enter your email.");
+try{
+await sendPasswordResetEmail(auth,email);
+message("Password reset link sent.");
+showPage("loginPage");
+}catch(e){message(e.message);}
+};
+
+window.logoutUser=async function(){
+try{await signOut(auth);}catch(e){message(e.message);}
+};
+
+async function loadProfile(user){
+const snap=await getDoc(doc(db,"users",user.uid));
+if(!snap.exists()){message("Profile not found.");return;}
+currentProfile=snap.data();
+if(currentProfile.role==="seller"){
+document.getElementById("sellerWelcome").textContent="Welcome, "+currentProfile.name;
+showPage("sellerDashboard");
+await loadSellerProducts();
+}else{
+document.getElementById("buyerGreeting").textContent=greeting()+", "+currentProfile.name;
+document.getElementById("accountContent").innerHTML=
+`<p><b>Name:</b> ${escapeHtml(currentProfile.name)}</p>
+<p><b>Email:</b> ${escapeHtml(currentProfile.email)}</p>
+<p><b>Phone:</b> ${escapeHtml(currentProfile.phone||"")}</p>`;
+showPage("buyerDashboard");
+await loadProducts();
+}
+}
+
+function escapeHtml(s){
+return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+onAuthStateChanged(auth,async user=>{
+currentUser=user;
+if(user){
+try{await loadProfile(user);}catch(e){message(e.message);}
+}
+});
+
+document.getElementById("productUploadForm").addEventListener("submit",async e=>{
+e.preventDefault();
+if(!currentUser||currentProfile?.role!=="seller")return message("Seller login required.");
+
+const file=document.getElementById("productImage").files[0];
+if(!file)return message("Select product image.");
+if(file.size>5*1024*1024)return message("Image must be under 5 MB.");
+
+const btn=document.getElementById("uploadProductBtn");
+btn.disabled=true;btn.textContent="Uploading...";
+
+try{
+const imageRef=ref(storage,"products/"+currentUser.uid+"/"+Date.now()+"_"+file.name);
+await uploadBytes(imageRef,file);
+const imageUrl=await getDownloadURL(imageRef);
+
+const quantity=Number(document.getElementById("productQuantity").value);
+if(quantity<1)throw new Error("Stock must be at least 1.");
+
+await addDoc(collection(db,"products"),{
+sellerUid:currentUser.uid,
+sellerName:currentProfile.name,
+businessName:currentProfile.businessName||"",
+name:document.getElementById("productName").value.trim(),
+price:Number(document.getElementById("productPrice").value),
+category:document.getElementById("productCategory").value,
+description:document.getElementById("productDescription").value.trim(),
+imageUrl,
+totalStock:quantity,
+stock:quantity,
+soldCount:0,
+status:"pending",
+createdAt:serverTimestamp()
+});
+
+message("Product uploaded. Waiting for approval.");
+e.target.reset();
+await loadSellerProducts();
+}catch(err){message(err.message);}
+finally{btn.disabled=false;btn.textContent="Upload Product";}
+});
+
+async function loadSellerProducts(){
+if(!currentUser)return;
+const q=query(collection(db,"products"),where("sellerUid","==",currentUser.uid));
+const snap=await getDocs(q);
+const list=snap.docs.map(d=>({id:d.id,...d.data()}));
+document.getElementById("sellerProductCount").textContent="Total products: "+list.length;
+document.getElementById("sellerPendingCount").textContent="Pending: "+list.filter(p=>p.status==="pending").length;
+document.getElementById("sellerApprovedCount").textContent="Approved: "+list.filter(p=>p.status==="approved").length;
+
+const area=document.getElementById("sellerProductsList");
+area.innerHTML="";
+list.forEach(p=>{
+const div=document.createElement("div");
+div.className="cart-row";
+div.style.flexDirection="column";
+div.style.alignItems="stretch";
+div.innerHTML=`
+<strong>${escapeHtml(p.name)}</strong>
+<p>${price(p.price)}</p>
+<p>Stock remaining: ${Number(p.stock||0)}</p>
+<p>Sold: ${Number(p.soldCount||0)} / ${Number(p.totalStock||0)}</p>
+<p>Status: ${escapeHtml(p.status||"pending")}</p>
+<button ${p.status!=="approved"||Number(p.stock)<=0?"disabled":""} data-sell="${p.id}">Mark 1 Sold</button>`;
+area.appendChild(div);
+div.querySelector("[data-sell]").addEventListener("click",()=>markSold(p.id));
+});
+}
+
+async function markSold(id){
+if(!currentUser||currentProfile?.role!=="seller")return message("Only the seller can update sales.");
+try{
+await runTransaction(db,async tx=>{
+const productRef=doc(db,"products",id);
+const snap=await tx.get(productRef);
+if(!snap.exists())throw new Error("Product not found.");
+const p=snap.data();
+if(p.sellerUid!==currentUser.uid)throw new Error("Not your product.");
+if(p.status!=="approved")throw new Error("Product is not approved.");
+if(Number(p.stock)<=0)throw new Error("Sold out.");
+tx.update(productRef,{
+stock:Number(p.stock)-1,
+soldCount:Number(p.soldCount||0)+1
+});
+});
+message("Sale recorded.");
+await loadSellerProducts();
+}catch(e){message(e.message);}
+}
+
+async function loadProducts(){
+const snap=await getDocs(collection(db,"products"));
+products=snap.docs.map(d=>({id:d.id,...d.data()}))
+.filter(p=>p.status==="approved"&&Number(p.stock)>0);
+renderProducts();
+}
+
+function renderProducts(){
+const grid=document.getElementById("productGrid");
+grid.innerHTML="";
+let list=products.filter(p=>
+(!selectedCategory||p.category===selectedCategory)&&
+(!searchText||p.name.toLowerCase().includes(searchText.toLowerCase())||
+p.description?.toLowerCase().includes(searchText.toLowerCase()))
+);
+
+if(!list.length){
+grid.innerHTML='<div class="empty-products">No products found.</div>';
+return;
+}
+
+list.forEach(p=>{
+const card=document.createElement("div");
+card.className="product-card";
+const liked=wishlist.includes(p.id);
+card.innerHTML=`
+<div class="product-picture">
+<img src="${escapeHtml(p.imageUrl)}" alt="${escapeHtml(p.name)}">
+<button class="heart-button ${liked?"liked":""}">♥</button>
+</div>
+<div class="product-info">
+<h4>${escapeHtml(p.name)}</h4>
+<div class="product-price">${price(p.price)}</div>
+<small>Sold ${Number(p.soldCount||0)} · ${Number(p.stock||0)} left</small>
+<button class="add-cart">View Details</button>
+</div>`;
+card.querySelector(".heart-button").addEventListener("click",()=>{
+toggleWishlist(p.id);
+});
+card.querySelector(".add-cart").addEventListener("click",()=>{
+showProductDetails(p);
+});
+grid.appendChild(card);
+});
+}
+
+function showProductDetails(p){
+const text=`
+Product: ${p.name}
+Price: ${price(p.price)}
+Category: ${p.category}
+Stock remaining: ${p.stock}
+
+Description:
+${p.description||"No description."}
+
+Seller: ${p.businessName||p.sellerName||"Seller"}
+`;
+alert(text);
+}
+
+window.filterCategory=function(category,element){
+selectedCategory=category;
+document.querySelectorAll(".category").forEach(c=>c.classList.remove("selected"));
+if(element)element.classList.add("selected");
+renderProducts();
+};
+
+window.searchProducts=function(){
+searchText=document.getElementById("productSearch").value.trim();
+renderProducts();
+};
+
+function toggleWishlist(id){
+if(wishlist.includes(id))wishlist=wishlist.filter(x=>x!==id);
+else wishlist.push(id);
+localStorage.setItem("zentraWishlist",JSON.stringify(wishlist));
+renderProducts();
+renderWishlist();
+}
+
+function renderWishlist(){
+const area=document.getElementById("wishlistContent");
+const items=products.filter(p=>wishlist.includes(p.id));
+area.innerHTML=items.length?items.map(p=>`
+<div class="cart-row">
+<div><b>${escapeHtml(p.name)}</b><p>${price(p.price)}</p></div>
+<button data-remove="${p.id}">Remove</button>
+</div>`).join():'<div class="panel-empty">Your wishlist is empty.</div>';
+area.querySelectorAll("[data-remove]").forEach(b=>b.addEventListener("click",()=>{
+toggleWishlist(b.dataset.remove);
+}));
+}
+
+function addToCart(id){
+const p=products.find(x=>x.id===id);
+if(!p)return;
+const existing=cart.find(x=>x.id===id);
+if(existing)existing.qty++;
+else cart.push({id,qty:1});
+localStorage.setItem("zentraCart",JSON.stringify(cart));
+renderCart();
+}
+
+function renderCart(){
+const area=document.getElementById("cartContent");
+let total=0;
+let rows=cart.map(item=>{
+const p=products.find(x=>x.id===item.id);
+if(!p)return "";
+total+=p.price*item.qty;
+return `<div class="cart-row">
+<div><b>${escapeHtml(p.name)}</b><p>${price(p.price)} × ${item.qty}</p></div>
+<button data-remove="${p.id}">Remove</button>
+</div>`;
+}).join("");
+area.innerHTML=rows||'<div class="panel-empty">Your cart is empty.</div>';
+if(cart.length){
+area.innerHTML+=`<div class="cart-total"><span>Total</span><span>${price(total)}</span></div>`;
+}
+area.querySelectorAll("[data-remove]").forEach(b=>b.addEventListener("click",()=>{
+cart=cart.filter(x=>x.id!==b.dataset.remove);
+localStorage.setItem("zentraCart",JSON.stringify(cart));
+renderCart();
+}));
+}
+
+window.openShopPanel=function(id,button){
+document.querySelectorAll(".shop-panel").forEach(p=>p.classList.remove("active"));
+document.querySelectorAll(".bottom-item").forEach(b=>b.classList.remove("active"));
+if(id==="homePanel"){
+document.getElementById("productGrid").scrollIntoView({behavior:"smooth"});
+return;
+}
+const panel=document.getElementById(id);
+if(panel)panel.classList.add("active");
+if(button)button.classList.add("active");
+if(id==="wishlistPanel")renderWishlist();
+if(id==="cartPanel")renderCart();
+};
+
+renderWishlist();
+renderCart();
 </script>
 </body>
 </html>
