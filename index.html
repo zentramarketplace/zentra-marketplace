@@ -35,6 +35,7 @@ button{
  min-height:100vh;
 }
 
+/* AUTH BACKGROUND */
 .auth-page{
  min-height:100vh;
  display:flex;
@@ -42,18 +43,19 @@ button{
  justify-content:center;
  padding:20px;
  background:
- linear-gradient(rgba(255,255,255,.68),rgba(255,255,255,.68)),
- url('female.png');
+ linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.72)),
+ url('file_0000000064348210808862c10ba5b1be.png');
  background-size:cover;
  background-position:center;
+ background-repeat:no-repeat;
 }
 
 .auth-box{
  width:100%;
  max-width:430px;
- background:rgba(255,255,255,.94);
- backdrop-filter:blur(10px);
- -webkit-backdrop-filter:blur(10px);
+ background:rgba(255,255,255,.88);
+ backdrop-filter:blur(8px);
+ -webkit-backdrop-filter:blur(8px);
  border-radius:20px;
  padding:28px;
  box-shadow:0 10px 40px rgba(30,100,180,.12);
@@ -61,8 +63,8 @@ button{
 }
 
 .logo{
- width:85px;
- height:85px;
+ width:95px;
+ height:95px;
  object-fit:contain;
  display:block;
  margin:0 auto 12px;
@@ -322,6 +324,9 @@ Login
 
 <div class="auth-box">
 
+<img src="20261125_122020.png" class="logo"
+onerror="this.style.display='none'">
+
 <div class="brand">ZENTRA</div>
 <div class="brand-sub">Marketplace</div>
 
@@ -350,3 +355,1621 @@ Back to Login
 </section>
 
  </div>
+ <!-- BUYER DASHBOARD -->
+<section id="buyerDashboard" class="dashboard hidden">
+
+<header class="topbar">
+ <div class="top-logo">
+  <img src="20261125_122020.png" onerror="this.style.display='none'">
+  <strong>ZENTRA</strong>
+ </div>
+
+ <div class="top-actions">
+  <button onclick="openPanel('buyerAccount')">👤</button>
+  <button onclick="openPanel('buyerCart')">🛒</button>
+  <button onclick="logoutUser()">Logout</button>
+ </div>
+</header>
+
+<div class="dashboard-content">
+
+<div class="welcome-banner">
+ <h2 id="buyerGreeting">Welcome to ZENTRA</h2>
+ <p>Discover products and shop with ease.</p>
+</div>
+
+<div class="search-area">
+ <input type="search" id="buyerSearch"
+ placeholder="Search products..."
+ oninput="searchProducts(this.value)">
+</div>
+
+<div class="category-list">
+ <button onclick="filterCategory('')">All</button>
+ <button onclick="filterCategory('Fashion')">Fashion</button>
+ <button onclick="filterCategory('Electronics')">Electronics</button>
+ <button onclick="filterCategory('Home')">Home</button>
+ <button onclick="filterCategory('Beauty')">Beauty</button>
+ <button onclick="filterCategory('Food')">Food</button>
+ <button onclick="filterCategory('Accessories')">Accessories</button>
+ <button onclick="filterCategory('Other')">Other</button>
+</div>
+
+<div class="section-heading">
+ <h3>Discover Products</h3>
+</div>
+
+<div id="buyerProductGrid" class="product-grid"></div>
+
+</div>
+
+<nav class="bottom-nav">
+<button onclick="openPanel('buyerHome')">🏠<small>Home</small></button>
+<button onclick="openPanel('buyerWishlist')">♡<small>Wishlist</small></button>
+<button onclick="openPanel('buyerCart')">🛒<small>Cart</small></button>
+<button onclick="openPanel('buyerOrders')">📦<small>Orders</small></button>
+<button onclick="openPanel('buyerAccount')">👤<small>Account</small></button>
+</nav>
+
+</section>
+
+
+<!-- SELLER DASHBOARD -->
+<section id="sellerDashboard" class="dashboard hidden">
+
+<header class="topbar">
+ <div class="top-logo">
+  <img src="20261125_122020.png" onerror="this.style.display='none'">
+  <strong>ZENTRA</strong>
+ </div>
+
+ <div class="top-actions">
+  <button onclick="openPanel('sellerAccount')">👤</button>
+  <button onclick="logoutUser()">Logout</button>
+ </div>
+</header>
+
+<div class="dashboard-content">
+
+<div class="welcome-banner">
+ <h2 id="sellerGreeting">Welcome to ZENTRA</h2>
+ <p>Manage your products and orders.</p>
+</div>
+
+<div class="seller-stats">
+ <div class="stat-card">
+  <h3 id="sellerProductCount">0</h3>
+  <p>My Products</p>
+ </div>
+
+ <div class="stat-card">
+  <h3 id="sellerOrderCount">0</h3>
+  <p>Orders</p>
+ </div>
+</div>
+
+<div class="search-area">
+ <input type="search" id="sellerSearch"
+ placeholder="Search products..."
+ oninput="searchProducts(this.value)">
+</div>
+
+<div class="category-list">
+ <button onclick="filterCategory('')">All</button>
+ <button onclick="filterCategory('Fashion')">Fashion</button>
+ <button onclick="filterCategory('Electronics')">Electronics</button>
+ <button onclick="filterCategory('Home')">Home</button>
+ <button onclick="filterCategory('Beauty')">Beauty</button>
+ <button onclick="filterCategory('Food')">Food</button>
+ <button onclick="filterCategory('Accessories')">Accessories</button>
+ <button onclick="filterCategory('Other')">Other</button>
+</div>
+
+<div class="section-heading">
+ <h3>Marketplace</h3>
+</div>
+
+<div id="sellerProductGrid" class="product-grid"></div>
+
+</div>
+
+<nav class="bottom-nav">
+<button onclick="openPanel('sellerHome')">🏠<small>Home</small></button>
+<button onclick="openPanel('sellerMyProducts')">📦<small>Products</small></button>
+<button onclick="openPanel('sellerAddProduct')">➕<small>Add Product</small></button>
+<button onclick="openPanel('sellerOrders')">🧾<small>Orders</small></button>
+<button onclick="openPanel('sellerAccount')">👤<small>Account</small></button>
+</nav>
+
+</section>
+
+
+<!-- BUYER PANELS -->
+
+<section id="buyerWishlist" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('buyerHome')">← Back</button>
+<h2>My Wishlist</h2>
+</div>
+<div id="wishlistContent" class="product-grid"></div>
+</section>
+
+
+<section id="buyerCart" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('buyerHome')">← Back</button>
+<h2>My Cart</h2>
+</div>
+<div id="cartContent"></div>
+<div id="checkoutArea"></div>
+</section>
+
+
+<section id="buyerOrders" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('buyerHome')">← Back</button>
+<h2>My Orders</h2>
+</div>
+<div id="buyerOrdersContent"></div>
+</section>
+
+
+<section id="buyerAccount" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('buyerHome')">← Back</button>
+<h2>My Account</h2>
+</div>
+
+<div class="account-card">
+<div id="buyerAccountInfo"></div>
+<div id="buyerCustomerCare"></div>
+<button class="primary-btn" onclick="logoutUser()">Logout</button>
+</div>
+</section>
+
+
+<!-- SELLER PANELS -->
+
+<section id="sellerMyProducts" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('sellerHome')">← Back</button>
+<h2>My Products</h2>
+</div>
+<div id="sellerMyProductsList"></div>
+</section>
+
+
+<section id="sellerAddProduct" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('sellerHome')">← Back</button>
+<h2>Add Product</h2>
+</div>
+
+<div class="form-card">
+
+<div class="field">
+<label>Product Image</label>
+<input type="file" id="productImage"
+accept="image/*">
+</div>
+
+<div class="field">
+<label>Product Name</label>
+<input type="text" id="productName"
+placeholder="Product name">
+</div>
+
+<div class="field">
+<label>Price (₦)</label>
+<input type="number" id="productPrice"
+placeholder="Enter price">
+</div>
+
+<div class="field">
+<label>Category</label>
+<select id="productCategory">
+<option value="Fashion">Fashion</option>
+<option value="Electronics">Electronics</option>
+<option value="Home">Home</option>
+<option value="Beauty">Beauty</option>
+<option value="Food">Food</option>
+<option value="Accessories">Accessories</option>
+<option value="Other">Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Product Description</label>
+<textarea id="productDescription"
+rows="4"
+placeholder="Describe your product"></textarea>
+</div>
+
+<div class="field">
+<label>Available Quantity</label>
+<input type="number" id="productQuantity"
+min="1" placeholder="Quantity">
+</div>
+
+<div class="field">
+<label>Delivery Fee (₦)</label>
+<input type="number" id="productDeliveryFee"
+min="0" placeholder="Delivery fee">
+</div>
+
+<button class="primary-btn" onclick="uploadProduct()">
+Add Product
+</button>
+
+<div id="uploadMessage" class="auth-message"></div>
+
+</div>
+</section>
+
+
+<section id="sellerOrders" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('sellerHome')">← Back</button>
+<h2>My Orders</h2>
+</div>
+<div id="sellerOrdersContent"></div>
+</section>
+
+
+<section id="sellerAccount" class="dashboard hidden">
+<div class="panel-header">
+<button onclick="openPanel('sellerHome')">← Back</button>
+<h2>Seller Account</h2>
+</div>
+
+<div class="account-card">
+<div id="sellerAccountInfo"></div>
+<div id="sellerCustomerCare"></div>
+<button class="primary-btn" onclick="logoutUser()">Logout</button>
+</div>
+</section>
+
+
+<!-- ADMIN DASHBOARD -->
+
+<section id="adminDashboard" class="dashboard hidden">
+
+<header class="topbar">
+<div class="top-logo">
+<img src="20261125_122020.png" onerror="this.style.display='none'">
+<strong>ZENTRA ADMIN</strong>
+</div>
+<button onclick="logoutUser()">Logout</button>
+</header>
+
+<div class="dashboard-content">
+
+<h2>Admin Dashboard</h2>
+
+<div class="form-card">
+
+<h3>Customer Care Settings</h3>
+
+<div class="field">
+<label>Customer Care Email</label>
+<input type="email" id="adminCareEmail">
+</div>
+
+<div class="field">
+<label>Customer Care Phone</label>
+<input type="tel" id="adminCarePhone">
+</div>
+
+<button class="primary-btn" onclick="saveCustomerCare()">
+Save Settings
+</button>
+
+</div>
+
+<div class="section-heading">
+<h3>Product Approval</h3>
+</div>
+
+<div id="adminProductsList"></div>
+
+</div>
+</section>
+
+
+<!-- PRODUCT DETAILS MODAL -->
+
+<div id="productModal" class="modal hidden">
+<div class="modal-box">
+
+<button class="modal-close" onclick="closeProductModal()">✕</button>
+
+<h2 id="modalProductName"></h2>
+
+<div id="modalProductContent"></div>
+
+</div>
+</div>
+
+
+<!-- ADMIN LOGIN -->
+
+<section id="adminLoginPage" class="auth-page hidden">
+
+<div class="auth-box">
+
+<div class="brand">ZENTRA</div>
+<div class="brand-sub">Admin Access</div>
+
+<h2>Admin Login</h2>
+
+<div class="field">
+<label>Username</label>
+<input type="text" id="adminUsername"
+placeholder="Admin username">
+</div>
+
+<div class="field">
+<label>Password</label>
+<input type="password" id="adminPassword"
+placeholder="Admin password">
+</div>
+
+<button class="primary-btn" onclick="adminLogin()">
+Login as Admin
+</button>
+
+<div id="adminLoginMessage" class="auth-message"></div>
+
+</div>
+  </section>
+
+ <!-- DASHBOARD STYLES -->
+<style>
+.dashboard{
+ min-height:100vh;
+ background:#f4f8fc;
+ padding-bottom:85px;
+}
+
+.topbar{
+ position:sticky;
+ top:0;
+ z-index:10;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:12px 15px;
+ background:white;
+ box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.top-logo{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ color:#1684e8;
+ font-size:20px;
+}
+
+.top-logo img{
+ width:40px;
+ height:40px;
+ object-fit:contain;
+}
+
+.top-actions{
+ display:flex;
+ gap:8px;
+ align-items:center;
+}
+
+.top-actions button{
+ background:#eaf5ff;
+ color:#1677d2;
+ padding:9px;
+ border-radius:9px;
+}
+
+.dashboard-content{
+ padding:15px;
+}
+
+.welcome-banner{
+ background:linear-gradient(135deg,#1684e8,#75c4ff);
+ color:white;
+ padding:22px;
+ border-radius:16px;
+ margin-bottom:18px;
+}
+
+.welcome-banner p{
+ margin-top:7px;
+ font-size:14px;
+}
+
+.search-area{
+ margin:15px 0;
+}
+
+.search-area input{
+ width:100%;
+ padding:14px;
+ border:1px solid #dce7f2;
+ border-radius:12px;
+ background:white;
+ outline:none;
+}
+
+.category-list{
+ display:flex;
+ gap:9px;
+ overflow-x:auto;
+ padding:8px 0 14px;
+ white-space:nowrap;
+}
+
+.category-list button{
+ background:white;
+ color:#1677d2;
+ border:1px solid #dce7f2;
+ padding:10px 15px;
+ border-radius:20px;
+}
+
+.category-list button:active{
+ background:#1684e8;
+ color:white;
+}
+
+.section-heading{
+ margin:15px 0;
+}
+
+.product-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;
+}
+
+.product-card{
+ background:white;
+ border-radius:14px;
+ overflow:hidden;
+ box-shadow:0 2px 8px rgba(0,0,0,.06);
+ border:1px solid #edf2f7;
+}
+
+.product-picture{
+ width:100%;
+ height:180px;
+ object-fit:cover;
+ background:#edf5fc;
+ display:block;
+}
+
+.product-info{
+ padding:12px;
+}
+
+.product-info h3{
+ font-size:15px;
+ margin-bottom:7px;
+ word-break:break-word;
+}
+
+.product-price{
+ color:#1684e8;
+ font-weight:bold;
+ font-size:17px;
+ margin:8px 0;
+}
+
+.product-info p{
+ font-size:13px;
+ color:#667788;
+ margin-bottom:7px;
+}
+
+.add-cart{
+ background:#dfff35;
+ color:#17324d;
+ padding:11px;
+ width:100%;
+ border-radius:10px;
+ font-weight:bold;
+ margin-top:8px;
+}
+
+.wish-btn{
+ background:#eaf5ff;
+ color:#1677d2;
+ padding:9px;
+ border-radius:9px;
+ margin-bottom:8px;
+}
+
+.bottom-nav{
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
+ z-index:20;
+ background:white;
+ box-shadow:0 -3px 12px rgba(0,0,0,.08);
+ display:flex;
+ justify-content:space-around;
+ padding:9px 3px;
+}
+
+.bottom-nav button{
+ background:white;
+ color:#1677d2;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap:4px;
+ font-size:19px;
+ flex:1;
+}
+
+.bottom-nav small{
+ font-size:11px;
+}
+
+.panel-header{
+ background:white;
+ display:flex;
+ align-items:center;
+ gap:15px;
+ padding:17px;
+ box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.panel-header button{
+ background:#eaf5ff;
+ color:#1677d2;
+ padding:10px;
+ border-radius:10px;
+}
+
+.panel-header h2{
+ font-size:19px;
+}
+
+.form-card,
+.account-card{
+ background:white;
+ padding:18px;
+ border-radius:15px;
+ margin:15px;
+ box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.seller-stats{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+
+.stat-card{
+ background:white;
+ padding:18px;
+ border-radius:14px;
+ text-align:center;
+ box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.stat-card h3{
+ color:#1684e8;
+ font-size:24px;
+}
+
+.stat-card p{
+ font-size:13px;
+ margin-top:5px;
+}
+
+.modal{
+ position:fixed;
+ inset:0;
+ z-index:50;
+ background:rgba(0,0,0,.5);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:15px;
+ overflow:auto;
+}
+
+.modal-box{
+ background:white;
+ width:100%;
+ max-width:500px;
+ max-height:90vh;
+ overflow:auto;
+ border-radius:18px;
+ padding:20px;
+}
+
+.modal-close{
+ float:right;
+ background:#eaf5ff;
+ color:#1677d2;
+ padding:9px;
+ border-radius:9px;
+}
+
+@media(min-width:700px){
+ .product-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+ }
+ .dashboard-content{
+  max-width:1200px;
+  margin:auto;
+ }
+}
+
+@media(max-width:380px){
+ .product-picture{
+  height:145px;
+ }
+ .product-info{
+  padding:9px;
+ }
+}
+</style>
+
+
+<!-- FIREBASE + AUTH -->
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+
+import {
+ getAuth,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,
+ signOut,
+ sendPasswordResetEmail,
+ onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+import {
+ getFirestore,
+ collection,
+ doc,
+ setDoc,
+ getDoc,
+ addDoc,
+ getDocs,
+ query,
+ where,
+ updateDoc,
+ deleteDoc,
+ runTransaction,
+ serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
+/* EXISTING ZENTRA FIREBASE CONFIG */
+
+const firebaseConfig={
+ apiKey:"AIzaSyB1l8FXMZXLtSGL6g3funmI2N7qAgAa8",
+ authDomain:"zenta-d60e5.firebaseapp.com",
+ projectId:"zenta-d60e5",
+ storageBucket:"zenta-d60e5.firebasestorage.app",
+ messagingSenderId:"449281141527",
+ appId:"1:449281141527:web:9e20e1e406508d8d91e552"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+const ADMIN_UID="9amLADJ1QRVr0Vm6wjN0KCAEvu83";
+const ADMIN_EMAIL="adamsmith14141@gmail.com";
+
+let currentUser=null;
+let currentProfile=null;
+let products=[];
+let wishlist=[];
+let cart=[];
+let selectedCategory="";
+let searchTerm="";
+
+
+function message(id,text){
+ const el=document.getElementById(id);
+ if(el) el.textContent=text;
+}
+
+function showPage(id){
+ document.querySelectorAll("#app > section").forEach(s=>{
+  s.classList.add("hidden");
+ });
+ const page=document.getElementById(id);
+ if(page) page.classList.remove("hidden");
+}
+
+function hideAllDashboards(){
+ document.querySelectorAll(".dashboard").forEach(d=>{
+  d.classList.add("hidden");
+ });
+}
+
+function money(value){
+ return "₦"+Number(value||0).toLocaleString("en-NG");
+}
+
+function escapeHtml(value){
+ return String(value??"").replace(/[&<>"']/g,m=>{
+  return {
+   "&":"&amp;",
+   "<":"&lt;",
+   ">":"&gt;",
+   '"':"&quot;",
+   "'":"&#39;"
+  }[m];
+ });
+}
+
+
+/* REGISTER */
+
+async function registerUser(){
+
+ const name=document.getElementById("registerName").value.trim();
+ const email=document.getElementById("registerEmail").value.trim();
+ const phone=document.getElementById("registerPhone").value.trim();
+ const role=document.getElementById("registerRole").value;
+ const password=document.getElementById("registerPassword").value;
+ const confirm=document.getElementById("registerConfirm").value;
+
+ if(!name||!email||!phone||!password||!confirm){
+  message("registerMessage","Please complete all fields.");
+  return;
+ }
+
+ if(password!==confirm){
+  message("registerMessage","Passwords do not match.");
+  return;
+ }
+
+ if(password.length<6){
+  message("registerMessage","Password must be at least 6 characters.");
+  return;
+ }
+
+ message("registerMessage","Creating account...");
+
+ try{
+  const credential=await createUserWithEmailAndPassword(auth,email,password);
+  const uid=credential.user.uid;
+
+  await setDoc(doc(db,"users",uid),{
+   name,
+   email,
+   phone,
+   role,
+   uid,
+   createdAt:serverTimestamp()
+  });
+
+  message("registerMessage","Account created successfully.");
+
+ }catch(error){
+  message("registerMessage",error.message);
+ }
+}
+
+
+/* LOGIN */
+
+async function loginUser(){
+
+ const email=document.getElementById("loginEmail").value.trim();
+ const password=document.getElementById("loginPassword").value;
+
+ if(!email||!password){
+  message("loginMessage","Enter email and password.");
+  return;
+ }
+
+ message("loginMessage","Logging in...");
+
+ try{
+  await signInWithEmailAndPassword(auth,email,password);
+ }catch(error){
+  message("loginMessage",error.message);
+ }
+}
+
+
+/* PASSWORD RESET */
+
+async function resetPassword(){
+
+ const email=document.getElementById("resetEmail").value.trim();
+
+ if(!email){
+  message("resetMessage","Enter your email.");
+  return;
+ }
+
+ message("resetMessage","Sending...");
+
+ try{
+  await sendPasswordResetEmail(auth,email);
+  message("resetMessage","Password reset link sent.");
+ }catch(error){
+  message("resetMessage",error.message);
+ }
+}
+
+
+/* LOGOUT */
+
+async function logoutUser(){
+ try{
+  await signOut(auth);
+ }catch(error){
+  alert(error.message);
+ }
+}
+
+
+/* AUTH STATE */
+
+onAuthStateChanged(auth,async user=>{
+
+ if(!user){
+  currentUser=null;
+  currentProfile=null;
+  showPage("welcomePage");
+  return;
+ }
+
+ currentUser=user;
+
+ try{
+
+  const profileSnap=await getDoc(doc(db,"users",user.uid));
+
+  if(!profileSnap.exists()){
+   await signOut(auth);
+   alert("Account profile not found.");
+   return;
+  }
+
+  currentProfile=profileSnap.data();
+
+  hideAllDashboards();
+
+  if(user.uid===ADMIN_UID){
+   const admin=document.getElementById("adminDashboard");
+   if(admin) admin.classList.remove("hidden");
+   loadAdminProducts();
+   loadCustomerCare();
+   return;
+  }
+
+  if(currentProfile.role==="seller"){
+   document.getElementById("sellerDashboard").classList.remove("hidden");
+   document.getElementById("sellerGreeting").textContent=
+   "Welcome, "+currentProfile.name;
+
+   loadProducts();
+   loadSellerProducts();
+   loadOrders("seller");
+
+  }else{
+   document.getElementById("buyerDashboard").classList.remove("hidden");
+   document.getElementById("buyerGreeting").textContent=
+   "Welcome, "+currentProfile.name;
+
+   loadProducts();
+  }
+
+ }catch(error){
+  console.error(error);
+  alert("Unable to load account. Check Firebase permissions.");
+ }
+});
+
+
+/* EXPORT FUNCTIONS */
+
+window.showPage=showPage;
+window.loginUser=loginUser;
+window.registerUser=registerUser;
+window.resetPassword=resetPassword;
+window.logoutUser=logoutUser;
+
+ </script>
+/* PRODUCTS */
+
+async function loadProducts(){
+ try{
+  const snap=await getDocs(collection(db,"products"));
+  products=snap.docs.map(d=>({id:d.id,...d.data()}));
+  renderProducts();
+ }catch(e){
+  console.error(e);
+ }
+}
+
+function renderProducts(){
+
+ const buyer=document.getElementById("buyerProductGrid");
+ const seller=document.getElementById("sellerProductGrid");
+
+ let list=products.filter(p=>p.status==="approved");
+
+ if(selectedCategory){
+  list=list.filter(p=>p.category===selectedCategory);
+ }
+
+ if(searchTerm){
+  list=list.filter(p=>
+   String(p.name||"").toLowerCase().includes(searchTerm) ||
+   String(p.description||"").toLowerCase().includes(searchTerm)
+  );
+ }
+
+ const html=list.map(p=>productCard(p)).join("");
+
+ if(buyer) buyer.innerHTML=html||"<p>No products available.</p>";
+ if(seller) seller.innerHTML=html||"<p>No products available.</p>";
+}
+
+function productCard(p){
+
+ return `
+ <div class="product-card">
+
+ <img class="product-picture"
+ src="${escapeHtml(p.image||"")}"
+ onclick="openProduct('${p.id}')">
+
+ <div class="product-info">
+
+ <h3>${escapeHtml(p.name||"Product")}</h3>
+
+ <div class="product-price">
+ ${money(p.price)}
+ </div>
+
+ <p>${escapeHtml(p.category||"")}</p>
+
+ <button class="wish-btn"
+ onclick="toggleWishlist('${p.id}')">
+ ♡ Wishlist
+ </button>
+
+ <button class="add-cart"
+ onclick="addToCart('${p.id}')">
+ Add to Cart
+ </button>
+
+ </div>
+ </div>
+ `;
+}
+
+function searchProducts(value){
+ searchTerm=String(value||"").toLowerCase();
+ renderProducts();
+}
+
+function filterCategory(value){
+ selectedCategory=value;
+ renderProducts();
+}
+
+
+/* PRODUCT UPLOAD */
+
+async function uploadProduct(){
+
+ if(!currentUser||currentProfile?.role!=="seller"){
+  alert("Seller account required.");
+  return;
+ }
+
+ const file=document.getElementById("productImage").files[0];
+ const name=document.getElementById("productName").value.trim();
+ const priceValue=document.getElementById("productPrice").value;
+ const category=document.getElementById("productCategory").value;
+ const description=document.getElementById("productDescription").value.trim();
+ const quantity=document.getElementById("productQuantity").value;
+ const delivery=document.getElementById("productDeliveryFee").value;
+
+ if(!file||!name||!priceValue||!description||!quantity){
+  message("uploadMessage","Please complete all required fields.");
+  return;
+ }
+
+ if(file.size>2*1024*1024){
+  message("uploadMessage","Image must not exceed 2 MB.");
+  return;
+ }
+
+ message("uploadMessage","Uploading...");
+
+ try{
+
+  const image=await new Promise((resolve,reject)=>{
+   const reader=new FileReader();
+   reader.onload=()=>resolve(reader.result);
+   reader.onerror=reject;
+   reader.readAsDataURL(file);
+  });
+
+  await addDoc(collection(db,"products"),{
+   name,
+   price:Number(priceValue),
+   category,
+   description,
+   image,
+   sellerId:currentUser.uid,
+   sellerName:currentProfile.name,
+   totalStock:Number(quantity),
+   stock:Number(quantity),
+   soldCount:0,
+   deliveryFee:Number(delivery||0),
+   status:"pending",
+   createdAt:serverTimestamp()
+  });
+
+  message("uploadMessage","Product submitted for approval.");
+
+  document.getElementById("productName").value="";
+  document.getElementById("productPrice").value="";
+  document.getElementById("productDescription").value="";
+  document.getElementById("productQuantity").value="";
+  document.getElementById("productDeliveryFee").value="";
+  document.getElementById("productImage").value="";
+
+  loadSellerProducts();
+
+ }catch(e){
+  message("uploadMessage",e.message);
+ }
+}
+
+
+/* SELLER PRODUCTS */
+
+async function loadSellerProducts(){
+
+ if(!currentUser) return;
+
+ try{
+
+  const q=query(
+   collection(db,"products"),
+   where("sellerId","==",currentUser.uid)
+  );
+
+  const snap=await getDocs(q);
+  const list=snap.docs.map(d=>({id:d.id,...d.data()}));
+
+  const box=document.getElementById("sellerMyProductsList");
+
+  if(box){
+   box.innerHTML=list.map(p=>`
+    <div class="product-card" style="margin:12px;padding:12px">
+     <img class="product-picture" src="${escapeHtml(p.image||"")}">
+     <h3>${escapeHtml(p.name)}</h3>
+     <p>${money(p.price)}</p>
+     <p>Status: ${escapeHtml(p.status||"pending")}</p>
+     <p>Stock: ${Number(p.stock||0)}</p>
+     <p>Sold: ${Number(p.soldCount||0)}</p>
+    </div>
+   `).join("")||"No products yet.";
+  }
+
+  const count=document.getElementById("sellerProductCount");
+  if(count) count.textContent=list.length;
+
+ }catch(e){
+  console.error(e);
+ }
+}
+
+
+/* PRODUCT DETAILS */
+
+function openProduct(id){
+
+ const p=products.find(x=>x.id===id);
+ if(!p) return;
+
+ document.getElementById("modalProductName").textContent=p.name;
+
+ document.getElementById("modalProductContent").innerHTML=`
+ <img src="${escapeHtml(p.image||"")}"
+ style="width:100%;max-height:300px;object-fit:contain">
+
+ <p style="margin:12px 0">${escapeHtml(p.description||"")}</p>
+
+ <h3 style="color:#1684e8">${money(p.price)}</h3>
+
+ <p>Available: ${Number(p.stock||0)}</p>
+
+ <button class="add-cart" onclick="addToCart('${p.id}')">
+ Add to Cart
+ </button>
+ `;
+
+ document.getElementById("productModal").classList.remove("hidden");
+}
+
+function closeProductModal(){
+ document.getElementById("productModal").classList.add("hidden");
+}
+
+
+/* WISHLIST */
+
+function toggleWishlist(id){
+
+ let list=JSON.parse(localStorage.getItem("zentraWishlist")||"[]");
+
+ if(list.includes(id)){
+  list=list.filter(x=>x!==id);
+ }else{
+  list.push(id);
+ }
+
+ localStorage.setItem("zentraWishlist",JSON.stringify(list));
+ renderWishlist();
+}
+
+function renderWishlist(){
+
+ const box=document.getElementById("wishlistContent");
+ if(!box) return;
+
+ const ids=JSON.parse(localStorage.getItem("zentraWishlist")||"[]");
+ const list=products.filter(p=>ids.includes(p.id)&&p.status==="approved");
+
+ box.innerHTML=list.map(p=>productCard(p)).join("")||"Your wishlist is empty.";
+}
+
+
+/* CART */
+
+function addToCart(id){
+
+ const p=products.find(x=>x.id===id);
+ if(!p) return;
+
+ if(Number(p.stock||0)<=0){
+  alert("This product is sold out.");
+  return;
+ }
+
+ let items=JSON.parse(localStorage.getItem("zentraCart")||"[]");
+ const existing=items.find(x=>x.id===id);
+
+ if(existing){
+  existing.qty=Math.min(existing.qty+1,Number(p.stock||1));
+ }else{
+  items.push({id,qty:1});
+ }
+
+ localStorage.setItem("zentraCart",JSON.stringify(items));
+ alert("Added to cart.");
+ renderCart();
+}
+
+function renderCart(){
+
+ const box=document.getElementById("cartContent");
+ if(!box) return;
+
+ const items=JSON.parse(localStorage.getItem("zentraCart")||"[]");
+
+ const list=items.map(item=>{
+  const p=products.find(x=>x.id===item.id);
+  if(!p) return "";
+
+  return `
+   <div class="form-card">
+    <h3>${escapeHtml(p.name)}</h3>
+    <p>${money(p.price)}</p>
+    <p>Quantity: ${item.qty}</p>
+    <button onclick="removeCartItem('${p.id}')">Remove</button>
+   </div>
+  `;
+ }).join("");
+
+ box.innerHTML=list||"Your cart is empty.";
+
+ const area=document.getElementById("checkoutArea");
+ if(area&&items.length){
+  area.innerHTML=`
+   <div class="form-card">
+    <button class="primary-btn" onclick="checkout()">
+    Place Order
+    </button>
+   </div>
+  `;
+ }else if(area){
+  area.innerHTML="";
+ }
+}
+
+function removeCartItem(id){
+
+ let items=JSON.parse(localStorage.getItem("zentraCart")||"[]");
+ items=items.filter(x=>x.id!==id);
+
+ localStorage.setItem("zentraCart",JSON.stringify(items));
+ renderCart();
+}
+
+
+/* CHECKOUT */
+
+async function checkout(){
+
+ if(!currentUser){
+  alert("Login first.");
+  return;
+ }
+
+ const items=JSON.parse(localStorage.getItem("zentraCart")||"[]");
+
+ if(!items.length){
+  alert("Cart is empty.");
+  return;
+ }
+
+ const deliveryChoice=prompt(
+ "Type PICKUP or DELIVERY"
+ );
+
+ if(!deliveryChoice) return;
+
+ const method=deliveryChoice.toLowerCase();
+
+ if(method!=="pickup"&&method!=="delivery"){
+  alert("Please type PICKUP or DELIVERY.");
+  return;
+ }
+
+ let location="";
+
+ if(method==="delivery"){
+  location=prompt(
+  "Enter delivery location or motor park (Hadejia, Dutse, Ringim or Malam Madori):"
+  );
+
+  if(!location) return;
+ }
+
+ try{
+
+  for(const item of items){
+
+   const p=products.find(x=>x.id===item.id);
+   if(!p) continue;
+
+   if(Number(p.stock||0)<item.qty){
+    alert("Insufficient stock for "+p.name);
+    return;
+   }
+
+   await addDoc(collection(db,"orders"),{
+    productId:p.id,
+    productName:p.name,
+    productImage:p.image||"",
+    price:Number(p.price),
+    quantity:item.qty,
+    sellerId:p.sellerId,
+    sellerName:p.sellerName||"",
+    buyerId:currentUser.uid,
+    buyerName:currentProfile.name,
+    buyerEmail:currentUser.email,
+    deliveryMethod:method,
+    deliveryLocation:location,
+    deliveryFee:method==="delivery"?Number(p.deliveryFee||0):0,
+    status:"pending",
+    createdAt:serverTimestamp()
+   });
+  }
+
+  localStorage.setItem("zentraCart","[]");
+  alert("Orders submitted successfully.");
+  renderCart();
+  loadOrders("buyer");
+
+ }catch(e){
+  alert("Order error: "+e.message);
+ }
+}
+
+
+/* ORDERS */
+
+async function loadOrders(role){
+
+ if(!currentUser) return;
+
+ try{
+
+  const field=role==="seller"?"sellerId":"buyerId";
+
+  const q=query(
+   collection(db,"orders"),
+   where(field,"==",currentUser.uid)
+  );
+
+  const snap=await getDocs(q);
+  const list=snap.docs.map(d=>({id:d.id,...d.data()}));
+
+  const box=document.getElementById(
+   role==="seller"?"sellerOrdersContent":"buyerOrdersContent"
+  );
+
+  if(box){
+
+   box.innerHTML=list.map(o=>`
+    <div class="form-card">
+     <h3>${escapeHtml(o.productName)}</h3>
+     <p>Quantity: ${Number(o.quantity||0)}</p>
+     <p>Total: ${money(Number(o.price||0)*Number(o.quantity||0)+Number(o.deliveryFee||0))}</p>
+     <p>Delivery: ${escapeHtml(o.deliveryMethod||"")}</p>
+     <p>Location: ${escapeHtml(o.deliveryLocation||"")}</p>
+     <p>Status: ${escapeHtml(o.status||"pending")}</p>
+
+     ${role==="seller"&&o.status==="pending"?
+     `<button class="primary-btn" onclick="updateOrder('${o.id}')">Mark Processing</button>`:""}
+    </div>
+   `).join("")||"No orders yet.";
+  }
+
+  const count=document.getElementById("sellerOrderCount");
+  if(role==="seller"&&count) count.textContent=list.length;
+
+ }catch(e){
+  console.error(e);
+ }
+}
+
+async function updateOrder(id){
+
+ try{
+  await updateDoc(doc(db,"orders",id),{
+   status:"processing"
+  });
+
+  loadOrders("seller");
+ }catch(e){
+  alert(e.message);
+ }
+}
+
+
+/* ADMIN PRODUCTS */
+
+async function loadAdminProducts(){
+
+ if(!currentUser||currentUser.uid!==ADMIN_UID) return;
+
+ try{
+
+  const snap=await getDocs(collection(db,"products"));
+  const list=snap.docs.map(d=>({id:d.id,...d.data()}));
+
+  const box=document.getElementById("adminProductsList");
+  if(!box) return;
+
+  box.innerHTML=list.map(p=>`
+   <div class="form-card">
+    <img src="${escapeHtml(p.image||"")}"
+    style="width:100%;max-height:220px;object-fit:contain">
+
+    <h3>${escapeHtml(p.name)}</h3>
+    <p>${money(p.price)}</p>
+    <p>Seller: ${escapeHtml(p.sellerName||"")}</p>
+    <p>Status: ${escapeHtml(p.status||"pending")}</p>
+
+    <button class="primary-btn"
+    onclick="approveProduct('${p.id}')">
+    Approve
+    </button>
+
+    <br><br>
+
+    <button onclick="deleteProduct('${p.id}')">
+    Delete Product
+    </button>
+   </div>
+  `).join("")||"No products.";
+ }catch(e){
+  console.error(e);
+ }
+}
+
+async function approveProduct(id){
+
+ if(currentUser?.uid!==ADMIN_UID) return;
+
+ try{
+  await updateDoc(doc(db,"products",id),{
+   status:"approved"
+  });
+
+  loadAdminProducts();
+  loadProducts();
+ }catch(e){
+  alert(e.message);
+ }
+}
+
+async function deleteProduct(id){
+
+ if(currentUser?.uid!==ADMIN_UID) return;
+
+ if(!confirm("Delete this product?")) return;
+
+ try{
+  await deleteDoc(doc(db,"products",id));
+  loadAdminProducts();
+  loadProducts();
+ }catch(e){
+  alert(e.message);
+ }
+}
+
+
+/* CUSTOMER CARE */
+
+async function saveCustomerCare(){
+
+ if(currentUser?.uid!==ADMIN_UID) return;
+
+ const email=document.getElementById("adminCareEmail").value.trim();
+ const phone=document.getElementById("adminCarePhone").value.trim();
+
+ try{
+  await setDoc(doc(db,"settings","customerCare"),{
+   email,
+   phone
+  });
+
+  alert("Customer care settings saved.");
+ }catch(e){
+  alert(e.message);
+ }
+}
+
+async function loadCustomerCare(){
+
+ try{
+
+  const snap=await getDoc(doc(db,"settings","customerCare"));
+
+  if(snap.exists()){
+   const data=snap.data();
+
+   const email=document.getElementById("adminCareEmail");
+   const phone=document.getElementById("adminCarePhone");
+
+   if(email) email.value=data.email||"";
+   if(phone) phone.value=data.phone||"";
+
+   ["buyerCustomerCare","sellerCustomerCare"].forEach(id=>{
+    const box=document.getElementById(id);
+    if(box){
+     box.innerHTML=`
+      <p>Customer Care</p>
+      <p>${escapeHtml(data.email||"")}</p>
+      <p>${escapeHtml(data.phone||"")}</p>
+     `;
+    }
+   });
+  }
+
+ }catch(e){
+  console.error(e);
+ }
+}
+
+
+/* NAVIGATION */
+
+function openPanel(id){
+
+ hideAllDashboards();
+
+ const panel=document.getElementById(id);
+
+ if(panel){
+  panel.classList.remove("hidden");
+ }
+
+ if(id==="buyerHome"){
+  document.getElementById("buyerDashboard").classList.remove("hidden");
+  renderProducts();
+ }
+
+ if(id==="sellerHome"){
+  document.getElementById("sellerDashboard").classList.remove("hidden");
+  renderProducts();
+ }
+
+ if(id==="buyerWishlist") renderWishlist();
+ if(id==="buyerCart") renderCart();
+ if(id==="buyerOrders") loadOrders("buyer");
+ if(id==="sellerOrders") loadOrders("seller");
+ if(id==="sellerMyProducts") loadSellerProducts();
+
+ if(id==="buyerAccount"){
+  document.getElementById("buyerAccountInfo").innerHTML=
+  `<p>${escapeHtml(currentProfile?.name||"")}</p>
+   <p>${escapeHtml(currentUser?.email||"")}</p>
+   <p>${escapeHtml(currentProfile?.phone||"")}</p>`;
+  loadCustomerCare();
+ }
+
+ if(id==="sellerAccount"){
+  document.getElementById("sellerAccountInfo").innerHTML=
+  `<p>${escapeHtml(currentProfile?.name||"")}</p>
+   <p>${escapeHtml(currentUser?.email||"")}</p>
+   <p>${escapeHtml(currentProfile?.phone||"")}</p>`;
+  loadCustomerCare();
+ }
+}
+
+
+/* ADMIN LOGIN SHORTCUT */
+
+function adminLogin(){
+
+ const username=document.getElementById("adminUsername").value.trim();
+ const password=document.getElementById("adminPassword").value;
+
+ if(username!=="ZENTRA@12"){
+  message("adminLoginMessage","Invalid username.");
+  return;
+ }
+
+ message("adminLoginMessage","Please login using the admin Firebase account email and password.");
+
+ showPage("loginPage");
+
+ document.getElementById("loginEmail").value=ADMIN_EMAIL;
+ document.getElementById("loginPassword").value=password;
+}
+
+
+/* EXPORT */
+
+window.searchProducts=searchProducts;
+window.filterCategory=filterCategory;
+window.uploadProduct=uploadProduct;
+window.openProduct=openProduct;
+window.closeProductModal=closeProductModal;
+window.toggleWishlist=toggleWishlist;
+window.renderWishlist=renderWishlist;
+window.addToCart=addToCart;
+window.renderCart=renderCart;
+window.removeCartItem=removeCartItem;
+window.checkout=checkout;
+window.loadOrders=loadOrders;
+window.updateOrder=updateOrder;
+window.approveProduct=approveProduct;
+window.deleteProduct=deleteProduct;
+window.saveCustomerCare=saveCustomerCare;
+window.loadCustomerCare=loadCustomerCare;
+window.openPanel=openPanel;
+window.adminLogin=adminLogin;
+
+</script>
+</body>
+  </html> 
