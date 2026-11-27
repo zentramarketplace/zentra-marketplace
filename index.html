@@ -431,10 +431,20 @@ margin-bottom:9px;display:flex;gap:9px;align-items:center;font-size:13px
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
 
 import {
- getAuth,createUserWithEmailAndPassword,
- signInWithEmailAndPassword,signOut,
- sendPasswordResetEmail,onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+ getFirestore,
+ collection,
+ doc,
+ setDoc,
+ getDoc,
+ addDoc,
+ getDocs,
+ query,
+ where,
+ updateDoc,
+ deleteDoc,
+ runTransaction,
+ serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
 import {
  getFirestore,collection,doc,setDoc,getDoc,
